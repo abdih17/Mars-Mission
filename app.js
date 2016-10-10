@@ -65,18 +65,18 @@ function printText () {
   text.appendChild(divEl);
 }
 printText();
-// function questionText () {
-//   pEl.textContent = questions[currentQuestion].question;
-//   divEl.appendChild(pEl);
-//   question.appendChild(divEl);
-// }
-// questionText();
-// function answerText () {
-//   pEl.textContent = 'Answers';
-//   divEl.appendChild(pEl);
-//   answer.appendChild(divEl);
-// }
-// answerText();
+function questionText () {
+  pEl.textContent = questions[currentQuestion].question;
+  divEl.appendChild(pEl);
+  question.appendChild(divEl);
+}
+questionText();
+function answerText () {
+  pEl.textContent = 'Answers';
+  divEl.appendChild(pEl);
+  answer.appendChild(divEl);
+}
+answerText();
 
 // function check(form){
 //   if(form.userid.value == 'mars' && form.pswrd.value == 'abc')

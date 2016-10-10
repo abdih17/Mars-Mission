@@ -1,36 +1,39 @@
 # Team Mars Mission
 ## User Stories
 
-- For the end-user, allow the user to input their name, to customize their game experience.
-- For the end-user, initialize the game with name, Oxygen-level, and Food/Water-level.
-- For the end-user, present the setting and explain the game rules, potential outcomes, and desired outcome of the game.
-- For the end-user, present a combination of skill-based and multiple-choice mini tasks to complete, to survive a stranded, solo mission on Mars.
-- For the end-user, provide for them a linear game story, where 3 main outcomes from each task could be death, pain (decrementing their oxygen or food/water supply), or task success (increment their oxygen or food/water supply).
-- For the end-user, provide for them a way to surive and get home, as a possible outcome of the game.
-- For the development team, construct the scaffolding for the html, css, js, github repo, wireframes, and user stories.
-- For the devleopment team, construct the linear storyline that the game will progress down.
-- For the development team, research the areas of JS we'll need but don't yet know how to accomplish. (ie. new Date(), moving objects through object.style.left/top, etc.).
-- For the development team, build a home page, an about page, and a game-scenario/task page (where the mini-game tasks occur).
-- For the development team, submit an about me paragraph and picture to use on the About Us html page.
-- For the development team, build a multiple-choice module with validation that can be re-used throughout the game (with different content for each subsequent use).
-- For the development team, build a game module that allows the user to click on a set an image objects in the correct order, and validates the outcome.
-- For the development team, create a "simon says" type reusable task, that presents a pattern for the user to copy.
-- For the development team, create a reusable javascript input modul, where the user must implement the correct code to complete the task (ie. setting up/fixing the communications system).
-- For the development team, build and reuse the individual Javascript game modules, so as to both extend the game, and streamline the code.
-- For the development team, build the end of the game to account for death or survival, and to display final stats for the user.
-- For the development team, write an Object that takes in end-user's name, and provides starting levels of Oxygen and Food/Water.
-- For the development team, write re-usable code to decrement and increment values of health (oxygen and food/water).
-- For the development team, enable local storage to be set after each mini-task for the main object with name, oxygen, and food/water. And for the local storage to be checked and loaded on browser/game re-load.
-- For the development team, allow each developer on Team Mars Mission to have equal participation in the development of HTML, CSS, and Javascript tasks. (Or roughly that equivalent, with devs stronger at HTML/CSS shading towards more of that work, and same with JS work).
-- For the development team, to assist team members when they get stuck.
-- For the development team, create and track individual "issues" or tasks that take 30 minutes to 2 hours to complete, which make up the different work needed to build out this Misson Mars game. We will do this through waffle.io (https://waffle.io/abdih17/Mars-Mission).
-- For the development team, to establish a slack channel with our 4 team members.
-- For the development team, members must communicate with each other each time a new master is produced, so that we all pull down a new copy of the master.
-- For the development team, the team member pushing their new branch-work up to github cannot be the one who merges it into master. The code must be checked by another member, first.
-- For the development team, we must have a 5-10 minute stand-up meeting each morning, as our first order of business.
-- For the development team, to have an MVP app up by end of day Wednesday, and code complete by Thursday.
-- For the development team, to be ready by end of day Thursday to do a run-through of our presentation. 
-- For the development team, write code that is D.R.Y, and uses best practices for HTML, CSS, and Javascript. 
-- For the development team, as a STRETCH GOAL, impelement a timing function //new Date()// for each end-user player.
-- For the development team, as a STRETCH GOAL, implement a high-score board for players.
-- For the development team, as a STRETCH GOAL, build a mini-map of where the player is along their path to survival. 
+- As the user, I can navigate to the home page that gives me an overview of the game, and allows me to start the game play.
+- As the user, I input my name, in order to have a customized game experience.
+- As the user, I start the game presented with my name, oxygen-level, and food/water-level.
+- As the user, I am presented with the setting and the game rules, potential outcomes, and desired outcome of the game.
+- As the user, I am presented with a combination of skill-based and multiple-choice mini tasks to complete, to survive a stranded, solo mission on Mars.
+- As the user, I play a game with a linear game story, with 3 main outcomes from each task: death, pain (decrementing my oxygen or food/water supply), or task success (increment my oxygen or food/water supply).
+- As the user, I am trying to get to the final stage, where I surive and go home.
+- As the user, I am able to see the About Us page, to see who created this Mars Mission game.
+- As the development team, we construct the scaffolding for the html, css, js, github repo, wireframes, and user stories.
+- As the devleopment team, we construct the linear storyline that the game will progress down.
+- As the development team, we research the areas of JS we'll need but don't yet know how to accomplish. (ie. new Date(), moving objects through object.style.left/top, etc.).
+- As the development team, we will build a home page, an about page, and a game-scenario/task page (where the mini-game tasks occur).
+- As the development team, we will submit an about me paragraph and picture to use on the About Us html page.
+- As the development team, we will build a multiple-choice module with validation that can be re-used throughout the game (with different content for each subsequent use).
+- As the development team, we will build a game module that allows the user to click on a set an image objects in the correct order, and validates the outcome.
+- As the development team, we will create a "simon says" type reusable task, that presents a pattern for the user to copy.
+- As the development team, we will create a reusable javascript input modul, where the user must implement the correct code to complete the task (ie. setting up/fixing the communications system).
+- As the development team, we will build and reuse the individual Javascript game modules, so as to both extend the game, and streamline the code.
+- As the development team, we will build the end of the game to account for death or survival, and to display final stats for the user.
+- As the development team, we will write an Object that takes in end-user's name, and provides starting levels of oxygen and food/water.
+- As the development team, we will write re-usable code to decrement and increment values of health (oxygen and food/water).
+- As the development team, we will enable local storage to be set after each mini-task for the main object with name, oxygen, and food/water. And for the local storage to be checked and loaded on browser/game re-load.
+- As the development team, we will allow each developer on Team Mars Mission to have equal participation in the development of HTML, CSS, and Javascript tasks. (Or roughly that equivalent, with devs stronger at HTML/CSS shading towards more of that work, and same with JS work).
+- As the development team, we will assist team members when they get stuck or have difficult situations.
+- As the development team, we will create and track individual "issues" or tasks that take 30 minutes to 2 hours to complete, which make up the different work needed to build out this Misson Mars game. We will do this through waffle.io (https://waffle.io/abdih17/Mars-Mission).
+- As the development team, we will establish a slack channel with our 4 team members.
+- As the development team, we must communicate with each other each time a new master is produced, so that we all pull down a new copy of the master.
+- As the development team, we will try to over-communicate as best as we can, as we understand communication is key with a big project within a short timeframe.
+- As the development team, we will not let the team member who is pushing their new branch-work up to github be the one who merges it into master. The code will be checked by another member, first.
+- As the development team, we must have a 5-10 minute stand-up meeting each morning, as our first order of business.
+- As the development team, will will have an MVP app up by end of day Wednesday, and code complete by Thursday.
+- As the development team, will will be ready by end of day Thursday to do a run-through of our presentation. 
+- As the development team, we will all write code that is D.R.Y, and uses best practices for HTML, CSS, and Javascript. 
+- As the development team, as a STRETCH GOAL, we may impelement a timing function //new Date()// for each end-user player.
+- As the development team, as a STRETCH GOAL, we may implement a high-score board for players.
+- As the development team, as a STRETCH GOAL, we may build a mini-map of where the player is along their path to survival.

@@ -1,6 +1,25 @@
 'use strict';
 
+// check local storage
+
 var players = [];
+
+// check and load local storage
+if (localStorage.getItem('playerData')){
+  players = [];
+  players = JSON.parse(localStorage.getItem('playersData'));
+} else {
+  Player();
+};
+
+// set local storage function
+var setLocalStorage = function() {
+  var playersString = JSON.stringify(players);
+  localStorage.setItem('playersData', playersString);
+  return;
+};
+setLocalStorage();
+
 
 function Player (loginName, password, playerName) {
   this.login = loginName;

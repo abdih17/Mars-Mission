@@ -22,6 +22,8 @@ function Player (loginName, password, playerName) {
 
 new Player('Jonny', '1234', 'Mark');
 
+// check();
+
 //add create an account
 
 //life source = incrementing and decrementing oxygen/health level

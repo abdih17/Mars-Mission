@@ -45,6 +45,19 @@ if (localStorage.getItem('playersData')){
   login.addEventListener('click', getUserLogin);
 }
 
+// Q1 Event Handler
+function handleImgClick(event) {
+  if (event.target.class === 'leftImg') {
+    console.log('left image clicked');
+  } else if (event.target.class === 'rightImg') {
+    console.log('right image clicked');
+  } else if (event.target.class === 'centerImg') {
+    console.log('center image clicked');
+  } else {
+    console.log('you need to click on an image');
+  }
+}
+
 // set local storage function
 var setLocalStorage = function() {
   var playersString = JSON.stringify(players);
@@ -92,7 +105,7 @@ answerText();
 
 //life source = incrementing and decrementing oxygen/health level
 
-var lifeSource = 0 //decide on a number to start with.
+var lifeSource = 0; //decide on a number to start with.
 
 //function drawScore(score) {
 //    ctx.font = "16px Teko";
@@ -109,3 +122,6 @@ var lifeSource = 0 //decide on a number to start with.
 //   console.log(lifeSource);
 // }
 //drawScore(lifeSource);
+
+// Q1 Event Listener (which image clicked)
+q1ImgContainer.addEventListener('click', handleImgClick);

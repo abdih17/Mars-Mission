@@ -9,9 +9,10 @@
 - As the user, I play a game with a linear game story, with 3 main outcomes from each task: death, pain (decrementing my oxygen or food/water supply), or task success (increment my oxygen or food/water supply).
 - As the user, I am trying to get to the final stage, where I surive and go home.
 - As the user, I am able to see the About Us page, to see who created this Mars Mission game.
-- As the development team, we construct the scaffolding for the html, css, js, github repo, wireframes, and user stories.
-- As the devleopment team, we construct the linear storyline that the game will progress down.
-- As the development team, we research the areas of JS we'll need but don't yet know how to accomplish. (ie. new Date(), moving objects through object.style.left/top, etc.).
+- As the development team, we will create a wireframe with pencil and paper of the different pages we intend to us.
+- As the development team, we will construct the scaffolding for the html, css, js, github repo, wireframes, and user stories.
+- As the devleopment team, we will construct the linear storyline that the game will progress down.
+- As the development team, we will research the areas of JS we'll need but don't yet know how to accomplish. (ie. new Date(), moving objects through object.style.left/top, etc.).
 - As the development team, we will build a home page, an about page, and a game-scenario/task page (where the mini-game tasks occur).
 - As the development team, we will submit an about me paragraph and picture to use on the About Us html page.
 - As the development team, we will build a multiple-choice module with validation that can be re-used throughout the game (with different content for each subsequent use).

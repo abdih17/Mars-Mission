@@ -30,11 +30,11 @@ new Player('Jonny', '1234', 'Mark');
 
 var lifeSource = 0 //decide on a number to start with.
 
-function drawScore(score) {
-    ctx.font = "16px Teko";
-    ctx.fillStyle = "#0095DD";
-    ctx.fillText('Score: ' + score);
-}
+//function drawScore(score) {
+//    ctx.font = "16px Teko";
+//    ctx.fillStyle = "#0095DD";
+//    ctx.fillText('Score: ' + score);
+//}
 
 //need a for loop for each question
 if (userAnswer === correctAnswer){
@@ -46,4 +46,4 @@ if (userAnswer === correctAnswer){
   console.log(lifeSource);
   break;
 }
-drawScore(lifeSource);
+//drawScore(lifeSource);

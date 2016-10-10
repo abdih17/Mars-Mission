@@ -9,7 +9,17 @@ if (localStorage.getItem('playerData')){
   players = [];
   players = JSON.parse(localStorage.getItem('playersData'));
 } else {
-  Player();
+/************************
+Handle user input
+*************************/
+  var login = document.getElementById('createUser');
+  function getUserLogin(event){
+    event.preventDefault();
+    var player = event.target.username.value;
+    var password = event.target.password.value;
+    new Player (player,password);
+  };
+  login.addEventListener('submit', getUserLogin);
 };
 
 // set local storage function
@@ -31,20 +41,6 @@ function Player (loginName, password, playerName) {
   players.push(this);
 };
 
-/************************
-Handle user input
-*************************/
-
-var login = document.getElementById('createUser');
-
-function getUserLogin(event){
-  event.preventDefault();
-  var player = event.target.username.value;
-  var password = event.target.password.value;
-  new Player (player,password);
-};
-
-login.addEventListener('submit', getUserLogin);
 
 // function check(form){
 //   if(form.userid.value == 'mars' && form.pswrd.value == 'abc')
@@ -69,13 +65,11 @@ var lifeSource = 0 //decide on a number to start with.
 //}
 
 //need a for loop for each question
-if (userAnswer === correctAnswer){
-  lifeSource += 1;
-  console.log(lifeSource);
-  break;
-} else {
-  lifeSource -= 1;
-  console.log(lifeSource);
-  break;
-}
+// if (userAnswer === correctAnswer){
+//   lifeSource += 1;
+//   console.log(lifeSource);
+// } else {
+//   lifeSource -= 1;
+//   console.log(lifeSource);
+// }
 //drawScore(lifeSource);

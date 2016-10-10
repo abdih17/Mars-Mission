@@ -1,26 +1,5 @@
 'use strict';
-
-// check local storage
-
 var players = [];
-
-// check and load local storage
-if (localStorage.getItem('playerData')){
-  players = [];
-  players = JSON.parse(localStorage.getItem('playersData'));
-} else {
-  Player();
-};
-
-// set local storage function
-var setLocalStorage = function() {
-  var playersString = JSON.stringify(players);
-  localStorage.setItem('playersData', playersString);
-  return;
-};
-setLocalStorage();
-
-
 function Player (loginName, password, playerName) {
   this.login = loginName;
   this.password = password;
@@ -31,20 +10,29 @@ function Player (loginName, password, playerName) {
   players.push(this);
 };
 
-/************************
-Handle user input
-*************************/
+// check and load local storage
+if (localStorage.getItem('playersData')){
+  players = [];
+  players = JSON.parse(localStorage.getItem('playersData'));
+} else {
+//event listener for player login
+  var login = document.getElementById('submit_login');
 
-var login = document.getElementById('createUser');
+  function getUserLogin(event){
+    var player = createUser.username.value;
+    var password = createUser.password.value;
+    new Player (player,password);
+    setLocalStorage();
+  }
 
-function getUserLogin(event){
-  event.preventDefault();
-  var player = event.target.username.value;
-  var password = event.target.password.value;
-  new Player (player,password);
+  login.addEventListener('click', getUserLogin);
+}
+
+// set local storage function
+var setLocalStorage = function() {
+  var playersString = JSON.stringify(players);
+  localStorage.setItem('playersData', playersString);
 };
-
-login.addEventListener('submit', getUserLogin);
 
 // function check(form){
 //   if(form.userid.value == 'mars' && form.pswrd.value == 'abc')
@@ -69,13 +57,11 @@ var lifeSource = 0 //decide on a number to start with.
 //}
 
 //need a for loop for each question
-if (userAnswer === correctAnswer){
-  lifeSource += 1;
-  console.log(lifeSource);
-  break;
-} else {
-  lifeSource -= 1;
-  console.log(lifeSource);
-  break;
-}
+// if (userAnswer === correctAnswer){
+//   lifeSource += 1;
+//   console.log(lifeSource);
+// } else {
+//   lifeSource -= 1;
+//   console.log(lifeSource);
+// }
 //drawScore(lifeSource);

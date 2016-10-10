@@ -11,3 +11,23 @@ function check(form){
 
 check();
 //add create an account
+
+//life source = incrementing and decrementing oxygen/health
+
+var lifeSource = 0 //decide on an number to start with.
+
+function drawScore() {
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "#0095DD";
+    ctx.fillText("Score: "+score, 8, 20); //
+}
+
+if (userAnswer === correctAnswer){
+  lifeSource += 1;
+  break;
+} else {
+  lifeSource -= 1;
+  break;
+}
+
+lifeSource

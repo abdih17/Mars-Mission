@@ -1,36 +1,5 @@
 'use strict';
-
-// check local storage
-
 var players = [];
-
-// check and load local storage
-if (localStorage.getItem('playerData')){
-  players = [];
-  players = JSON.parse(localStorage.getItem('playersData'));
-} else {
-/************************
-Handle user input
-*************************/
-  var login = document.getElementById('createUser');
-  function getUserLogin(event){
-    event.preventDefault();
-    var player = event.target.username.value;
-    var password = event.target.password.value;
-    new Player (player,password);
-  };
-  login.addEventListener('submit', getUserLogin);
-};
-
-// set local storage function
-var setLocalStorage = function() {
-  var playersString = JSON.stringify(players);
-  localStorage.setItem('playersData', playersString);
-  return;
-};
-setLocalStorage();
-
-
 function Player (loginName, password, playerName) {
   this.login = loginName;
   this.password = password;
@@ -41,6 +10,29 @@ function Player (loginName, password, playerName) {
   players.push(this);
 };
 
+// check and load local storage
+if (localStorage.getItem('playersData')){
+  players = [];
+  players = JSON.parse(localStorage.getItem('playersData'));
+} else {
+//event listener for player login
+  var login = document.getElementById('submit_login');
+
+  function getUserLogin(event){
+    var player = createUser.username.value;
+    var password = createUser.password.value;
+    new Player (player,password);
+    setLocalStorage();
+  }
+
+  login.addEventListener('click', getUserLogin);
+}
+
+// set local storage function
+var setLocalStorage = function() {
+  var playersString = JSON.stringify(players);
+  localStorage.setItem('playersData', playersString);
+};
 
 // function check(form){
 //   if(form.userid.value == 'mars' && form.pswrd.value == 'abc')

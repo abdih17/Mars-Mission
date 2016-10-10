@@ -1,0 +1,37 @@
+body {
+  background-image: url('imgs/matt_standing_resized.jpg');
+  background-position: left-top;
+}
+
+header {
+  height: 100px;
+}
+h1 {
+  font-family: 'VT323';
+  color: white;
+  font-size: 50px;
+  margin-top: 0;
+  display: inline;
+}
+
+ul {
+  float: right;
+  margin: 25px 100px;
+}
+
+li {
+  display: inline;
+  font-family: 'Audiowide';
+  color: white;
+  padding: 0 20px;
+
+}
+
+.contentWrapper {
+  width: 960px;
+  height: 400px;
+  background-color: rgba(48,48,48,0.75);
+  margin: 0 auto;
+  border: 3px solid black;
+
+}

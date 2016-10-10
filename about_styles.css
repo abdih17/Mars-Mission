@@ -2,7 +2,7 @@ body {
   max-width: 960px;
   margin: 0 auto;
 }
-article {
+/*article {
   display: inline-block;
 }
 
@@ -11,5 +11,8 @@ article {
 }
 .andrew, .jonny {
   width: 35%;
-  float: right;
+  /*float: right;*/
+
+.colin {
+  width: 50%;
 }

@@ -55,4 +55,27 @@ login.addEventListener('submit', getUserLogin);
 // };
 
 // check();
+
 //add create an account
+
+//life source = incrementing and decrementing oxygen/health level
+
+var lifeSource = 0 //decide on a number to start with.
+
+//function drawScore(score) {
+//    ctx.font = "16px Teko";
+//    ctx.fillStyle = "#0095DD";
+//    ctx.fillText('Score: ' + score);
+//}
+
+//need a for loop for each question
+if (userAnswer === correctAnswer){
+  lifeSource += 1;
+  console.log(lifeSource);
+  break;
+} else {
+  lifeSource -= 1;
+  console.log(lifeSource);
+  break;
+}
+//drawScore(lifeSource);

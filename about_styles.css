@@ -1,0 +1,14 @@
+body {
+  max-width: 960px;
+  margin: 0 auto;
+}
+article {
+  display: inline-block;
+}
+.colin, .hawa {
+  width: 35%;
+}
+.andrew, .jonny {
+  width: 35%;
+  float: right;
+}

@@ -48,6 +48,11 @@ var setLocalStorage = function() {
 
 //life source = incrementing and decrementing oxygen/health level
 
+var wakeup = {
+  
+}
+
+
 var lifeSource = 0 //decide on a number to start with.
 
 //function drawScore(score) {

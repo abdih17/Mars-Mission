@@ -27,7 +27,24 @@ li {
 
 }
 
-.contentWrapper {
+#text_wrapper {
+  width: 960px;
+  height: 400px;
+  background-color: rgba(48,48,48,0.75);
+  margin: 0 auto;
+  border: 3px solid black;
+
+}
+
+#question_wrapper {
+  width: 960px;
+  height: 400px;
+  background-color: rgba(48,48,48,0.75);
+  margin: 0 auto;
+  border: 3px solid black;
+
+}
+#answers_wrapper {
   width: 960px;
   height: 400px;
   background-color: rgba(48,48,48,0.75);

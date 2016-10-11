@@ -3,6 +3,11 @@ var players = [];
 var text = document.getElementById('text_wrapper');
 var question = document.getElementById('question_wrapper');
 var answer = document.getElementById('answers_wrapper');
+var formEl = document.createElement('form');
+var inputEl = document.createElement('input');
+var buttonEl = document.createElement('button');
+var pEl = document.createElement('p');
+var divEl = document.createElement('div');
 var currentQuestion = 0;
 var questions = [];
 
@@ -17,12 +22,40 @@ function Player (loginName, password, playerName) {
 };
 
 var wakeUp = {
-  text: 'Beep...Beep...Beep... Oxygen critically low... Oxygen critically low...',
-  question: 'What is your name?',
+  text: function () {
+    pEl = document.createElement('p');
+    pEl.textContent = 'Beep...Beep...Beep... Oxygen critically low... Oxygen critically low...';
+    text.appendChild(pEl);
+  },
+  question: function () {
+    pEl = document.createElement('p');
+    pEl.textContent = 'What is your name?';
+    text.appendChild(pEl);
+  },
+  answer: function () {
+    inputEl = document.createElement('input');
+    buttonEl = document.createElement('button');
+    formEl = document.createElement('form');
+    buttonEl.textContent = 'Submit';
+    buttonEl.setAttribute('id','submit');
+    formEl.setAttribute('id','form');
+    inputEl.setAttribute('name','name');
+    formEl.appendChild(inputEl);
+    formEl.appendChild(buttonEl);
+    text.appendChild(formEl);
+  }
 };
 var getToBase = {
   text: 'After choosing to abort the mission and flee Mars due to the storm your team left the base. The base by design is self locking. In order to get inside you must enter the door code that was given to you on the previous question.',
   question: 'What is the code?',
+  answer: function () {
+    inputEl = document.createElement('input');
+    buttonEl = document.createElement('button');
+    formEl = document.createElement('form');
+    formEl.appendChild(inputEl);
+    formEl.appendChild(buttonEl);
+    text.appendChild(formEl);
+  }
 };
 
 questions.push(wakeUp, getToBase);
@@ -66,30 +99,13 @@ var setLocalStorage = function() {
 
 
 
-var formEl = document.createElement('form');
-var inputEl = document.createElement('input');
-var buttonEl = document.createElement('button');
-var pEl = document.createElement('p');
-var divEl = document.createElement('div');
 
-function printText () {
-  pEl.textContent = questions[currentQuestion].text;
-  divEl.appendChild(pEl);
-  text.appendChild(divEl);
+function printQuestion () {
+  questions[currentQuestion].text();
+  questions[currentQuestion].question();
+  questions[currentQuestion].answer();
 }
-printText();
-function questionText () {
-  pEl.textContent = questions[currentQuestion].question;
-  divEl.appendChild(pEl);
-  question.appendChild(divEl);
-}
-questionText();
-function answerText () {
-  pEl.textContent = 'Answers';
-  divEl.appendChild(pEl);
-  answer.appendChild(divEl);
-}
-answerText();
+printQuestion();
 
 // function check(form){
 //   if(form.userid.value == 'mars' && form.pswrd.value == 'abc')
@@ -124,4 +140,4 @@ var lifeSource = 0; //decide on a number to start with.
 //drawScore(lifeSource);
 
 // Q1 Event Listener (which image clicked)
-q1ImgContainer.addEventListener('click', handleImgClick);
+// q1ImgContainer.addEventListener('click', handleImgClick);

@@ -117,10 +117,10 @@ function displayQuestion() {
 
 // Question 2 JS
 var submitQ2 = document.getElementById('submitQ2');
+var guessCount = 0;
 
 function validateCode(event){
   event.preventDefault();
-  var guessCount = 0;
   var code = codeInput.securityCode.value;
   console.log(code);
   if( code === '1234'){
@@ -133,6 +133,7 @@ function validateCode(event){
     guessCount += 1;
   } else {
     console.log('You died');
+    return;
   }
 }
 

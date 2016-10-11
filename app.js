@@ -34,25 +34,23 @@ if (localStorage.getItem('playersData')){
   // login.addEventListener('click', getUserLogin);
 }
 
-// set local storage function
-var setLocalStorage = function() {
-  var playersString = JSON.stringify(players);
-  localStorage.setItem('playersData', playersString);
-};
 
+var q1ImgContainer = document.getElementById('q1ImgContainer');
 var button = document.getElementById('button');
 
 function displayQuestion() {
   if (currentQuestion === 0) {
     q0.setAttribute('style', 'display:block');
-    currentQuestion +=1;
+    currentQuestion += 1;
   } else if (currentQuestion === 1) {
     q0.removeAttribute('style');
     q1.setAttribute('style', 'display:block');
-    currentQuestion +=1;
+    console.log('Question 1');
+    q1ImgContainer.addEventListener('click', handleImgClick);
   } else if (currentQuestion === 2) {
     q1.removeAttribute('style');
     q2.setAttribute('style', 'display:block');
+    // q1ImgContainer.removeEventListener('click', handleImgClick);
     submitQ2.addEventListener('click', validateCode);
   } else if (currentQuestion === 3) {
     submitQ2.removeEventListener('click', validateCode);
@@ -113,6 +111,31 @@ function displayQuestion() {
 // Question 0 JS
 
 // Question 1 JS
+
+function handleImgClick(event) {
+  if (event.target.id === 'leftImg1') {
+    // You die
+    players[0].oxygen === 0;
+    players[0].water === 0;
+    console.log('You die.');
+  } else if (event.target.id === 'rightImg1') {
+    // Fix your wound
+    players[0].oxygen -= 1;
+    players[0].water -= 1;
+    currentQuestion += 1;
+    displayQuestion();
+    console.log('You fix your wound.');
+  } else if (event.target.id === 'centerImg1') {
+    // Crawl to base
+    players[0].oxygen += 1;
+    players[0].water += 1;
+    currentQuestion += 1;
+    displayQuestion();
+    console.log('You crawl.');
+  } else {
+    console.log('you need to click on an image');
+  }
+}
 
 
 // Question 2 JS
@@ -175,19 +198,28 @@ function validateCode(event){
 
 
 
-button.addEventListener('click', displayQuestion);
+
 
 //Event question 1
 
 
 //Event question 2
 function handleImgClick(event) {
-  if (event.target.class === 'leftImg') {
-    console.log('left image clicked');
-  } else if (event.target.class === 'rightImg') {
-    console.log('right image clicked');
-  } else if (event.target.class === 'centerImg') {
-    console.log('center image clicked');
+  if (event.target.id === 'leftImg1') {
+    // you die
+    players[0].oxygen === 0;
+    players[0].water === 0;
+    displayQuestion();
+  } else if (event.target.id === 'rightImg1') {
+    // heal the wound
+    players[0].oxygen -= 1;
+    players[0].water -= 1;
+    displayQuestion();
+  } else if (event.target.id === 'centerImg1') {
+    // crawl home
+    players[0].oxygen += 1;
+    players[0].water += 1;
+    displayQuestion();
   } else {
     console.log('you need to click on an image');
   }
@@ -219,4 +251,13 @@ function handleImgClick(event) {
 Execute Actions
 *************/
 // Q1 Event Listener (which image clicked)
-// q1ImgContainer.addEventListener('click', handleImgClick);
+
+// set local storage function
+var setLocalStorage = function() {
+  var playersString = JSON.stringify(players);
+  localStorage.setItem('playersData', playersString);
+};
+
+
+
+button.addEventListener('click', displayQuestion);

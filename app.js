@@ -109,6 +109,49 @@ function displayQuestion() {
   }
 }
 
+// Question 0 JS
+
+// Question 1 JS
+
+
+// Question 2 JS
+
+
+// Question 3 JS
+
+
+// Question 4 JS
+
+
+// Question 5 JS
+
+
+// Question 6 JS
+
+
+// Question 7 JS
+
+
+// Question 8 JS
+
+
+// Question 9 JS
+
+
+// Question 10 JS
+
+
+// Question 11 JS
+
+
+// Question 12 JS
+
+
+// Question 13 JS
+
+
+
+
 button.addEventListener('click', displayQuestion);
 
 //Event question 1
@@ -128,7 +171,6 @@ function handleImgClick(event) {
 }
 
 
-// question 3
 //life source = incrementing and decrementing oxygen/health level
 // var lifeSource = 0; //decide on a number to start with.
 

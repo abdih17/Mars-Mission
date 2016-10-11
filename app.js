@@ -4,7 +4,7 @@
 DATA Declarations
 *************/
 var players = [];
-var currentQuestion = 0;
+var currentQuestion = 5;
 function Player (loginName, password, playerName) {
   this.login = loginName;
   this.password = password;
@@ -61,6 +61,8 @@ function displayQuestion() {
     q3.removeAttribute('style');
     q4.setAttribute('style', 'display:block');
   } else if (currentQuestion === 5) {
+    var potatoFarm = document.getElementById('potatoFarm');
+    potatoFarm.addEventListener('submit', handlePotatoClick);
     q4.removeAttribute('style');
     q5.setAttribute('style', 'display:block');
   } else if (currentQuestion === 6) {
@@ -161,7 +163,18 @@ function validateCode(event){
 
 
 // Question 5 JS
+function handlePotatoClick(event) {
+  event.preventDefault();
 
+  var newPotato1 = event.target.potato1.value;
+  var newPotato2 = event.target.potato2.value;
+  var newPotato3 = event.target.potato3.value;
+
+  if (potato1 = 'Water') {
+    console.log('Water is correct.');
+  }
+
+}
 
 // Question 6 JS
 

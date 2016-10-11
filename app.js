@@ -173,6 +173,7 @@ function validateCode(event){
 
 
 // Question 6 JS
+var get
 
 
 // Question 7 JS
@@ -204,27 +205,6 @@ function validateCode(event){
 
 
 //Event question 2
-function handleImgClick(event) {
-  if (event.target.id === 'leftImg1') {
-    // you die
-    players[0].oxygen === 0;
-    players[0].water === 0;
-    displayQuestion();
-  } else if (event.target.id === 'rightImg1') {
-    // heal the wound
-    players[0].oxygen -= 1;
-    players[0].water -= 1;
-    displayQuestion();
-  } else if (event.target.id === 'centerImg1') {
-    // crawl home
-    players[0].oxygen += 1;
-    players[0].water += 1;
-    displayQuestion();
-  } else {
-    console.log('you need to click on an image');
-  }
-}
-
 
 //life source = incrementing and decrementing oxygen/health level
 // var lifeSource = 0; //decide on a number to start with.

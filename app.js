@@ -43,60 +43,50 @@ function displayQuestion() {
     q0.setAttribute('style', 'display:block');
     currentQuestion += 1;
   } else if (currentQuestion === 1) {
+    q1ImgContainer.addEventListener('click', handleImgClick);
     q0.removeAttribute('style');
     q1.setAttribute('style', 'display:block');
     console.log('Question 1');
-    q1ImgContainer.addEventListener('click', handleImgClick);
   } else if (currentQuestion === 2) {
+    q1ImgContainer.removeEventListener('click', handleImgClick);
     q1.removeAttribute('style');
     q2.setAttribute('style', 'display:block');
-    // q1ImgContainer.removeEventListener('click', handleImgClick);
+    var submitQ2 = document.getElementById('submitQ2');
     submitQ2.addEventListener('click', validateCode);
   } else if (currentQuestion === 3) {
     submitQ2.removeEventListener('click', validateCode);
     q2.removeAttribute('style');
     q3.setAttribute('style', 'display:block');
-    currentQuestion +=1;
   } else if (currentQuestion === 4) {
     q3.removeAttribute('style');
     q4.setAttribute('style', 'display:block');
-    currentQuestion +=1;
   } else if (currentQuestion === 5) {
     q4.removeAttribute('style');
     q5.setAttribute('style', 'display:block');
-    currentQuestion +=1;
   } else if (currentQuestion === 6) {
     q5.removeAttribute('style');
     q6.setAttribute('style', 'display:block');
-    currentQuestion +=1;
   } else if (currentQuestion === 7) {
     q6.removeAttribute('style');
     q7.setAttribute('style', 'display:block');
-    currentQuestion +=1;
   } else if (currentQuestion === 8) {
     q7.removeAttribute('style');
     q8.setAttribute('style', 'display:block');
-    currentQuestion +=1;
   } else if (currentQuestion === 9) {
     q8.removeAttribute('style');
     q9.setAttribute('style', 'display:block');
-    currentQuestion +=1;
   } else if (currentQuestion === 10) {
     q9.removeAttribute('style');
     q10.setAttribute('style', 'display:block');
-    currentQuestion +=1;
   } else if (currentQuestion === 11) {
     q10.removeAttribute('style');
     q11.setAttribute('style', 'display:block');
-    currentQuestion +=1;
   } else if (currentQuestion === 12) {
     q11.removeAttribute('style');
     q12.setAttribute('style', 'display:block');
-    currentQuestion +=1;
   } else if (currentQuestion === 13) {
     q12.removeAttribute('style');
     q13.setAttribute('style', 'display:block');
-
   } else if (currentQuestion === 14) {
     q13.removeAttribute('style');
     q14.setAttribute('style', 'display:block');
@@ -134,9 +124,6 @@ function handleImgClick(event) {
 
 
 // Question 2 JS
-var submitQ2 = document.getElementById('submitQ2');
-var guessCount = 0;
-
 function validateCode(event){
   event.preventDefault();
   var code = codeInput.securityCode.value;
@@ -192,32 +179,8 @@ function validateCode(event){
 
 
 
+function playerDies () {
 
-
-
-//Event question 1
-
-
-//Event question 2
-function handleImgClick(event) {
-  if (event.target.id === 'leftImg1') {
-    // you die
-    players[0].oxygen === 0;
-    players[0].water === 0;
-    displayQuestion();
-  } else if (event.target.id === 'rightImg1') {
-    // heal the wound
-    players[0].oxygen -= 1;
-    players[0].water -= 1;
-    displayQuestion();
-  } else if (event.target.id === 'centerImg1') {
-    // crawl home
-    players[0].oxygen += 1;
-    players[0].water += 1;
-    displayQuestion();
-  } else {
-    console.log('you need to click on an image');
-  }
 }
 
 

@@ -120,16 +120,16 @@ function handleImgClick(event) {
     console.log('You die.');
   } else if (event.target.id === 'rightImg1') {
     // Fix your wound
+    currentQuestion += 1;
     players[0].oxygen -= 1;
     players[0].water -= 1;
-    currentQuestion += 1;
     displayQuestion();
     console.log('You fix your wound.');
   } else if (event.target.id === 'centerImg1') {
     // Crawl to base
+    currentQuestion += 1;
     players[0].oxygen += 1;
     players[0].water += 1;
-    currentQuestion += 1;
     displayQuestion();
     console.log('You crawl.');
   } else {
@@ -196,34 +196,10 @@ function validateCode(event){
 // Question 13 JS
 
 
-
-
-
-
 //Event question 1
 
 
 //Event question 2
-function handleImgClick(event) {
-  if (event.target.id === 'leftImg1') {
-    // you die
-    players[0].oxygen === 0;
-    players[0].water === 0;
-    displayQuestion();
-  } else if (event.target.id === 'rightImg1') {
-    // heal the wound
-    players[0].oxygen -= 1;
-    players[0].water -= 1;
-    displayQuestion();
-  } else if (event.target.id === 'centerImg1') {
-    // crawl home
-    players[0].oxygen += 1;
-    players[0].water += 1;
-    displayQuestion();
-  } else {
-    console.log('you need to click on an image');
-  }
-}
 
 
 //life source = incrementing and decrementing oxygen/health level

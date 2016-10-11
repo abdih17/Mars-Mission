@@ -51,31 +51,57 @@ function displayQuestion() {
     q1.setAttribute('style', 'display:block');
     currentQuestion +=1;
   } else if (currentQuestion === 2) {
-
+    q1.removeAttribute('style');
+    q2.setAttribute('style', 'display:block');
+    currentQuestion +=1;
   } else if (currentQuestion === 3) {
-
+    q2.removeAttribute('style');
+    q3.setAttribute('style', 'display:block');
+    currentQuestion +=1;
   } else if (currentQuestion === 4) {
-
+    q3.removeAttribute('style');
+    q4.setAttribute('style', 'display:block');
+    currentQuestion +=1;
   } else if (currentQuestion === 5) {
-
+    q4.removeAttribute('style');
+    q5.setAttribute('style', 'display:block');
+    currentQuestion +=1;
   } else if (currentQuestion === 6) {
-
+    q5.removeAttribute('style');
+    q6.setAttribute('style', 'display:block');
+    currentQuestion +=1;
   } else if (currentQuestion === 7) {
-
+    q6.removeAttribute('style');
+    q7.setAttribute('style', 'display:block');
+    currentQuestion +=1;
   } else if (currentQuestion === 8) {
-
+    q7.removeAttribute('style');
+    q8.setAttribute('style', 'display:block');
+    currentQuestion +=1;
   } else if (currentQuestion === 9) {
-
+    q8.removeAttribute('style');
+    q9.setAttribute('style', 'display:block');
+    currentQuestion +=1;
   } else if (currentQuestion === 10) {
-
+    q9.removeAttribute('style');
+    q10.setAttribute('style', 'display:block');
+    currentQuestion +=1;
   } else if (currentQuestion === 11) {
-
+    q10.removeAttribute('style');
+    q11.setAttribute('style', 'display:block');
+    currentQuestion +=1;
   } else if (currentQuestion === 12) {
-
+    q11.removeAttribute('style');
+    q12.setAttribute('style', 'display:block');
+    currentQuestion +=1;
   } else if (currentQuestion === 13) {
-
+    q12.removeAttribute('style');
+    q13.setAttribute('style', 'display:block');
+    currentQuestion +=1;
   } else if (currentQuestion === 14) {
-
+    q13.removeAttribute('style');
+    q14.setAttribute('style', 'display:block');
+    currentQuestion +=1;
   } else if (currentQuestion === 15) {
 
   } else if (currentQuestion === 16) {
@@ -89,6 +115,17 @@ button.addEventListener('click', displayQuestion);
 
 
 //Event question 2
+function handleImgClick(event) {
+  if (event.target.class === 'leftImg') {
+    console.log('left image clicked');
+  } else if (event.target.class === 'rightImg') {
+    console.log('right image clicked');
+  } else if (event.target.class === 'centerImg') {
+    console.log('center image clicked');
+  } else {
+    console.log('you need to click on an image');
+  }
+}
 
 
 //life source = incrementing and decrementing oxygen/health level
@@ -111,17 +148,6 @@ button.addEventListener('click', displayQuestion);
 //drawScore(lifeSource);
 
 // // Q1 Event Handler
-// function handleImgClick(event) {
-//   if (event.target.class === 'leftImg') {
-//     console.log('left image clicked');
-//   } else if (event.target.class === 'rightImg') {
-//     console.log('right image clicked');
-//   } else if (event.target.class === 'centerImg') {
-//     console.log('center image clicked');
-//   } else {
-//     console.log('you need to click on an image');
-//   }
-// }
 
 /*************
 Execute Actions

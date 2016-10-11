@@ -24,8 +24,23 @@ li {
   font-family: 'Audiowide';
   color: white;
   padding: 0 20px;
-
 }
+
+/*#leftImg {
+  width: 200px;
+  height: 200px;
+}
+
+#centerImg {
+  width: 200px;
+  height: 200px;
+}
+
+#rightImg {
+  width: 200px;
+  height: 200px;
+}
+*/
 
 .contentWrapper {
   width: 960px;

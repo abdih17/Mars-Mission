@@ -71,7 +71,9 @@ function displayQuestion() {
   } else if (currentQuestion === 7) {
     q6.removeAttribute('style');
     q7.setAttribute('style', 'display:block');
+    submitQ7.addEventListener('submit', validateJsCode);
   } else if (currentQuestion === 8) {
+    submitQ7.removeEventListener('submit', validateJsCode);
     q7.removeAttribute('style');
     q8.setAttribute('style', 'display:block');
   } else if (currentQuestion === 9) {
@@ -191,7 +193,19 @@ function validateFilterOrder () {
 
 
 // Question 7 JS
-
+var submitQ7 = document.getElementById('communication_device_fix');
+function validateJsCode () {
+  event.preventDefault();
+  var text = event.target.add_js.value;
+  if (text === 'alert(\'I AM ALIVE\')') {
+    currentQuestion += 1;
+    players[0].oxygen += 1;
+    players[0].water += 1;
+    displayQuestion();
+  } else {
+    playerDies();
+  }
+}
 
 // Question 8 JS
 

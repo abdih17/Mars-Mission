@@ -1,5 +1,10 @@
 'use strict';
+
+/*************
+DATA Declarations
+*************/
 var players = [];
+var currentQuestion = 0;
 function Player (loginName, password, playerName) {
   this.login = loginName;
   this.password = password;
@@ -10,6 +15,9 @@ function Player (loginName, password, playerName) {
   players.push(this);
 };
 
+/*************
+Define Actions
+*************/
 // check and load local storage
 if (localStorage.getItem('playersData')){
   players = [];
@@ -17,28 +25,13 @@ if (localStorage.getItem('playersData')){
 } else {
 //event listener for player login
   var login = document.getElementById('submit_login');
-
-  function getUserLogin(event){
+  function getUserLogin(){
     var player = createUser.username.value;
     var password = createUser.password.value;
     new Player (player,password);
     setLocalStorage();
   }
-
   login.addEventListener('click', getUserLogin);
-}
-
-// Q1 Event Handler
-function handleImgClick(event) {
-  if (event.target.class === 'leftImg') {
-    console.log('left image clicked');
-  } else if (event.target.class === 'rightImg') {
-    console.log('right image clicked');
-  } else if (event.target.class === 'centerImg') {
-    console.log('center image clicked');
-  } else {
-    console.log('you need to click on an image');
-  }
 }
 
 // set local storage function
@@ -47,27 +40,53 @@ var setLocalStorage = function() {
   localStorage.setItem('playersData', playersString);
 };
 
-// function check(form){
-//   if(form.userid.value == 'mars' && form.pswrd.value == 'abc')
-//   { window.open('https://github.com/abdih17/Mars-Mission'); //website it will transfer over to
-//   } else {
-//     alert('Please sign-in using the correct username and password.'); //or another message?
-//   }
-// };
+function displayQuestion() {
+  if (currentQuestion === 0) {
+    q1.setAttribute('style', 'display:block')
+  } else if (currentQuestion === 1) {
+    q1.removeAttribute('style');
+    q2.setAttribute('style', 'display:block');
+  } else if (currentQuestion === 2) {
 
-// check();
+  } else if (currentQuestion === 3) {
 
-//add create an account
+  } else if (currentQuestion === 4) {
 
-//life source = incrementing and decrementing oxygen/health level
+  } else if (currentQuestion === 5) {
 
-var wakeup = {
+  } else if (currentQuestion === 6) {
 
+  } else if (currentQuestion === 7) {
+
+  } else if (currentQuestion === 8) {
+
+  } else if (currentQuestion === 9) {
+
+  } else if (currentQuestion === 10) {
+
+  } else if (currentQuestion === 11) {
+
+  } else if (currentQuestion === 12) {
+
+  } else if (currentQuestion === 13) {
+
+  } else if (currentQuestion === 14) {
+
+  } else if (currentQuestion === 15) {
+
+  } else if (currentQuestion === 16) {
+
+  }
 }
 
+//Event question 1
 
-var lifeSource = 0 //decide on a number to start with.
-var lifeSource = 0; //decide on a number to start with.
+
+//Event question 2
+
+
+//life source = incrementing and decrementing oxygen/health level
+// var lifeSource = 0; //decide on a number to start with.
 
 //function drawScore(score) {
 //    ctx.font = "16px Teko";
@@ -85,5 +104,21 @@ var lifeSource = 0; //decide on a number to start with.
 // }
 //drawScore(lifeSource);
 
+// // Q1 Event Handler
+// function handleImgClick(event) {
+//   if (event.target.class === 'leftImg') {
+//     console.log('left image clicked');
+//   } else if (event.target.class === 'rightImg') {
+//     console.log('right image clicked');
+//   } else if (event.target.class === 'centerImg') {
+//     console.log('center image clicked');
+//   } else {
+//     console.log('you need to click on an image');
+//   }
+// }
+
+/*************
+Execute Actions
+*************/
 // Q1 Event Listener (which image clicked)
-q1ImgContainer.addEventListener('click', handleImgClick);
+// q1ImgContainer.addEventListener('click', handleImgClick);

@@ -14,6 +14,22 @@ h1 {
   display: inline;
 }
 
+#leftImg2 {
+  width: 200px;
+  height: 200px;
+}
+
+#rightImg2 {
+  width: 200px;
+  height: 200px;
+}
+
+#centerImg2 {
+  width: 200px;
+  height: 200px;
+}
+
+
 ul {
   float: right;
   margin: 25px 100px;

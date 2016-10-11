@@ -18,7 +18,7 @@ if (localStorage.getItem('playersData')){
 //event listener for player login
   var login = document.getElementById('submit_login');
 
-  function getUserLogin(event){
+  function getUserLogin(){
     var player = createUser.username.value;
     var password = createUser.password.value;
     new Player (player,password);
@@ -28,13 +28,13 @@ if (localStorage.getItem('playersData')){
   login.addEventListener('click', getUserLogin);
 }
 
-// Q1 Event Handler
+// Q2 Event Handler
 function handleImgClick(event) {
-  if (event.target.class === 'leftImg') {
+  if (event.target.id === 'leftImg2') {
     console.log('left image clicked');
-  } else if (event.target.class === 'rightImg') {
+  } else if (event.target.id === 'rightImg2') {
     console.log('right image clicked');
-  } else if (event.target.class === 'centerImg') {
+  } else if (event.target.id === 'centerImg2') {
     console.log('center image clicked');
   } else {
     console.log('you need to click on an image');
@@ -61,12 +61,6 @@ var setLocalStorage = function() {
 
 //life source = incrementing and decrementing oxygen/health level
 
-var wakeup = {
-
-}
-
-
-var lifeSource = 0 //decide on a number to start with.
 var lifeSource = 0; //decide on a number to start with.
 
 //function drawScore(score) {
@@ -86,4 +80,4 @@ var lifeSource = 0; //decide on a number to start with.
 //drawScore(lifeSource);
 
 // Q1 Event Listener (which image clicked)
-q1ImgContainer.addEventListener('click', handleImgClick);
+q2ImgContainer.addEventListener('click', handleImgClick);

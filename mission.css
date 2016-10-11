@@ -36,8 +36,8 @@ li {
 
 }
 
-.q1 {
+#q0, #q1,#q2 {
   color: white;
-  /*display: none;*/
+  display: none;
 
 }

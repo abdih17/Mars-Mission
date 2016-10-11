@@ -151,11 +151,14 @@ function validateCode(event){
     players[0].oxygen += 1;
     players[0].water += 1;
     displayQuestion();
-  } else if( guessCount < 3 ){
-    console.log('this is wrong');
-    guessCount += 1;
-  } else {
+  } else if(players[0].oxygen === 0){
     console.log('You died');
+    currentQuestion = 14;
+    displayQuestion();
+  } else {
+    console.log('this is wrong');
+    players[0].oxygen -= 1;
+    players[0].water -= 1;
     return;
   }
 }

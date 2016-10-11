@@ -53,8 +53,9 @@ function displayQuestion() {
   } else if (currentQuestion === 2) {
     q1.removeAttribute('style');
     q2.setAttribute('style', 'display:block');
-    currentQuestion +=1;
+    submitQ2.addEventListener('click', validateCode);
   } else if (currentQuestion === 3) {
+    submitQ2.removeEventListener('click', validateCode);
     q2.removeAttribute('style');
     q3.setAttribute('style', 'display:block');
     currentQuestion +=1;
@@ -115,7 +116,26 @@ function displayQuestion() {
 
 
 // Question 2 JS
+var submitQ2 = document.getElementById('submitQ2');
+var guessCount = 0;
 
+function validateCode(event){
+  event.preventDefault();
+  var code = codeInput.securityCode.value;
+  console.log(code);
+  if( code === '1234'){
+    currentQuestion += 1;
+    players[0].oxygen += 1;
+    players[0].water += 1;
+    displayQuestion();
+  } else if( guessCount < 3 ){
+    console.log('this is wrong');
+    guessCount += 1;
+  } else {
+    console.log('You died');
+    return;
+  }
+}
 
 // Question 3 JS
 

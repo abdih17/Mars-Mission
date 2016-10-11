@@ -26,29 +26,27 @@ li {
   padding: 0 20px;
 }
 
-/*#leftImg {
-  width: 200px;
-  height: 200px;
-}
-
-#centerImg {
-  width: 200px;
-  height: 200px;
-}
-
-#rightImg {
-  width: 200px;
-  height: 200px;
-}
-*/
-
 .contentWrapper {
   width: 960px;
   height: 400px;
   background-color: rgba(48,48,48,0.75);
   margin: 0 auto;
   border: 3px solid black;
+}
 
+#leftImg1 {
+  width: 150px;
+  height: 150px;
+}
+
+#centerImg1 {
+  width: 150px;
+  height: 150px;
+}
+
+#rightImg1 {
+  width: 150px;
+  height: 150px;
 }
 
 #q0,#q1,#q2,#q3,#q4,#q5,#q6,#q7,#q8,#q9,#q10,#q11,#q12,#q13,#q14 {

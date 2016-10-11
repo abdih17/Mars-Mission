@@ -64,7 +64,6 @@ function displayQuestion() {
     q3.removeAttribute('style');
     q4.setAttribute('style', 'display:block');
   } else if (currentQuestion === 5) {
-    var potatoFarm = document.getElementById('potatoFarm');
     potatoFarm.addEventListener('submit', handlePotatoClick);
     q4.removeAttribute('style');
     q5.setAttribute('style', 'display:block');
@@ -188,18 +187,23 @@ function validateFilterOrder () {
 
 
 // Question 5 JS
+var potatoFarm = document.getElementById('potatoFarm');
 function handlePotatoClick(event) {
   event.preventDefault();
+  var newPotato1 = event.target.potato1.value.toLowerCase();
+  var newPotato2 = event.target.potato2.value.toLowerCase();
+  var newPotato3 = event.target.potato3.value.toLowerCase();
 
-  var newPotato1 = event.target.potato1.value;
-  var newPotato2 = event.target.potato2.value;
-  var newPotato3 = event.target.potato3.value;
-
-  if (potato1 = 'Water') {
-    console.log('Water is correct.');
+  if (newPotato1 === 'water' || newPotato2 === 'water' || newPotato3 === 'water' && newPotato2 === 'heat' || newPotato2 === 'heat' || newPotato3 === 'heat' && newPotato1 === 'fertilizer' || newPotato2 === 'fertilizer' || newPotato3 === 'fertilizer') {
+    players[0].oxygen += 1;
+    players[0].water += 1;
+    currentQuestion += 1;
+    displayQuestion();
+  } else {
+    playerDies();
   }
-
 }
+
 
 // Question 6 JS
 

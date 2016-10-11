@@ -47,21 +47,36 @@
         </form>
       </article>
       <article id="q3">
-        <p class="Q3">[User Name	] your water supply is starting to run low and without the water reclaimer you won’t be able to get more water. Unfortunately the water reclaimer was damaged during the storm and is currently not functioning.</p>
-        <ul>
+        <p class="Q3">Your water supply is starting to run low and without the water reclaimer you won’t be able to get more water. Unfortunately the water reclaimer was damaged during the storm and is currently not functioning.</p>
+        <ul id="water_filter">
           <li class="leftImg"><img src="http://placehold.it/150x150"></li>
           <li class="centerImg"><img src="http://placehold.it/150x150"></li>
           <li class="rightImg"><img src="http://placehold.it/150x150"></li>
         </ul>
-        <p>What order were the images in? Please mark the order.<br>Every try will cost you 1 oxygen and 1 water.</p>
-        <form>
-          <input type="number" name="filter" value="0">
-          <label for="filter">filter</label>
-          <input type="number" name="converter" value="0">
-          <label for="converter">converter</label>
-          <input type="number" name="holding_tank" value="0">
-          <label for="holding_tank">holding tank</label>
-        </form>
+        <div id="water_filter_order">
+          <p>What order were the images in? Please mark the order.</p>
+          <form id="water_filter_answer">
+            <label for="filter">filter</label>
+            <select name="filter">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+            <label for="converter">converter</label>
+            <select name="converter">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+            <label for="holding_tank">holding tank</label>
+            <select name="holding_tank">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+            <button name="button" type="submit">Assemble Water Reclaimer</button>
+          </form>
+        </div>
       </article>
       <article id="q4">
         <p class="q4">In order to grow potatoes you need the follow: Water, Fertilizer, and Heat.</p>

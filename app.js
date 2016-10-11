@@ -128,6 +128,7 @@ function handleImgClick(event) {
 }
 
 
+// question 3
 //life source = incrementing and decrementing oxygen/health level
 // var lifeSource = 0; //decide on a number to start with.
 

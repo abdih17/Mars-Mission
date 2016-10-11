@@ -47,26 +47,8 @@ var setLocalStorage = function() {
   localStorage.setItem('playersData', playersString);
 };
 
-// function check(form){
-//   if(form.userid.value == 'mars' && form.pswrd.value == 'abc')
-//   { window.open('https://github.com/abdih17/Mars-Mission'); //website it will transfer over to
-//   } else {
-//     alert('Please sign-in using the correct username and password.'); //or another message?
-//   }
-// };
-
-// check();
-
-//add create an account
 
 //life source = incrementing and decrementing oxygen/health level
-
-var wakeup = {
-
-}
-
-
-var lifeSource = 0 //decide on a number to start with.
 var lifeSource = 0; //decide on a number to start with.
 
 //function drawScore(score) {

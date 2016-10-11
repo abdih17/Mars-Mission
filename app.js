@@ -4,7 +4,7 @@
 DATA Declarations
 *************/
 var players = [];
-var currentQuestion = 0;
+var currentQuestion = 6;
 function Player (loginName, password, playerName) {
   this.login = loginName;
   this.password = password;
@@ -48,10 +48,9 @@ function displayQuestion() {
     q1.setAttribute('style', 'display:block');
     console.log('Question 1');
   } else if (currentQuestion === 2) {
-    q1ImgContainer.removeEventListener('click', handleImgClick);
     q1.removeAttribute('style');
     q2.setAttribute('style', 'display:block');
-    var submitQ2 = document.getElementById('submitQ2');
+    q1ImgContainer.removeEventListener('click', handleImgClick);
     submitQ2.addEventListener('click', validateCode);
   } else if (currentQuestion === 3) {
     submitQ2.removeEventListener('click', validateCode);
@@ -88,6 +87,19 @@ function displayQuestion() {
     q12.removeAttribute('style');
     q13.setAttribute('style', 'display:block');
   } else if (currentQuestion === 14) {
+    q0.removeAttribute('style');
+    q1.removeAttribute('style');
+    q2.removeAttribute('style');
+    q3.removeAttribute('style');
+    q4.removeAttribute('style');
+    q5.removeAttribute('style');
+    q6.removeAttribute('style');
+    q7.removeAttribute('style');
+    q8.removeAttribute('style');
+    q9.removeAttribute('style');
+    q10.removeAttribute('style');
+    q11.removeAttribute('style');
+    q12.removeAttribute('style');
     q13.removeAttribute('style');
     q14.setAttribute('style', 'display:block');
   }
@@ -96,13 +108,9 @@ function displayQuestion() {
 // Question 0 JS
 
 // Question 1 JS
-
 function handleImgClick(event) {
   if (event.target.id === 'leftImg1') {
-    // You die
-    players[0].oxygen === 0;
-    players[0].water === 0;
-    console.log('You die.');
+    playerDies();
   } else if (event.target.id === 'rightImg1') {
     // Fix your wound
     players[0].oxygen -= 1;
@@ -124,6 +132,7 @@ function handleImgClick(event) {
 
 
 // Question 2 JS
+var submitQ2 = document.getElementById('submitQ2');
 function validateCode(event){
   event.preventDefault();
   var code = codeInput.securityCode.value;
@@ -135,8 +144,7 @@ function validateCode(event){
     displayQuestion();
   } else if(players[0].oxygen === 0){
     console.log('You died');
-    currentQuestion = 14;
-    displayQuestion();
+    playerDies();
   } else {
     console.log('this is wrong');
     players[0].oxygen -= 1;
@@ -158,11 +166,26 @@ function validateCode(event){
 var getQ6Img = document.getElementById('q6Imgs');
 
 function handleQuestionSixClicks(event){
+console.log('start of function');
+  if (event.target.id === 'centerImg'){
+    console.log('centerImg');
+    currentQuestion += 1;
+    players[0].oxygen += 1;
+    players[0].water += 1;
+    displayQuestion();
+    console.log('centerImg');
+  }
+
   if (event.target.id === 'leftImg'){
-    console.log('you ded');
+    playerDies();
+  }
+
+  if (event.target.id === 'rightImg'){
+    playerDies();
   }
 }
 
+getQ6Img.addEventListener('click', handleQuestionSixClicks);
 
 // Question 7 JS
 
@@ -187,8 +210,10 @@ function handleQuestionSixClicks(event){
 
 
 function playerDies () {
-
-
+  currentQuestion = 14;
+  players[0].oxygen = 0;
+  players[0].water = 0;
+  displayQuestion();
 }
 //Event question 1
 

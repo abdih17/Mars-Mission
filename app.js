@@ -83,6 +83,17 @@ function displayQuestion() {
 
 
 //Event question 2
+function handleImgClick(event) {
+  if (event.target.class === 'leftImg') {
+    console.log('left image clicked');
+  } else if (event.target.class === 'rightImg') {
+    console.log('right image clicked');
+  } else if (event.target.class === 'centerImg') {
+    console.log('center image clicked');
+  } else {
+    console.log('you need to click on an image');
+  }
+}
 
 
 //life source = incrementing and decrementing oxygen/health level
@@ -105,17 +116,6 @@ function displayQuestion() {
 //drawScore(lifeSource);
 
 // // Q1 Event Handler
-// function handleImgClick(event) {
-//   if (event.target.class === 'leftImg') {
-//     console.log('left image clicked');
-//   } else if (event.target.class === 'rightImg') {
-//     console.log('right image clicked');
-//   } else if (event.target.class === 'centerImg') {
-//     console.log('center image clicked');
-//   } else {
-//     console.log('you need to click on an image');
-//   }
-// }
 
 /*************
 Execute Actions

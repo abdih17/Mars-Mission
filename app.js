@@ -48,15 +48,18 @@ function displayQuestion() {
     q1.setAttribute('style', 'display:block');
     console.log('Question 1');
   } else if (currentQuestion === 2) {
+    q1ImgContainer.removeEventListener('click', handleImgClick);
     q1.removeAttribute('style');
     q2.setAttribute('style', 'display:block');
-    q1ImgContainer.removeEventListener('click', handleImgClick);
     submitQ2.addEventListener('click', validateCode);
   } else if (currentQuestion === 3) {
     submitQ2.removeEventListener('click', validateCode);
     q2.removeAttribute('style');
     q3.setAttribute('style', 'display:block');
+    displayWaterFilter();
+    submitQ3.addEventListener('submit', validateFilterOrder);
   } else if (currentQuestion === 4) {
+    submitQ3.removeEventListener('submit', validateFilterOrder);
     q3.removeAttribute('style');
     q4.setAttribute('style', 'display:block');
   } else if (currentQuestion === 5) {
@@ -154,8 +157,30 @@ function validateCode(event){
 }
 
 // Question 3 JS
-
-
+function displayWaterFilter () {
+  var images = document.getElementById('water_filter');
+  images.setAttribute('style', 'display:block');
+  setTimeout(function() {
+    var question = document.getElementById('water_filter_order');
+    images.removeAttribute('style');
+    question.setAttribute('style', 'display:block');
+  }, 500);
+}
+var submitQ3 = document.getElementById('water_filter_answer');
+function validateFilterOrder () {
+  event.preventDefault();
+  var filter = parseInt(event.target.filter.value);
+  var converter = parseInt(event.target.converter.value);
+  var holdingTank = parseInt(event.target.holding_tank.value);
+  if (filter === 1 && converter === 2 && holdingTank === 3) {
+    currentQuestion += 1;
+    players[0].oxygen += 1;
+    players[0].water += 1;
+    displayQuestion();
+  } else {
+    playerDies();
+  }
+}
 // Question 4 JS
 
 

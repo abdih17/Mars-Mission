@@ -31,7 +31,7 @@ if (localStorage.getItem('playersData')){
     new Player (player,password);
     setLocalStorage();
   }
-  login.addEventListener('click', getUserLogin);
+  // login.addEventListener('click', getUserLogin);
 }
 
 // set local storage function
@@ -40,12 +40,16 @@ var setLocalStorage = function() {
   localStorage.setItem('playersData', playersString);
 };
 
+var button = document.getElementById('button');
+
 function displayQuestion() {
   if (currentQuestion === 0) {
-    q1.setAttribute('style', 'display:block')
+    q0.setAttribute('style', 'display:block');
+    currentQuestion +=1;
   } else if (currentQuestion === 1) {
-    q1.removeAttribute('style');
-    q2.setAttribute('style', 'display:block');
+    q0.removeAttribute('style');
+    q1.setAttribute('style', 'display:block');
+    currentQuestion +=1;
   } else if (currentQuestion === 2) {
 
   } else if (currentQuestion === 3) {
@@ -78,6 +82,8 @@ function displayQuestion() {
 
   }
 }
+
+button.addEventListener('click', displayQuestion);
 
 //Event question 1
 

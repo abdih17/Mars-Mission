@@ -53,7 +53,9 @@ function displayQuestion() {
   } else if (currentQuestion === 2) {
     q1.removeAttribute('style');
     q2.setAttribute('style', 'display:block');
+    submitQ2.addEventListener('click', validateCode);
   } else if (currentQuestion === 3) {
+    submitQ2.removeEventListener('click', validateCode);
     q2.removeAttribute('style');
     q3.setAttribute('style', 'display:block');
     currentQuestion +=1;
@@ -114,7 +116,6 @@ function displayQuestion() {
 
 
 // Question 2 JS
-var code = document.getElementById('codeInput');
 var submitQ2 = document.getElementById('submitQ2');
 
 function validateCode(event){
@@ -124,6 +125,8 @@ function validateCode(event){
   console.log(code);
   if( code === '1234'){
     currentQuestion += 1;
+    players[0].oxygen += 1;
+    players[0].water += 1;
     displayQuestion();
   } else if( guessCount < 3 ){
     console.log('this is wrong');
@@ -132,9 +135,6 @@ function validateCode(event){
     console.log('You died');
   }
 }
-
-
-submitQ2.addEventListener('click', validateCode);
 
 // Question 3 JS
 

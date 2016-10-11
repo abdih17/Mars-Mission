@@ -98,15 +98,10 @@ function displayQuestion() {
   } else if (currentQuestion === 13) {
     q12.removeAttribute('style');
     q13.setAttribute('style', 'display:block');
-    currentQuestion +=1;
+
   } else if (currentQuestion === 14) {
     q13.removeAttribute('style');
     q14.setAttribute('style', 'display:block');
-    currentQuestion +=1;
-  } else if (currentQuestion === 15) {
-
-  } else if (currentQuestion === 16) {
-
   }
 }
 

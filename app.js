@@ -61,16 +61,13 @@ var setLocalStorage = function() {
 
 //life source = incrementing and decrementing oxygen/health level
 
-<<<<<<< HEAD
 var wakeup = {
-  
+
 }
 
 
 var lifeSource = 0 //decide on a number to start with.
-=======
 var lifeSource = 0; //decide on a number to start with.
->>>>>>> 13dca07fbab3f70e3a1421825d5c72e4be91faff
 
 //function drawScore(score) {
 //    ctx.font = "16px Teko";

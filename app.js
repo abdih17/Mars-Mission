@@ -44,10 +44,12 @@ function displayQuestion() {
     q0.setAttribute('style', 'display:block');
     currentQuestion += 1;
     console.log('Question 0');
+    setLocalStorage();
   } else if (currentQuestion === 1) {
     q1ImgContainer.addEventListener('click', handleImgClick);
     q0.removeAttribute('style');
     q1.setAttribute('style', 'display:block');
+    setLocalStorage();
     console.log('Question 1');
   } else if (currentQuestion === 2) {
     q1ImgContainer.removeEventListener('click', handleImgClick);

@@ -22,7 +22,7 @@
           <p>It’s the year 2033 and it’s been 2 years since humans first landed on Mars. You are the environmental scientist serving on the second manned mission to mars - Mars Mission 2.</p>
           <p>Mars is a harsh environment prone to storms that could jeopardize the mission and the very lives of astronauts serving…</p>
         </div>
-        <video src="video_clips/Chem_Cam.mp4" id="video1"></video>
+        <video src="video_clips/Chem_Cam.mp4" controls="" id="video1"></video>
       </article>
       <article id="q1">
         <p class="q1">...You wake up, unsure of where you are...but you can remember your code name.</p>
@@ -83,7 +83,7 @@
       </article>
       <article id="q4">
         <p class="q4">In order to grow potatoes you need the follow: Water, Fertilizer, and Heat.</p>
-        <button type="submit" name="button" id="growPotatoes">Grow Potatoes</button>
+        <button type="submit" name="button" id="submitQ4">Grow Potatoes</button>
       </article>
       <article id="q5">
         <p class="q5">Growing food to sustain your life is critical if there is going to be any attempt at a rescue. You currently don’t have enough food to make it. You figure out that you can grow potatoes if you create the perfect environment.</p><br>
@@ -107,7 +107,7 @@
       <article id="q6">
         <p class="q6">If there is really any hope of a survival you must make contact with Nasa. Back in the early 2000’s Nasa sent several drones to explore the surface of Mars in preparation for a manned mission. In particular the pathfinder drone was sent to a region close to where you are now. It is possible that you may be able to fix pathfinder to communicate back to earth.</p>
         <p>What do you do?</p>
-        <ul id="q6Imgs">
+        <ul id="submitQ6">
           <li><img src="http://placehold.it/150x150" id="leftImg"></li>
           <li><img src="http://placehold.it/150x150" id="centerImg"></li>
           <li><img src="http://placehold.it/150x150" id="rightImg"></li>
@@ -115,7 +115,7 @@
       </article>
       <article id="q7">
         <p class="q7">In order to fix the base communication device you need to input the correct code. Thankfully the base communications computer was written using javascript. In order to fix the communication device you need to create an object literal that includes your name, your mission number, and has a method to send Nasa a message (via alert) of “I AM ALIVE”.</p>
-        <form id="communication_device_fix">
+        <form id="submitQ7">
           <textarea name="add_js" rows="1" cols="30"></textarea>
           <button name="button" type="submit">Submit Code</button>
         </form>
@@ -158,7 +158,7 @@
         </ul>
         <div id="launch_assembly_order">
           <p>Provide the launch vehicle prep order (you only have one try)</p>
-          <form id="launch_assembly_answer">
+          <form id="submitQ11">
             <label for="controls">Controls</label>
             <select name="controls">
               <option value="1">1</option>
@@ -216,9 +216,6 @@
         <img src="https://i.ytimg.com/vi/-8rXtXG735w/maxresdefault.jpg" alt="" style="width: 100%;">
       </article>
     </div>
-
-    <button type="button" name="button" id="button">Next</button>
-
     <script src="app.js"></script>
   </body>
 </html>

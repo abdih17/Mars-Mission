@@ -15,19 +15,21 @@ function Player (loginName, password, playerName) {
   players.push(this);
 };
 
+/*************
+DOM Elements
+*************/
 
 var login = document.getElementById('submit_login');
-var button = document.getElementById('button');
 var video = document.getElementById('video1');
 var submitQ1 = document.getElementById('submitQ1');
 var submitQ2 = document.getElementById('submitQ2');
 var submitQ3 = document.getElementById('submitQ3');
-var submit04 = document.getElementById('growPotatoes');
+var submit04 = document.getElementById('submitQ4');
 var submitQ5 = document.getElementById('submitQ5');
-var submitQ6 = document.getElementById('q6Imgs');
-var submitQ7 = document.getElementById('communication_device_fix');
+var submitQ6 = document.getElementById('submitQ6');
+var submitQ7 = document.getElementById('submitQ7');
 var submitQ8 = document.getElementById('submitQ8');
-var submitQ11 = document.getElementById('launch_assembly_answer');
+var submitQ11 = document.getElementById('submitQ11');
 
 /*************
 Define Actions
@@ -51,6 +53,9 @@ if (localStorage.getItem('playersData')){
   login.addEventListener('click', getUserLogin);
 }
 
+/**************************
+Display Question Functions
+**************************/
 function displayQuestion() {
   if (currentQuestion === 0) {
     q0.setAttribute('style', 'display:block');
@@ -61,54 +66,54 @@ function displayQuestion() {
     video.removeEventListener('ended', videoEnded);
     q0.removeAttribute('style');
     q1.setAttribute('style', 'display:block');
-    submitQ1.addEventListener('click', handleImgClick);
+    submitQ1.addEventListener('click', handleQ1);
     // setLocalStorage();
     console.log('Question 1');
   } else if (currentQuestion === 2) {
-    submitQ1.removeEventListener('click', handleImgClick);
+    submitQ1.removeEventListener('click', handleQ1);
     q1.removeAttribute('style');
     q2.setAttribute('style', 'display:block');
-    submitQ2.addEventListener('click', validateCode);
+    submitQ2.addEventListener('click', handleQ2);
     // setLocalStorage();
   } else if (currentQuestion === 3) {
-    submitQ2.removeEventListener('click', validateCode);
+    submitQ2.removeEventListener('click', handleQ2);
     q2.removeAttribute('style');
     q3.setAttribute('style', 'display:block');
     displayWaterFilter();
-    submitQ3.addEventListener('submit', validateFilterOrder);
+    submitQ3.addEventListener('submit', handleQ3);
     // setLocalStorage();
   } else if (currentQuestion === 4) {
-    submitQ3.removeEventListener('submit', validateFilterOrder);
+    submitQ3.removeEventListener('submit', handleQ3);
     q3.removeAttribute('style');
     q4.setAttribute('style', 'display:block');
-    submit04.addEventListener('click', growPotatoes);
+    submit04.addEventListener('click', submitQ4);
     // setLocalStorage();
   } else if (currentQuestion === 5) {
-    submit04.removeEventListener('click', growPotatoes);
-    submitQ5.addEventListener('submit', handlePotatoClick);
+    submit04.removeEventListener('click', submitQ4);
     q4.removeAttribute('style');
     q5.setAttribute('style', 'display:block');
+    submitQ5.addEventListener('submit', handleQ5);
     // setLocalStorage();
   } else if (currentQuestion === 6) {
-    submitQ6.addEventListener('click', handleQuestionSixClicks);
-    submitQ5.removeEventListener('submit', handlePotatoClick);
+    submitQ5.removeEventListener('submit', handleQ5);
     q5.removeAttribute('style');
     q6.setAttribute('style', 'display:block');
+    submitQ6.addEventListener('click', handleQ6);
     // setLocalStorage();
   } else if (currentQuestion === 7) {
-    submitQ6.removeEventListener('click', handleQuestionSixClicks);
+    submitQ6.removeEventListener('click', handleQ6);
     q6.removeAttribute('style');
     q7.setAttribute('style', 'display:block');
-    submitQ7.addEventListener('submit', validateJsCode);
+    submitQ7.addEventListener('submit', handleQ7);
     // setLocalStorage();
   } else if (currentQuestion === 8) {
-    submitQ7.removeEventListener('submit', validateJsCode);
+    submitQ7.removeEventListener('submit', handleQ7);
     q7.removeAttribute('style');
     q8.setAttribute('style', 'display:block');
-    submitQ8.addEventListener('click', handleImg8Click);
+    submitQ8.addEventListener('click', handleQ8);
     // setLocalStorage();
   } else if (currentQuestion === 9) {
-    submitQ8.removeEventListener('click', handleImg8Click);
+    submitQ8.removeEventListener('click', handleQ8);
     q8.removeAttribute('style');
     q9.setAttribute('style', 'display:block');
     // setLocalStorage();
@@ -120,10 +125,10 @@ function displayQuestion() {
     q10.removeAttribute('style');
     q11.setAttribute('style', 'display:block');
     displayLaunchAssembly();
-    submitQ11.addEventListener('submit', validateLaunchOrder);
+    submitQ11.addEventListener('submit', handleQ11);
     // setLocalStorage();
   } else if (currentQuestion === 12) {
-    submitQ11.removeEventListener('submit', validateLaunchOrder);
+    submitQ11.removeEventListener('submit', handleQ11);
     q11.removeAttribute('style');
     q12.setAttribute('style', 'display:block');
     // setLocalStorage();
@@ -151,11 +156,13 @@ function displayQuestion() {
   }
 }
 
+/******************************
+Questions/Video Functionalities
+******************************/
 // Question 0 JS
 
 // Question 1 JS
-
-function handleImgClick(event) {
+function handleQ1(event) {
   if (event.target.id === 'leftImg1') {
     playerDies();
   } else if (event.target.id === 'rightImg1') {
@@ -165,8 +172,10 @@ function handleImgClick(event) {
     players[0].water -= 1;
     setLocalStorage();
     displayQuestion();
+    // Fix your wound
+    playerLives();
     console.log('You fix your wound.');
-    submitQ1.removeEventListener('click', handleImgClick);
+    submitQ1.removeEventListener('click', handleQ1);
     console.log('removed event listener');
   } else if (event.target.id === 'centerImg1') {
     currentQuestion += 1;
@@ -175,8 +184,10 @@ function handleImgClick(event) {
     players[0].water += 1;
     setLocalStorage();
     displayQuestion();
+    // Crawl to base
+    playerLives();
     console.log('You crawl.');
-    submitQ1.removeEventListener('click', handleImgClick);
+    submitQ1.removeEventListener('click', handleQ1);
   } else {
     console.log('you need to click on an image');
   }
@@ -198,17 +209,12 @@ function videoEnded () {
 }
 
 // Question 2 JS
-function validateCode(event){
+function handleQ2(event){
   event.preventDefault();
   var code = codeInput.securityCode.value;
   console.log(code);
   if( code === '1234'){
-    currentQuestion += 1;
-    players[0].question += 1;
-    players[0].oxygen += 1;
-    players[0].water += 1;
-    setLocalStorage();
-    displayQuestion();
+    playerLives();
   } else if(players[0].oxygen === 0){
     console.log('You died');
     playerDies();
@@ -230,64 +236,43 @@ function displayWaterFilter () {
     question.setAttribute('style', 'display:block');
   }, 5000);
 }
-function validateFilterOrder () {
+function handleQ3 () {
   event.preventDefault();
   var filter = parseInt(event.target.filter.value);
   var converter = parseInt(event.target.converter.value);
   var holdingTank = parseInt(event.target.holding_tank.value);
   if (filter === 1 && converter === 2 && holdingTank === 3) {
-    currentQuestion += 1;
-    players[0].question += 1;
-    players[0].oxygen += 1;
-    players[0].water += 1;
-    setLocalStorage();
-    displayQuestion();
+    playerLives();
   } else {
     playerDies();
   }
 }
 
 // Question 4 JS
-function growPotatoes(){
+function submitQ4(){
   event.preventDefault();
-  currentQuestion += 1;
-  players[0].question += 1;
-  players[0].oxygen += 1;
-  players[0].water += 1;
-  setLocalStorage();
-  displayQuestion();
+  playerLives();
 };
 
 // Question 5 JS
-function handlePotatoClick(event) {
+function handleQ5(event) {
   event.preventDefault();
   var newPotato1 = event.target.potato1.value.toLowerCase();
   var newPotato2 = event.target.potato2.value.toLowerCase();
   var newPotato3 = event.target.potato3.value.toLowerCase();
   if (newPotato1 === 'water' || newPotato2 === 'water' || newPotato3 === 'water' && newPotato2 === 'heat' || newPotato2 === 'heat' || newPotato3 === 'heat' && newPotato1 === 'fertilizer' || newPotato2 === 'fertilizer' || newPotato3 === 'fertilizer') {
-    players[0].oxygen += 1;
-    players[0].water += 1;
-    currentQuestion += 1;
-    players[0].question += 1;
-    setLocalStorage();
-    displayQuestion();
+    playerLives();
   } else {
     playerDies();
   }
 }
 
-
 // Question 6 JS
-function handleQuestionSixClicks(event){
+function handleQ6(event){
   console.log('start of function');
   if (event.target.id === 'centerImg'){
     console.log('centerImg');
-    currentQuestion += 1;
-    players[0].question += 1;
-    players[0].oxygen += 1;
-    players[0].water += 1;
-    setLocalStorage();
-    displayQuestion();
+    playerLives();
     console.log('centerImg');
   }
   if (event.target.id === 'leftImg'){
@@ -299,34 +284,24 @@ function handleQuestionSixClicks(event){
 }
 
 // Question 7 JS
-function validateJsCode () {
+function handleQ7 () {
   event.preventDefault();
   var text = event.target.add_js.value;
   if (text === 'alert(\'I AM ALIVE\');') {
-    currentQuestion += 1;
-    players[0].question += 1;
-    players[0].oxygen += 1;
-    players[0].water += 1;
-    setLocalStorage();
-    displayQuestion();
+    playerLives();
   } else {
     playerDies();
   }
 }
 
 // Question 8 JS
-function handleImg8Click(event) {
+function handleQ8(event) {
   if (event.target.id === 'rightImg8') {
     // ignore Nasa
     playerDies();
   } else if (event.target.id === 'leftImg8') {
     // listen to Nasa
-    currentQuestion += 1;
-    players[0].question += 1;
-    players[0].oxygen += 1;
-    players[0].water += 1;
-    setLocalStorage();
-    displayQuestion();
+    playerLives();
     console.log('You are listening to Nasa');
   } else {
     console.log('you need to click on an image');
@@ -349,7 +324,7 @@ function displayLaunchAssembly () {
     question.setAttribute('style', 'display:block');
   }, 5000);
 }
-function validateLaunchOrder () {
+function handleQ11 () {
   event.preventDefault();
   var controls = parseInt(event.target.controls.value);
   var boosters = parseInt(event.target.boosters.value);
@@ -357,12 +332,7 @@ function validateLaunchOrder () {
   var fuselage = parseInt(event.target.fuselage.value);
   var comm_device = parseInt(event.target.comm_device.value);
   if (controls === 1 && boosters === 2 && fuel === 3 && fuselage === 4 && comm_device === 5) {
-    currentQuestion += 1;
-    players[0].question += 1;
-    players[0].oxygen += 1;
-    players[0].water += 1;
-    setLocalStorage();
-    displayQuestion();
+    playerLives();
   } else {
     playerDies();
   }
@@ -380,10 +350,18 @@ function playerDies () {
   setLocalStorage();
   displayQuestion();
 }
+function playerLives () {
+  currentQuestion += 1;
+  players[0].question += 1;
+  players[0].oxygen += 1;
+  players[0].water += 1;
+  setLocalStorage();
+  displayQuestion();
+}
 
-/*************
+/**************
 Execute Actions
-*************/
+**************/
 
 // set local storage function
 function setLocalStorage() {
@@ -391,5 +369,3 @@ function setLocalStorage() {
   var playersString = JSON.stringify(players);
   localStorage.setItem('playersData', playersString);
 };
-
-button.addEventListener('click', displayQuestion);

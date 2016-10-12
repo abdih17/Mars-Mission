@@ -50,7 +50,6 @@ function displayQuestion() {
     q1.setAttribute('style', 'display:block');
     console.log('Question 1');
   } else if (currentQuestion === 2) {
-    q1ImgContainer.removeEventListener('click', handleImgClick);
     q1.removeAttribute('style');
     q2.setAttribute('style', 'display:block');
     submitQ2.addEventListener('click', validateCode);
@@ -127,6 +126,7 @@ var q1ImgContainer = document.getElementById('q1ImgContainer');
 function handleImgClick(event) {
   if (event.target.id === 'leftImg1') {
     playerDies();
+    q1ImgContainer.removeEventListener('click', handleImgClick);
   } else if (event.target.id === 'rightImg1') {
     // Fix your wound
     currentQuestion += 1;
@@ -134,6 +134,8 @@ function handleImgClick(event) {
     players[0].water -= 1;
     displayQuestion();
     console.log('You fix your wound.');
+    q1ImgContainer.removeEventListener('click', handleImgClick);
+    console.log('removed event listener');
   } else if (event.target.id === 'centerImg1') {
     // Crawl to base
     currentQuestion += 1;
@@ -141,6 +143,7 @@ function handleImgClick(event) {
     players[0].water += 1;
     displayQuestion();
     console.log('You crawl.');
+    q1ImgContainer.removeEventListener('click', handleImgClick);
   } else {
     console.log('you need to click on an image');
   }
@@ -326,7 +329,15 @@ function playerDies () {
   displayQuestion();
 }
 //Event question 1
-
+function playVideo () {
+  var video = document.getElementById('video1');
+  video.setAttribute('style', 'display:block');
+  setTimeout(function() {
+    var question = document.getElementById('water_filter_order');
+    images.removeAttribute('style');
+    question.setAttribute('style', 'display:block');
+  }, 500);
+}
 
 //Event question 2
 

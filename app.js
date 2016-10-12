@@ -297,10 +297,8 @@ function handleQ7 () {
 // Question 8 JS
 function handleQ8(event) {
   if (event.target.id === 'rightImg8') {
-    // ignore Nasa
     playerDies();
   } else if (event.target.id === 'leftImg8') {
-    // listen to Nasa
     playerLives();
     console.log('You are listening to Nasa');
   } else {

@@ -4,7 +4,7 @@
 DATA Declarations
 *************/
 var players = [];
-var currentQuestion = 0;
+var currentQuestion = 9;
 
 function Player (loginName, password, playerName) {
   this.login = loginName;
@@ -388,7 +388,7 @@ function moveDown(){
   imgObj.style.top = parseInt(imgObj.style.top) + 1 + 'px';
   if (!gameOver) setTimeout(moveDown,20);
   console.log('Top = ' + imgTop);
-  if (imgTop > 800) {
+  if (imgTop > 250) {
     console.log('GAME OVER: PLAYER DIES');
     playerDies();
   }

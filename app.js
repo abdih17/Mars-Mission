@@ -15,7 +15,7 @@ function Player (loginName, password, playerName) {
   players.push(this);
 };
 
-var mars = new Player('mars', '1234');
+new Player('mars', '1234');
 
 /*************
 Define Actions
@@ -45,7 +45,6 @@ function displayQuestion() {
     q0.setAttribute('style', 'display:block');
     currentQuestion += 1;
   } else if (currentQuestion === 1) {
-    var q1ImgContainer = document.getElementById('q1ImgContainer');
     q1ImgContainer.addEventListener('click', handleImgClick);
     q0.removeAttribute('style');
     q1.setAttribute('style', 'display:block');
@@ -119,6 +118,7 @@ function displayQuestion() {
 // Question 0 JS
 
 // Question 1 JS
+var q1ImgContainer = document.getElementById('q1ImgContainer');
 function handleImgClick(event) {
   if (event.target.id === 'leftImg1') {
     playerDies();

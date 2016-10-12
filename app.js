@@ -233,6 +233,7 @@ function handleQuestionSixClicks(event){
   if (event.target.id === 'centerImg'){
     console.log('centerImg');
     currentQuestion += 1;
+    players[0].question += 1;
     players[0].oxygen += 1;
     players[0].water += 1;
     displayQuestion();

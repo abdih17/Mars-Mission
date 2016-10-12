@@ -52,6 +52,7 @@ if (localStorage.getItem('playersData')){
 }
 
 function displayQuestion() {
+  playerStats();
   console.log('start of function');
   if (currentQuestion === 0) {
     q0.setAttribute('style', 'display:block');
@@ -371,7 +372,17 @@ function videoEnded () {
   displayQuestion();
 }
 //Event question 2
-
+function playerStats () {
+  var userName = document.getElementById('playerName');
+  var oxygen = document.getElementById('oxygen_stats');
+  var water = document.getElementById('water_stats');
+  var image = document.createElement('img');
+  image.src = 'imgs/health_bar.png';
+  oxygen.appendChild(image);
+  userName.textContent = 'Martian: ' + players[0].login;
+  oxygen.textContent = 'Oxygen: ' + players[0].oxygen;
+  water.textContent = 'Water: ' + players[0].water;
+}
 
 
 

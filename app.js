@@ -91,7 +91,10 @@ function displayQuestion() {
   } else if (currentQuestion === 11) {
     q10.removeAttribute('style');
     q11.setAttribute('style', 'display:block');
+    displayLaunchAssembly();
+    submitQ11.addEventListener('submit', validateLaunchOrder);
   } else if (currentQuestion === 12) {
+    submitQ11.removeEventListener('submit', validateLaunchOrder);
     q11.removeAttribute('style');
     q12.setAttribute('style', 'display:block');
   } else if (currentQuestion === 13) {
@@ -312,7 +315,32 @@ getQ10Choices.addEventListener('click', throughTheStorm);
 
 
 // Question 11 JS
-
+function displayLaunchAssembly () {
+  var images = document.getElementById('launch_assembly');
+  images.setAttribute('style', 'display:block');
+  setTimeout(function() {
+    var question = document.getElementById('launch_assembly_order');
+    images.removeAttribute('style');
+    question.setAttribute('style', 'display:block');
+  }, 5000);
+}
+var submitQ11 = document.getElementById('launch_assembly_answer');
+function validateLaunchOrder () {
+  event.preventDefault();
+  var controls = parseInt(event.target.controls.value);
+  var boosters = parseInt(event.target.boosters.value);
+  var fuel = parseInt(event.target.fuel.value);
+  var fuselage = parseInt(event.target.fuselage.value);
+  var comm_device = parseInt(event.target.comm_device.value);
+  if (controls === 1 && boosters === 2 && fuel === 3 && fuselage === 4 && comm_device === 5) {
+    currentQuestion += 1;
+    players[0].oxygen += 1;
+    players[0].water += 1;
+    displayQuestion();
+  } else {
+    playerDies();
+  }
+}
 
 // Question 12 JS
 

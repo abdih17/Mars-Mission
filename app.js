@@ -15,7 +15,7 @@ function Player (loginName, password, playerName) {
   players.push(this);
 };
 
-var mars = new Player('mars', '1234');
+new Player('mars', '1234');
 
 /*************
 Define Actions

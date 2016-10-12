@@ -70,6 +70,17 @@ li {
   clear: both;
 }
 
+<<<<<<< HEAD
 #leftChoice, #rightChoice {
   cursor: pointer;
+=======
+#video1 {
+  max-width: 600px;
+  width: 400px;
+  height: 400px;
+  float: none;
+  position: relative;
+  left: 280px;
+  top: -100px;
+>>>>>>> master
 }

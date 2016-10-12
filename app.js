@@ -82,7 +82,9 @@ function displayQuestion() {
     submitQ7.removeEventListener('submit', validateJsCode);
     q7.removeAttribute('style');
     q8.setAttribute('style', 'display:block');
+    q8ImgContainer.addEventListener('click', handleImg8Click);
   } else if (currentQuestion === 9) {
+    q8ImgContainer.removeEventListener('click', handleImg8Click);
     q8.removeAttribute('style');
     q9.setAttribute('style', 'display:block');
   } else if (currentQuestion === 10) {
@@ -211,7 +213,6 @@ function handlePotatoClick(event) {
   var newPotato1 = event.target.potato1.value.toLowerCase();
   var newPotato2 = event.target.potato2.value.toLowerCase();
   var newPotato3 = event.target.potato3.value.toLowerCase();
-
   if (newPotato1 === 'water' || newPotato2 === 'water' || newPotato3 === 'water' && newPotato2 === 'heat' || newPotato2 === 'heat' || newPotato3 === 'heat' && newPotato1 === 'fertilizer' || newPotato2 === 'fertilizer' || newPotato3 === 'fertilizer') {
     players[0].oxygen += 1;
     players[0].water += 1;
@@ -236,11 +237,9 @@ console.log('start of function');
     displayQuestion();
     console.log('centerImg');
   }
-
   if (event.target.id === 'leftImg'){
     playerDies();
   }
-
   if (event.target.id === 'rightImg'){
     playerDies();
   }
@@ -253,7 +252,7 @@ var submitQ7 = document.getElementById('communication_device_fix');
 function validateJsCode () {
   event.preventDefault();
   var text = event.target.add_js.value;
-  if (text === 'alert(\'I AM ALIVE\')') {
+  if (text === 'I AM ALIVE') {
     currentQuestion += 1;
     players[0].oxygen += 1;
     players[0].water += 1;
@@ -264,7 +263,22 @@ function validateJsCode () {
 }
 
 // Question 8 JS
-
+var q8ImgContainer = document.getElementById('q8ImgContainer');
+function handleImg8Click(event) {
+  if (event.target.id === 'rightImg8') {
+    // ignore Nasa
+    playerDies();
+  } else if (event.target.id === 'leftImg8') {
+    // listen to Nasa
+    currentQuestion += 1;
+    players[0].oxygen += 1;
+    players[0].water += 1;
+    displayQuestion();
+    console.log('You are listening to Nasa');
+  } else {
+    console.log('you need to click on an image');
+  }
+}
 
 // Question 9 JS
 
@@ -275,18 +289,22 @@ var getQ10Choices = document.getElementById('q10choices');
 
 function throughTheStorm(event){
   if(event.target.id === 'leftChoice' && randomNum > 0.5){
-    alert('The storm was rough but you managed to make it through');
-    displayQuestion();
+    console.log('The storm proved too much for your equipment to hold up to.');
+    playerDies();
   } else if (event.target.id === 'leftChoice' && randomNum < 0.5){
-    alert('it took awhile but thankfully you finally made it');
+    console.log('The storm was rough but you managed to make it through');
     displayQuestion();
   } else if (event.target.id === 'rightChoice' && players[0].oxygen <= 2){
-    alert('You ran out of essential resources and died');
+    console.log('You ran out of essential resources and died');
     playerDies();
   } else if (event.target.id === 'rightChoice' && players[0].water <= 2){
-    alert('You ran out of essential resources and died');
+    console.log('You ran out of essential resources and died');
     playerDies();
+  } else if (event.target.id === 'rightChoice') {
+    console.log('it took awhile but thankfully you finally made it');
+    displayQuestion();
   }
+
 };
 
 getQ10Choices.addEventListener('click', throughTheStorm);

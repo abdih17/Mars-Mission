@@ -18,7 +18,6 @@ function Player (loginName, password, playerName) {
 
 
 var login = document.getElementById('submit_login');
-var button = document.getElementById('button');
 var video = document.getElementById('video1');
 var q1ImgContainer = document.getElementById('q1ImgContainer');
 var submitQ2 = document.getElementById('submitQ2');
@@ -165,23 +164,13 @@ function handleImgClick(event) {
     playerDies();
   } else if (event.target.id === 'rightImg1') {
     // Fix your wound
-    currentQuestion += 1;
-    players[0].question += 1;
-    players[0].oxygen -= 1;
-    players[0].water -= 1;
-    setLocalStorage();
-    displayQuestion();
+    playerLives();
     console.log('You fix your wound.');
     q1ImgContainer.removeEventListener('click', handleImgClick);
     console.log('removed event listener');
   } else if (event.target.id === 'centerImg1') {
     // Crawl to base
-    currentQuestion += 1;
-    players[0].question += 1;
-    players[0].oxygen += 1;
-    players[0].water += 1;
-    setLocalStorage();
-    displayQuestion();
+    playerLives();
     console.log('You crawl.');
     q1ImgContainer.removeEventListener('click', handleImgClick);
   } else {
@@ -196,12 +185,7 @@ function validateCode(event){
   var code = codeInput.securityCode.value;
   console.log(code);
   if( code === '1234'){
-    currentQuestion += 1;
-    players[0].question += 1;
-    players[0].oxygen += 1;
-    players[0].water += 1;
-    setLocalStorage();
-    displayQuestion();
+    playerLives();
   } else if(players[0].oxygen === 0){
     console.log('You died');
     playerDies();
@@ -229,12 +213,7 @@ function validateFilterOrder () {
   var converter = parseInt(event.target.converter.value);
   var holdingTank = parseInt(event.target.holding_tank.value);
   if (filter === 1 && converter === 2 && holdingTank === 3) {
-    currentQuestion += 1;
-    players[0].question += 1;
-    players[0].oxygen += 1;
-    players[0].water += 1;
-    setLocalStorage();
-    displayQuestion();
+    playerLives();
   } else {
     playerDies();
   }
@@ -242,12 +221,7 @@ function validateFilterOrder () {
 // Question 4 JS
 function growPotatoes(){
   event.preventDefault();
-  currentQuestion += 1;
-  players[0].question += 1;
-  players[0].oxygen += 1;
-  players[0].water += 1;
-  setLocalStorage();
-  displayQuestion();
+  playerLives();
 };
 
 // Question 5 JS
@@ -257,12 +231,7 @@ function handlePotatoClick(event) {
   var newPotato2 = event.target.potato2.value.toLowerCase();
   var newPotato3 = event.target.potato3.value.toLowerCase();
   if (newPotato1 === 'water' || newPotato2 === 'water' || newPotato3 === 'water' && newPotato2 === 'heat' || newPotato2 === 'heat' || newPotato3 === 'heat' && newPotato1 === 'fertilizer' || newPotato2 === 'fertilizer' || newPotato3 === 'fertilizer') {
-    players[0].oxygen += 1;
-    players[0].water += 1;
-    currentQuestion += 1;
-    players[0].question += 1;
-    setLocalStorage();
-    displayQuestion();
+    playerLives();
   } else {
     playerDies();
   }
@@ -274,12 +243,7 @@ function handleQuestionSixClicks(event){
   console.log('start of function');
   if (event.target.id === 'centerImg'){
     console.log('centerImg');
-    currentQuestion += 1;
-    players[0].question += 1;
-    players[0].oxygen += 1;
-    players[0].water += 1;
-    setLocalStorage();
-    displayQuestion();
+    playerLives();
     console.log('centerImg');
   }
   if (event.target.id === 'leftImg'){
@@ -297,12 +261,7 @@ function validateJsCode () {
   event.preventDefault();
   var text = event.target.add_js.value;
   if (text === 'alert(\'I AM ALIVE\');') {
-    currentQuestion += 1;
-    players[0].question += 1;
-    players[0].oxygen += 1;
-    players[0].water += 1;
-    setLocalStorage();
-    displayQuestion();
+    playerLives();
   } else {
     playerDies();
   }
@@ -315,12 +274,7 @@ function handleImg8Click(event) {
     playerDies();
   } else if (event.target.id === 'leftImg8') {
     // listen to Nasa
-    currentQuestion += 1;
-    players[0].question += 1;
-    players[0].oxygen += 1;
-    players[0].water += 1;
-    setLocalStorage();
-    displayQuestion();
+    playerLives();
     console.log('You are listening to Nasa');
   } else {
     console.log('you need to click on an image');
@@ -373,12 +327,7 @@ function validateLaunchOrder () {
   var fuselage = parseInt(event.target.fuselage.value);
   var comm_device = parseInt(event.target.comm_device.value);
   if (controls === 1 && boosters === 2 && fuel === 3 && fuselage === 4 && comm_device === 5) {
-    currentQuestion += 1;
-    players[0].question += 1;
-    players[0].oxygen += 1;
-    players[0].water += 1;
-    setLocalStorage();
-    displayQuestion();
+    playerLives();
   } else {
     playerDies();
   }
@@ -399,6 +348,14 @@ function playerDies () {
   setLocalStorage();
   displayQuestion();
 }
+function playerLives () {
+  currentQuestion += 1;
+  players[0].question += 1;
+  players[0].oxygen += 1;
+  players[0].water += 1;
+  setLocalStorage();
+  displayQuestion();
+}
 //Event question 1
 function playVideo () {
   video.setAttribute('style', 'display:none');
@@ -410,8 +367,7 @@ function playVideo () {
   }, 5000);
 }
 function videoEnded () {
-  currentQuestion += 1;
-  players[0].question += 1;
+  playerLives();
   displayQuestion();
 }
 //Event question 2
@@ -451,5 +407,3 @@ function setLocalStorage() {
   var playersString = JSON.stringify(players);
   localStorage.setItem('playersData', playersString);
 };
-
-button.addEventListener('click', displayQuestion);

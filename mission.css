@@ -241,7 +241,18 @@ Q6 Styling
 .q6Div {
   width: 200px;
   height: 150px;
-  font-size: 16px;
+  color: lightgreen;
+  font-size: 20px;
   display: inline-block;
-  margin: 0 30px
+  margin: 0 30px;
+  padding: 20px;
+  transition: color 300ms;
+  transition: background-color 300ms;
+  cursor: pointer;
+
+}
+
+.q6Div:hover {
+  color:white;
+  background-color: rgba(203,203,203,0.25);
 }

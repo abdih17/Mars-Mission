@@ -79,3 +79,192 @@ li {
   left: 280px;
   top: -100px;
 }
+
+/************************
+Q2 Styling
+***********************/
+
+#codeInput input[type=text], input[type=password]{
+  background-color: rgba(55,55,55,0.75);
+  border-color: black;
+  text-align: center;
+  color: lightgreen;
+  font-family: 'Exo', sans-serif;
+  font-size: 16px;
+  height: 40px;
+  width: 300px;
+  margin: 0 auto;
+  display: block;
+}
+
+#codeInput {
+  margin-top: 60px;
+}
+
+#submitQ2 {
+  background: none;
+  border: none;
+  color: lightgrey;
+  font-family: 'Exo', sans-serif;
+  font-size: 16px;
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+  padding: 20px;
+  cursor: pointer;
+}
+
+/************************
+Q3 Styling
+***********************/
+
+#water_filter_answer {
+  width: 500px;
+  margin: 40px auto;
+  display: block;
+  text-align: center;
+  padding: 20px 20px 0 20px;
+  border: 2px solid black;
+}
+select {
+  background-color: rgba(203,203,203,0.75);
+  border: 2px solid black;
+  border-radius: none;
+  width: 40px;
+  height: 25px;
+}
+
+#submitQ3 {
+  background-color: rgba(203,203,203,0.75);
+  border: none;
+  color: black;
+  font-family: 'Exo', sans-serif;
+  font-size: 16px;
+  display: block;
+  width: 250px;
+  margin: 10px auto;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/************************
+Q4 Styling
+***********************/
+
+.q4 {
+  text-align: center;
+}
+
+.q4color{
+  text-align: center;
+  color: lightgreen;
+}
+
+/************************
+Q5 Styling
+***********************/
+
+.q5 {
+  margin: 10px;
+}
+
+.q5Ul {
+  float: none;
+  margin: 0;
+}
+
+.q5Li {
+  width: 300px;
+  display: block;
+  float: none;
+}
+
+.q5Li input[type=text]{
+  background-color: rgba(55,55,55,0.75);
+  border-color: black;
+  text-align: center;
+  color: lightgreen;
+  font-family: 'Exo', sans-serif;
+  font-size: 16px;
+  height: 40px;
+  width: 300px;
+  margin: 0 auto;
+  display: block;
+  float: left;
+}
+
+#q5Submit {
+  background: none;
+  border: none;
+  color: lightgrey;
+  font-family: 'Exo', sans-serif;
+  font-size: 16px;
+  display: inline;
+  width: 200px;
+  margin: 0 auto;
+  padding: 20px;
+  cursor: pointer;
+  float: right;
+}
+
+/************************
+Q6 Styling
+***********************/
+
+#q6Imgs {
+  display: flex;
+  justify-content: space-between;
+}
+#leftImg {
+  width: 200px;
+  height: 150px;
+  color: lightgreen;
+  font-size: 20px;
+  display: inline-block;
+  margin: 0 30px;
+  padding: 20px;
+  transition: color 300ms;
+  transition: background-color 300ms;
+  cursor: pointer;
+}
+
+#rightImg {
+  width: 200px;
+  height: 150px;
+  color: lightgreen;
+  font-size: 20px;
+  display: inline-block;
+  margin: 0 30px;
+  padding: 20px;
+  transition: color 300ms;
+  transition: background-color 300ms;
+  cursor: pointer;
+}
+
+#centerImg {
+  width: 200px;
+  height: 150px;
+  color: lightgreen;
+  font-size: 20px;
+  display: inline-block;
+  margin: 0 30px;
+  padding: 20px;
+  transition: color 300ms;
+  transition: background-color 300ms;
+  cursor: pointer;
+}
+
+#leftImg:hover {
+  color:white;
+  background-color: rgba(203,203,203,0.25);
+}
+
+#centerImg:hover {
+  color:white;
+  background-color: rgba(203,203,203,0.25);
+}
+
+#rightImg:hover {
+  color:white;
+  background-color: rgba(203,203,203,0.25);
+}

@@ -147,20 +147,59 @@
       <article id="q11">
         <p class="q11">Nasa has provided you with a specific set of instructions on how to set up the launch vehicle that has been placed at the Mars Mission 3 base. Your only hope for survival is to use this vehicle to escape from Mars and to be picked up in low martian orbit.</p>
         <p>The launch vehicle must be prepared in a very specific order. Nasa sent you the instructions but the data was corrupted and you were only able to view the instructions for 5 seconds.</p>
-        <ul>
-          <li class="leftImg"><img src="http://placehold.it/150x150"></li>
-          <li class="centerImg"><img src="http://placehold.it/150x150"></li>
-          <li class="rightImg"><img src="http://placehold.it/150x150"></li>
+        <ul id="launch_assembly">
+          <li><img src="http://placehold.it/150x150"></li>
+          <li><img src="http://placehold.it/150x150"></li>
+          <li><img src="http://placehold.it/150x150"></li>
+          <li><img src="http://placehold.it/150x150"></li>
+          <li><img src="http://placehold.it/150x150"></li>
         </ul>
-        <p>Provide the launch vehicle prep order (you only have one try)</p>
-        <form>
-          <input type="number" name="filter" value="0">
-          <label for="filter">filter</label>
-          <input type="number" name="converter" value="0">
-          <label for="converter">converter</label>
-          <input type="number" name="holding_tank" value="0">
-          <label for="holding_tank">holding tank</label>
-        </form>
+        <div id="launch_assembly_order">
+          <p>Provide the launch vehicle prep order (you only have one try)</p>
+          <form id="launch_assembly_answer">
+            <label for="controls">Controls</label>
+            <select name="controls">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            <label for="boosters">Boosters</label>
+            <select name="boosters">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            <label for="fuel">Fuel</label>
+            <select name="fuel">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            <label for="fuselage">Fuselage</label>
+            <select name="fuselage">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            <label for="comm_device">Communication Devices</label>
+            <select name="comm_device">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            <button name="button" type="submit">Launch Preperation Complete</button>
+          </form>
+        </div>
       </article>
       <article id="q12">
         <p class="q12">3...2...1......Engine ignition! Lift off! The escape vehicle can get you close but not inside. In order to reach the rescue team you will need to exit the launch vehicle. Use the arrow keys to float to the rescue team.</p>

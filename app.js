@@ -19,6 +19,7 @@ function Player (loginName, password, playerName) {
 
 var login = document.getElementById('submit_login');
 var button = document.getElementById('button');
+var video = document.getElementById('video1');
 var q1ImgContainer = document.getElementById('q1ImgContainer');
 var submitQ2 = document.getElementById('submitQ2');
 var submitQ3 = document.getElementById('water_filter_answer');
@@ -55,11 +56,11 @@ function displayQuestion() {
   console.log('start of function');
   if (currentQuestion === 0) {
     q0.setAttribute('style', 'display:block');
-    currentQuestion += 1;
-    players[0].question += 1;
-    console.log('Question 0');
+    playVideo();
+    video.addEventListener('ended', videoEnded);
     setLocalStorage();
   } else if (currentQuestion === 1) {
+    video.removeEventListener('ended', videoEnded);
     q0.removeAttribute('style');
     q1.setAttribute('style', 'display:block');
     q1ImgContainer.addEventListener('click', handleImgClick);
@@ -162,7 +163,6 @@ function displayQuestion() {
 function handleImgClick(event) {
   if (event.target.id === 'leftImg1') {
     playerDies();
-
   } else if (event.target.id === 'rightImg1') {
     // Fix your wound
     currentQuestion += 1;
@@ -172,6 +172,8 @@ function handleImgClick(event) {
     setLocalStorage();
     displayQuestion();
     console.log('You fix your wound.');
+    q1ImgContainer.removeEventListener('click', handleImgClick);
+    console.log('removed event listener');
   } else if (event.target.id === 'centerImg1') {
     // Crawl to base
     currentQuestion += 1;
@@ -181,6 +183,7 @@ function handleImgClick(event) {
     setLocalStorage();
     displayQuestion();
     console.log('You crawl.');
+    q1ImgContainer.removeEventListener('click', handleImgClick);
   } else {
     console.log('you need to click on an image');
   }
@@ -188,7 +191,6 @@ function handleImgClick(event) {
 
 
 // Question 2 JS
-
 function validateCode(event){
   event.preventDefault();
   var code = codeInput.securityCode.value;
@@ -294,7 +296,7 @@ function handleQuestionSixClicks(event){
 function validateJsCode () {
   event.preventDefault();
   var text = event.target.add_js.value;
-  if (text === 'I AM ALIVE') {
+  if (text === 'alert(\'I AM ALIVE\');') {
     currentQuestion += 1;
     players[0].question += 1;
     players[0].oxygen += 1;
@@ -398,8 +400,20 @@ function playerDies () {
   displayQuestion();
 }
 //Event question 1
-
-
+function playVideo () {
+  video.setAttribute('style', 'display:none');
+  setTimeout(function() {
+    video.removeAttribute('style');
+    video.setAttribute('style', 'display:block');
+    video.autoplay = true;
+    video.load();
+  }, 5000);
+}
+function videoEnded () {
+  currentQuestion += 1;
+  players[0].question += 1;
+  displayQuestion();
+}
 //Event question 2
 
 

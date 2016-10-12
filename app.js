@@ -167,6 +167,20 @@ function displayQuestion() {
 Questions/Video Functionalities
 ******************************/
 // Question 0 JS
+function playVideo () {
+  video.setAttribute('style', 'display:none');
+  setTimeout(function() {
+    video.removeAttribute('style');
+    video.setAttribute('style', 'display:block');
+    video.autoplay = true;
+    video.load();
+  }, 5000);
+}
+function videoEnded () {
+  currentQuestion += 1;
+  players[0].question += 1;
+  displayQuestion();
+}
 
 // Question 1 JS
 function handleQ1(event) {
@@ -198,21 +212,6 @@ function handleQ1(event) {
   } else {
     console.log('you need to click on an image');
   }
-}
-//+++++Plays Video for Question 1+++++//
-function playVideo () {
-  video.setAttribute('style', 'display:none');
-  setTimeout(function() {
-    video.removeAttribute('style');
-    video.setAttribute('style', 'display:block');
-    video.autoplay = true;
-    video.load();
-  }, 5000);
-}
-function videoEnded () {
-  currentQuestion += 1;
-  players[0].question += 1;
-  displayQuestion();
 }
 
 // Question 2 JS

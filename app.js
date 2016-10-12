@@ -20,7 +20,7 @@ DOM Elements
 *************/
 
 var login = document.getElementById('submit_login');
-var video = document.getElementById('video1');
+var video = document.getElementById('videoQ1');
 var submitQ1 = document.getElementById('submitQ1');
 var submitQ2 = document.getElementById('submitQ2');
 var submitQ3 = document.getElementById('submitQ3');

@@ -57,6 +57,13 @@ li {
 
 figcaption {
   font-size: 12px;
+  width: 150px;
+  margin: 0;
+}
+
+li {
+  cursor: pointer;
+
 }
 #water_filter, #water_filter_order {
   display: none;

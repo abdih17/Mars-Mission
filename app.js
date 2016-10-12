@@ -31,7 +31,7 @@ if (localStorage.getItem('playersData')){
     new Player (player,password);
     setLocalStorage();
   }
-  // login.addEventListener('click', getUserLogin);
+  login.addEventListener('click', getUserLogin);
 }
 
 
@@ -208,7 +208,29 @@ function handlePotatoClick(event) {
 
 
 // Question 6 JS
+var getQ6Img = document.getElementById('q6Imgs');
 
+function handleQuestionSixClicks(event){
+console.log('start of function');
+  if (event.target.id === 'centerImg'){
+    console.log('centerImg');
+    currentQuestion += 1;
+    players[0].oxygen += 1;
+    players[0].water += 1;
+    displayQuestion();
+    console.log('centerImg');
+  }
+
+  if (event.target.id === 'leftImg'){
+    playerDies();
+  }
+
+  if (event.target.id === 'rightImg'){
+    playerDies();
+  }
+}
+
+getQ6Img.addEventListener('click', handleQuestionSixClicks);
 
 // Question 7 JS
 var submitQ7 = document.getElementById('communication_device_fix');
@@ -250,6 +272,12 @@ function playerDies () {
   players[0].water = 0;
   displayQuestion();
 }
+//Event question 1
+
+
+//Event question 2
+
+
 
 
 //life source = incrementing and decrementing oxygen/health level

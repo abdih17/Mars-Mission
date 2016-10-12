@@ -89,10 +89,11 @@ function displayQuestion() {
     submitQ3.removeEventListener('submit', handleQ3);
     q3.removeAttribute('style');
     q4.setAttribute('style', 'display:block');
-    submit04.addEventListener('click', handleQ4);
+
+    submitQ4.addEventListener('click', handleQ4);
     // setLocalStorage();
   } else if (currentQuestion === 5) {
-    submit04.removeEventListener('click', submitQ4);
+    submitQ4.removeEventListener('click', handleQ4);
     q4.removeAttribute('style');
     q5.setAttribute('style', 'display:block');
     submitQ5.addEventListener('submit', handleQ5);
@@ -101,10 +102,10 @@ function displayQuestion() {
     submitQ5.removeEventListener('submit', handleQ5);
     q5.removeAttribute('style');
     q6.setAttribute('style', 'display:block');
-    submitQ6.addEventListener('click', handleQ6);
+    q6Imgs.addEventListener('click', handleQ6);
     // setLocalStorage();
   } else if (currentQuestion === 7) {
-    submitQ6.removeEventListener('click', handleQ6);
+    q6Imgs.removeEventListener('click', handleQ6);
     q6.removeAttribute('style');
     q7.setAttribute('style', 'display:block');
     submitQ7.addEventListener('submit', handleQ7);
@@ -166,6 +167,20 @@ function displayQuestion() {
 Questions/Video Functionalities
 ******************************/
 // Question 0 JS
+function playVideo () {
+  video.setAttribute('style', 'display:none');
+  setTimeout(function() {
+    video.removeAttribute('style');
+    video.setAttribute('style', 'display:block');
+    video.autoplay = true;
+    video.load();
+  }, 5000);
+}
+function videoEnded () {
+  currentQuestion += 1;
+  players[0].question += 1;
+  displayQuestion();
+}
 
 // Question 1 JS
 function handleQ1(event) {
@@ -197,21 +212,6 @@ function handleQ1(event) {
   } else {
     console.log('you need to click on an image');
   }
-}
-//+++++Plays Video for Question 1+++++//
-function playVideo () {
-  video.setAttribute('style', 'display:none');
-  setTimeout(function() {
-    video.removeAttribute('style');
-    video.setAttribute('style', 'display:block');
-    video.autoplay = true;
-    video.load();
-  }, 5000);
-}
-function videoEnded () {
-  currentQuestion += 1;
-  players[0].question += 1;
-  displayQuestion();
 }
 
 // Question 2 JS
@@ -255,7 +255,7 @@ function handleQ3 () {
 }
 
 // Question 4 JS
-function submitQ4(){
+function handleQ4(){
   event.preventDefault();
   playerLives();
 };
@@ -276,12 +276,12 @@ function handleQ5(event) {
 // Question 6 JS
 function handleQ6(event){
   console.log('start of function');
-  if (event.target.id === 'centerImg'){
-    console.log('centerImg');
-    playerLives();
-    console.log('centerImg');
-  }
   if (event.target.id === 'leftImg'){
+    console.log('leftImg');
+    playerLives();
+    console.log('leftImg');
+  }
+  if (event.target.id === 'centerImg'){
     playerDies();
   }
   if (event.target.id === 'rightImg'){

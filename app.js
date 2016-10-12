@@ -19,14 +19,14 @@ function Player (loginName, password, playerName) {
 var login = document.getElementById('submit_login');
 var button = document.getElementById('button');
 var video = document.getElementById('video1');
-var q1ImgContainer = document.getElementById('q1ImgContainer');
+var submitQ1 = document.getElementById('submitQ1');
 var submitQ2 = document.getElementById('submitQ2');
-var submitQ3 = document.getElementById('water_filter_answer');
+var submitQ3 = document.getElementById('submitQ3');
 var submit04 = document.getElementById('growPotatoes');
-var potatoFarm = document.getElementById('potatoFarm');
-var getQ6Img = document.getElementById('q6Imgs');
+var submitQ5 = document.getElementById('submitQ5');
+var submitQ6 = document.getElementById('q6Imgs');
 var submitQ7 = document.getElementById('communication_device_fix');
-var q8ImgContainer = document.getElementById('q8ImgContainer');
+var submitQ8 = document.getElementById('submitQ8');
 var submitQ11 = document.getElementById('launch_assembly_answer');
 
 /*************
@@ -61,11 +61,11 @@ function displayQuestion() {
     video.removeEventListener('ended', videoEnded);
     q0.removeAttribute('style');
     q1.setAttribute('style', 'display:block');
-    q1ImgContainer.addEventListener('click', handleImgClick);
+    submitQ1.addEventListener('click', handleImgClick);
     // setLocalStorage();
     console.log('Question 1');
   } else if (currentQuestion === 2) {
-    q1ImgContainer.removeEventListener('click', handleImgClick);
+    submitQ1.removeEventListener('click', handleImgClick);
     q1.removeAttribute('style');
     q2.setAttribute('style', 'display:block');
     submitQ2.addEventListener('click', validateCode);
@@ -85,18 +85,18 @@ function displayQuestion() {
     // setLocalStorage();
   } else if (currentQuestion === 5) {
     submit04.removeEventListener('click', growPotatoes);
-    potatoFarm.addEventListener('submit', handlePotatoClick);
+    submitQ5.addEventListener('submit', handlePotatoClick);
     q4.removeAttribute('style');
     q5.setAttribute('style', 'display:block');
     // setLocalStorage();
   } else if (currentQuestion === 6) {
-    getQ6Img.addEventListener('click', handleQuestionSixClicks);
-    potatoFarm.removeEventListener('submit', handlePotatoClick);
+    submitQ6.addEventListener('click', handleQuestionSixClicks);
+    submitQ5.removeEventListener('submit', handlePotatoClick);
     q5.removeAttribute('style');
     q6.setAttribute('style', 'display:block');
     // setLocalStorage();
   } else if (currentQuestion === 7) {
-    getQ6Img.removeEventListener('click', handleQuestionSixClicks);
+    submitQ6.removeEventListener('click', handleQuestionSixClicks);
     q6.removeAttribute('style');
     q7.setAttribute('style', 'display:block');
     submitQ7.addEventListener('submit', validateJsCode);
@@ -105,10 +105,10 @@ function displayQuestion() {
     submitQ7.removeEventListener('submit', validateJsCode);
     q7.removeAttribute('style');
     q8.setAttribute('style', 'display:block');
-    q8ImgContainer.addEventListener('click', handleImg8Click);
+    submitQ8.addEventListener('click', handleImg8Click);
     // setLocalStorage();
   } else if (currentQuestion === 9) {
-    q8ImgContainer.removeEventListener('click', handleImg8Click);
+    submitQ8.removeEventListener('click', handleImg8Click);
     q8.removeAttribute('style');
     q9.setAttribute('style', 'display:block');
     // setLocalStorage();
@@ -159,7 +159,6 @@ function handleImgClick(event) {
   if (event.target.id === 'leftImg1') {
     playerDies();
   } else if (event.target.id === 'rightImg1') {
-    // Fix your wound
     currentQuestion += 1;
     players[0].question += 1;
     players[0].oxygen -= 1;
@@ -167,10 +166,9 @@ function handleImgClick(event) {
     setLocalStorage();
     displayQuestion();
     console.log('You fix your wound.');
-    q1ImgContainer.removeEventListener('click', handleImgClick);
+    submitQ1.removeEventListener('click', handleImgClick);
     console.log('removed event listener');
   } else if (event.target.id === 'centerImg1') {
-    // Crawl to base
     currentQuestion += 1;
     players[0].question += 1;
     players[0].oxygen += 1;
@@ -178,12 +176,26 @@ function handleImgClick(event) {
     setLocalStorage();
     displayQuestion();
     console.log('You crawl.');
-    q1ImgContainer.removeEventListener('click', handleImgClick);
+    submitQ1.removeEventListener('click', handleImgClick);
   } else {
     console.log('you need to click on an image');
   }
 }
-
+//+++++Plays Video for Question 1+++++//
+function playVideo () {
+  video.setAttribute('style', 'display:none');
+  setTimeout(function() {
+    video.removeAttribute('style');
+    video.setAttribute('style', 'display:block');
+    video.autoplay = true;
+    video.load();
+  }, 5000);
+}
+function videoEnded () {
+  currentQuestion += 1;
+  players[0].question += 1;
+  displayQuestion();
+}
 
 // Question 2 JS
 function validateCode(event){
@@ -216,7 +228,7 @@ function displayWaterFilter () {
     var question = document.getElementById('water_filter_order');
     images.removeAttribute('style');
     question.setAttribute('style', 'display:block');
-  }, 500);
+  }, 5000);
 }
 function validateFilterOrder () {
   event.preventDefault();
@@ -234,6 +246,7 @@ function validateFilterOrder () {
     playerDies();
   }
 }
+
 // Question 4 JS
 function growPotatoes(){
   event.preventDefault();
@@ -284,8 +297,6 @@ function handleQuestionSixClicks(event){
     playerDies();
   }
 }
-
-
 
 // Question 7 JS
 function validateJsCode () {
@@ -361,9 +372,6 @@ function validateLaunchOrder () {
 
 
 // Question 13 JS
-
-
-
 function playerDies () {
   currentQuestion = 14;
   players[0].oxygen = 0;
@@ -372,51 +380,10 @@ function playerDies () {
   setLocalStorage();
   displayQuestion();
 }
-//Event question 1
-function playVideo () {
-  video.setAttribute('style', 'display:none');
-  setTimeout(function() {
-    video.removeAttribute('style');
-    video.setAttribute('style', 'display:block');
-    video.autoplay = true;
-    video.load();
-  }, 5000);
-}
-function videoEnded () {
-  currentQuestion += 1;
-  players[0].question += 1;
-  displayQuestion();
-}
-//Event question 2
-
-
-
-
-//life source = incrementing and decrementing oxygen/health level
-// var lifeSource = 0; //decide on a number to start with.
-
-//function drawScore(score) {
-//    ctx.font = "16px Teko";
-//    ctx.fillStyle = "#0095DD";
-//    ctx.fillText('Score: ' + score);
-//}
-
-//need a for loop for each question
-// if (userAnswer === correctAnswer){
-//   lifeSource += 1;
-//   console.log(lifeSource);
-// } else {
-//   lifeSource -= 1;
-//   console.log(lifeSource);
-// }
-//drawScore(lifeSource);
-
-// // Q1 Event Handler
 
 /*************
 Execute Actions
 *************/
-// Q1 Event Listener (which image clicked)
 
 // set local storage function
 function setLocalStorage() {

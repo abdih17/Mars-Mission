@@ -42,6 +42,7 @@ if (localStorage.getItem('playersData')){
 var button = document.getElementById('button');
 
 function displayQuestion() {
+  console.log('start of function');
   if (currentQuestion === 0) {
     q0.setAttribute('style', 'display:block');
     currentQuestion += 1;
@@ -90,7 +91,10 @@ function displayQuestion() {
   } else if (currentQuestion === 10) {
     q9.removeAttribute('style');
     q10.setAttribute('style', 'display:block');
+    getQ10Choices.addEventListener('click', throughTheStorm);
   } else if (currentQuestion === 11) {
+    getQ10Choices.removeEventListener('click', throughTheStorm);
+    console.log('should be 11');
     q10.removeAttribute('style');
     q11.setAttribute('style', 'display:block');
     displayLaunchAssembly();
@@ -293,6 +297,7 @@ function throughTheStorm(event){
     playerDies();
   } else if (event.target.id === 'leftChoice' && randomNum < 0.5){
     console.log('The storm was rough but you managed to make it through');
+    currentQuestion += 1;
     displayQuestion();
   } else if (event.target.id === 'rightChoice' && players[0].oxygen <= 2){
     console.log('You ran out of essential resources and died');
@@ -302,12 +307,11 @@ function throughTheStorm(event){
     playerDies();
   } else if (event.target.id === 'rightChoice') {
     console.log('it took awhile but thankfully you finally made it');
+    currentQuestion += 1;
     displayQuestion();
   }
-
 };
 
-getQ10Choices.addEventListener('click', throughTheStorm);
 
 
 // function throughTheStorm(event){

@@ -110,6 +110,7 @@ function displayQuestion() {
     q8ImgContainer.removeEventListener('click', handleImg8Click);
     q8.removeAttribute('style');
     q9.setAttribute('style', 'display:block');
+    init();
     // setLocalStorage();
   } else if (currentQuestion === 10) {
     q9.removeAttribute('style');
@@ -277,6 +278,86 @@ function handleImg8Click(event) {
 }
 
 // Question 9 JS
+var imgObj = null;
+var imgLeft = 0;
+var imgTop = 0;
+var gameOver = true;
+
+
+function init() {
+  imgObj = document.getElementById('myImage');
+  imgObj.style.position = 'relative';
+  imgObj.style.left = '450px';
+  imgObj.style.top = '150px';
+  gameOver = false;
+}
+
+document.onkeydown = function(e) {
+  if (gameOver) {
+    console.log('gameOver');
+    return;
+  }
+  switch (e.keyCode) {
+  case 37:
+    moveLeft();
+    break;
+  case 38:
+    moveUp();
+    break;
+  case 39:
+    moveRight();
+    break;
+  case 40:
+    moveDown();
+    break;
+  }
+};
+
+function moveRight(){
+  imgLeft = parseInt(imgObj.style.left) + 1;
+  imgObj.style.left = parseInt(imgObj.style.left) + 1 + 'px';
+  if (!gameOver) setTimeout(moveRight,20);
+  console.log('Left = ' + imgLeft);
+  if (imgLeft > 900) {
+    console.log('GAME OVER: PLAYER DIES');
+    playerDies();
+  }
+}
+
+function moveLeft(){
+  imgLeft = parseInt(imgObj.style.left) - 1;
+  imgObj.style.left = parseInt(imgObj.style.left) - 1 + 'px';
+  if (!gameOver) setTimeout(moveLeft,20);
+  console.log('Left = ' + imgLeft);
+  if (imgLeft < 100) {
+    console.log('GAME OVER: PLAYER WINS');
+    playerLives();
+  }
+}
+
+function moveUp(){
+  imgTop = parseInt(imgObj.style.top) - 1;
+  imgObj.style.top = parseInt(imgObj.style.top) - 1 + 'px';
+  if (!gameOver) setTimeout(moveUp,20);
+  console.log('Top = ' + imgTop);
+  if (imgTop < 20) {
+    console.log('GAME OVER: PLAYER DIES');
+    playerDies();
+  }
+}
+
+function moveDown(){
+  imgTop = parseInt(imgObj.style.top) + 1;
+  imgObj.style.top = parseInt(imgObj.style.top) + 1 + 'px';
+  if (!gameOver) setTimeout(moveDown,20);
+  console.log('Top = ' + imgTop);
+  if (imgTop > 800) {
+    console.log('GAME OVER: PLAYER DIES');
+    playerDies();
+  }
+}
+
+// window.onload = init;
 
 
 // Question 10 JS
@@ -314,6 +395,8 @@ function validateLaunchOrder () {
 
 
 function playerDies () {
+  console.log('playerDies');
+  gameOver = true;
   currentQuestion = 14;
   players[0].oxygen = 0;
   players[0].water = 0;
@@ -322,6 +405,8 @@ function playerDies () {
   displayQuestion();
 }
 function playerLives () {
+  console.log('playerLives');
+  gameOver = true;
   currentQuestion += 1;
   players[0].question += 1;
   players[0].oxygen += 1;

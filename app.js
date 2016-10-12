@@ -89,6 +89,7 @@ function displayQuestion() {
     submitQ3.removeEventListener('submit', handleQ3);
     q3.removeAttribute('style');
     q4.setAttribute('style', 'display:block');
+
     submitQ4.addEventListener('click', handleQ4);
     // setLocalStorage();
   } else if (currentQuestion === 5) {
@@ -101,10 +102,10 @@ function displayQuestion() {
     submitQ5.removeEventListener('submit', handleQ5);
     q5.removeAttribute('style');
     q6.setAttribute('style', 'display:block');
-    submitQ6.addEventListener('click', handleQ6);
+    q6Imgs.addEventListener('click', handleQ6);
     // setLocalStorage();
   } else if (currentQuestion === 7) {
-    submitQ6.removeEventListener('click', handleQ6);
+    q6Imgs.removeEventListener('click', handleQ6);
     q6.removeAttribute('style');
     q7.setAttribute('style', 'display:block');
     submitQ7.addEventListener('submit', handleQ7);
@@ -275,12 +276,12 @@ function handleQ5(event) {
 // Question 6 JS
 function handleQ6(event){
   console.log('start of function');
-  if (event.target.id === 'centerImg'){
-    console.log('centerImg');
-    playerLives();
-    console.log('centerImg');
-  }
   if (event.target.id === 'leftImg'){
+    console.log('leftImg');
+    playerLives();
+    console.log('leftImg');
+  }
+  if (event.target.id === 'centerImg'){
     playerDies();
   }
   if (event.target.id === 'rightImg'){

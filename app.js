@@ -15,8 +15,7 @@ function Player (loginName, password, playerName) {
   players.push(this);
 };
 
-new Player('mars', '1234');
-
+var login = document.getElementById('submit_login');
 /*************
 Define Actions
 *************/
@@ -24,16 +23,16 @@ Define Actions
 if (localStorage.getItem('playersData')){
   players = [];
   players = JSON.parse(localStorage.getItem('playersData'));
+  displayQuestion();
 } else {
 //event listener for player login
-  var login = document.getElementById('submit_login');
   function getUserLogin(){
     var player = createUser.username.value;
     var password = createUser.password.value;
     new Player (player,password);
     setLocalStorage();
   }
-  // login.addEventListener('click', getUserLogin);
+  login.addEventListener('click', getUserLogin);
 }
 
 
@@ -44,6 +43,7 @@ function displayQuestion() {
   if (currentQuestion === 0) {
     q0.setAttribute('style', 'display:block');
     currentQuestion += 1;
+    console.log('Question 0');
   } else if (currentQuestion === 1) {
     q1ImgContainer.addEventListener('click', handleImgClick);
     q0.removeAttribute('style');
@@ -71,6 +71,8 @@ function displayQuestion() {
     q4.removeAttribute('style');
     q5.setAttribute('style', 'display:block');
   } else if (currentQuestion === 6) {
+    getQ6Img.addEventListener('click', handleQuestionSixClicks);
+    potatoFarm.removeEventListener('submit', handlePotatoClick);
     q5.removeAttribute('style');
     q6.setAttribute('style', 'display:block');
   } else if (currentQuestion === 7) {
@@ -222,7 +224,7 @@ function handlePotatoClick(event) {
 var getQ6Img = document.getElementById('q6Imgs');
 
 function handleQuestionSixClicks(event){
-console.log('start of function');
+  console.log('start of function');
   if (event.target.id === 'centerImg'){
     console.log('centerImg');
     currentQuestion += 1;
@@ -241,7 +243,7 @@ console.log('start of function');
   }
 }
 
-getQ6Img.addEventListener('click', handleQuestionSixClicks);
+
 
 // Question 7 JS
 var submitQ7 = document.getElementById('communication_device_fix');
@@ -318,11 +320,10 @@ Execute Actions
 // Q1 Event Listener (which image clicked)
 
 // set local storage function
-var setLocalStorage = function() {
+function setLocalStorage() {
+  console.log('Setting Local Storage');
   var playersString = JSON.stringify(players);
   localStorage.setItem('playersData', playersString);
 };
-
-
 
 button.addEventListener('click', displayQuestion);

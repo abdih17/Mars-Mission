@@ -69,3 +69,7 @@ li {
   display: none;
   clear: both;
 }
+
+#leftChoice, #rightChoice {
+  cursor: pointer;
+}

@@ -4,7 +4,7 @@
 DATA Declarations
 *************/
 var players = [];
-var currentQuestion = 0;
+var currentQuestion = 10;
 
 function Player (loginName, password, playerName) {
   this.login = loginName;
@@ -16,7 +16,7 @@ function Player (loginName, password, playerName) {
   players.push(this);
 };
 
-var mars = new Player('mars', '1234');
+new Player('mars', '1234');
 
 /*************
 Define Actions
@@ -267,6 +267,48 @@ function validateJsCode () {
 
 
 // Question 10 JS
+var randomNum = Math.random();
+var getQ10Choices = document.getElementById('q10choices');
+
+function throughTheStorm(event){
+  if(event.target.id === 'leftChoice' && randomNum > 0.5){
+    alert('The storm was rough but you managed to make it through');
+    displayQuestion();
+  } else if (event.target.id === 'leftChoice' && randomNum < 0.5){
+    alert('it took awhile but thankfully you finally made it');
+    displayQuestion();
+  } else if (event.target.id === 'rightChoice' && players[0].oxygen <= 2){
+    alert('You ran out of essential resources and died');
+    playerDies();
+  } else if (event.target.id === 'rightChoice' && players[0].water <= 2){
+    alert('You ran out of essential resources and died');
+    playerDies();
+  }
+};
+
+getQ10Choices.addEventListener('click', throughTheStorm);
+
+
+// function throughTheStorm(event){
+//   if(event.target.id === 'leftChoice' && randomNum > 0.5){
+//     alert('The storm was rough but you managed to make it through');
+//     displayQuestion();
+//   } else {
+//     playerDies();
+//   };
+// }
+//
+// function aroundTheStorm(){
+//   if(players[0].oxygen <= 2 || players[0].water <= 2){
+//     alert('You ran out of essential resources and died').
+//     playerDies();
+//   } else {
+//     alert('it took awhile but thankfully you finally made it');
+//     displayQuestion();
+//   }
+// }
+// getQ10Choices.addEventListener('click', throughTheStorm);
+// getQ10Choices.addEventListener('click', aroundTheStorm);
 
 
 // Question 11 JS

@@ -26,12 +26,32 @@ li {
   padding: 0 20px;
 }
 
+article {
+  padding: 30px;
+}
 .contentWrapper {
   width: 960px;
   height: 400px;
   background-color: rgba(48,48,48,0.75);
   margin: 0 auto;
   border: 3px solid black;
+}
+
+.playerInfo {
+  height: 60px;
+  border-bottom: 2px solid lightgrey;
+  padding: 0 20px;
+}
+
+.playerName {
+  font-size: 25px;
+  color: white;
+  float: left;
+}
+
+.healthStats {
+  float: right;
+  margin: 20px 0;
 }
 
 #leftImg1 {
@@ -69,11 +89,10 @@ li {
   display: none;
   clear: both;
 }
-
-<<<<<<< HEAD
 #leftChoice, #rightChoice {
   cursor: pointer;
-=======
+}
+
 #video1 {
   max-width: 600px;
   width: 400px;
@@ -82,5 +101,4 @@ li {
   position: relative;
   left: 280px;
   top: -100px;
->>>>>>> master
 }

@@ -247,7 +247,7 @@ Q6 Styling
   display: flex;
   justify-content: space-between;
 }
-.q6Div {
+#leftImg {
   width: 200px;
   height: 150px;
   color: lightgreen;
@@ -258,10 +258,45 @@ Q6 Styling
   transition: color 300ms;
   transition: background-color 300ms;
   cursor: pointer;
-
 }
 
-.q6Div:hover {
+#rightImg {
+  width: 200px;
+  height: 150px;
+  color: lightgreen;
+  font-size: 20px;
+  display: inline-block;
+  margin: 0 30px;
+  padding: 20px;
+  transition: color 300ms;
+  transition: background-color 300ms;
+  cursor: pointer;
+}
+
+#centerImg {
+  width: 200px;
+  height: 150px;
+  color: lightgreen;
+  font-size: 20px;
+  display: inline-block;
+  margin: 0 30px;
+  padding: 20px;
+  transition: color 300ms;
+  transition: background-color 300ms;
+  cursor: pointer;
+}
+
+#leftImg:hover {
+  color:white;
+  background-color: rgba(203,203,203,0.25);
+}
+
+#centerImg:hover {
+  color:white;
+  background-color: rgba(203,203,203,0.25);
+}
+
+#rightImg:hover {
   color:white;
   background-color: rgba(203,203,203,0.25);
 >>>>>>> master

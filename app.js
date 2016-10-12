@@ -4,7 +4,8 @@
 DATA Declarations
 *************/
 var players = [];
-var currentQuestion = 10;
+var currentQuestion = 0;
+
 function Player (loginName, password, playerName) {
   this.login = loginName;
   this.password = password;
@@ -14,6 +15,8 @@ function Player (loginName, password, playerName) {
   this.question = 0;
   players.push(this);
 };
+
+var mars = new Player('mars', '1234');
 
 /*************
 Define Actions
@@ -31,7 +34,7 @@ if (localStorage.getItem('playersData')){
     new Player (player,password);
     setLocalStorage();
   }
-  login.addEventListener('click', getUserLogin);
+  // login.addEventListener('click', getUserLogin);
 }
 
 
@@ -43,7 +46,6 @@ function displayQuestion() {
     q0.setAttribute('style', 'display:block');
     currentQuestion += 1;
   } else if (currentQuestion === 1) {
-    var q1ImgContainer = document.getElementById('q1ImgContainer');
     q1ImgContainer.addEventListener('click', handleImgClick);
     q0.removeAttribute('style');
     q1.setAttribute('style', 'display:block');
@@ -63,7 +65,9 @@ function displayQuestion() {
     submitQ3.removeEventListener('submit', validateFilterOrder);
     q3.removeAttribute('style');
     q4.setAttribute('style', 'display:block');
+    submit04.addEventListener('click', growPotatoes);
   } else if (currentQuestion === 5) {
+    submit04.removeEventListener('click', growPotatoes);
     potatoFarm.addEventListener('submit', handlePotatoClick);
     q4.removeAttribute('style');
     q5.setAttribute('style', 'display:block');
@@ -115,6 +119,8 @@ function displayQuestion() {
 // Question 0 JS
 
 // Question 1 JS
+var q1ImgContainer = document.getElementById('q1ImgContainer');
+
 function handleImgClick(event) {
   if (event.target.id === 'leftImg1') {
     playerDies();
@@ -186,7 +192,14 @@ function validateFilterOrder () {
   }
 }
 // Question 4 JS
-
+var submit04 = document.getElementById('growPotatoes');
+function growPotatoes(){
+  event.preventDefault();
+  currentQuestion += 1;
+  players[0].oxygen += 1;
+  players[0].water += 1;
+  displayQuestion();
+};
 
 // Question 5 JS
 var potatoFarm = document.getElementById('potatoFarm');

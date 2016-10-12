@@ -111,7 +111,7 @@ Q2 Styling
   background-color: rgba(55,55,55,0.75);
   border-color: black;
   text-align: center;
-  color: lightgrey;
+  color: lightgreen;
   font-family: 'Exo', sans-serif;
   font-size: 16px;
   height: 40px;
@@ -168,4 +168,80 @@ select {
   margin: 10px auto;
   padding: 10px;
   cursor: pointer;
+}
+
+/************************
+Q4 Styling
+***********************/
+
+.q4 {
+  text-align: center;
+}
+
+.q4color{
+  text-align: center;
+  color: lightgreen;
+}
+
+/************************
+Q5 Styling
+***********************/
+
+.q5 {
+  margin: 10px;
+}
+
+.q5Ul {
+  float: none;
+  margin: 0;
+}
+
+.q5Li {
+  width: 300px;
+  display: block;
+  float: none;
+}
+
+.q5Li input[type=text]{
+  background-color: rgba(55,55,55,0.75);
+  border-color: black;
+  text-align: center;
+  color: lightgreen;
+  font-family: 'Exo', sans-serif;
+  font-size: 16px;
+  height: 40px;
+  width: 300px;
+  margin: 0 auto;
+  display: block;
+  float: left;
+}
+
+#q5Submit {
+  background: none;
+  border: none;
+  color: lightgrey;
+  font-family: 'Exo', sans-serif;
+  font-size: 16px;
+  display: inline;
+  width: 200px;
+  margin: 0 auto;
+  padding: 20px;
+  cursor: pointer;
+  float: right;
+}
+
+/************************
+Q6 Styling
+***********************/
+
+#q6Imgs {
+  display: flex;
+  justify-content: space-between;
+}
+.q6Div {
+  width: 200px;
+  height: 150px;
+  font-size: 16px;
+  display: inline-block;
+  margin: 0 30px
 }

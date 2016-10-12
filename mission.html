@@ -89,7 +89,8 @@
         </div>
       </article>
       <article id="q4">
-        <p class="q4">In order to grow potatoes you need the following: Water, Fertilizer, and Heat.</p>
+        <p class="q4">In order to grow potatoes you need the following:</p>
+        <p class="q4color">Water, Fertilizer, and Heat.</p>
         <button type="submit" name="button" id="growPotatoes">Grow Potatoes</button>
       </article>
       <article id="q5">
@@ -97,28 +98,32 @@
         <form id="potatoFarm">
           <fieldset>
             <legend>What 3 components are needed to grow potatoes?</legend>
-
-            <label for="potato1">First Component: </label>
-            <input name="potato1" type="text" />
-
-            <label for="potato2">Second Component: </label>
-            <input name="potato2" type="text" />
-
-            <label for="potato3">Third Component: </label>
-            <input name="potato3" type="text" />
-
-            <button type="submit">Submit your answers.</button>
+            <ul class="q5Ul">
+              <li class="q5Li">
+                <label for="potato1">First Component: </label>
+                <input name="potato1" type="text" />
+              </li>
+              <li class="q5Li">
+                <label for="potato2">Second Component: </label>
+                <input name="potato2" type="text" />
+              </li>
+              <li class="q5Li">
+                <label for="potato3">Third Component: </label>
+                <input name="potato3" type="text" />
+              </li>
+              <button type="submit" id="q5Submit">Submit your answers.</button>
+            </ul>
           </fieldset>
         </form>
       </article>
       <article id="q6">
         <p class="q6">If there is really any hope of a survival you must make contact with Nasa. Back in the early 2000’s Nasa sent several drones to explore the surface of Mars in preparation for a manned mission. In particular the pathfinder drone was sent to a region close to where you are now. It is possible that you may be able to fix pathfinder to communicate back to earth.</p>
         <p>What do you do?</p>
-        <ul id="q6Imgs">
-          <li><img src="http://placehold.it/150x150" id="leftImg"></li>
-          <li><img src="http://placehold.it/150x150" id="centerImg"></li>
-          <li><img src="http://placehold.it/150x150" id="rightImg"></li>
-        </ul>
+        <section id="q6Imgs">
+          <div class="q6Div">Go Search For The Rover</div>
+          <div class="q6Div">Attempt to fix the existing communication device on the base?</div>
+          <div class="q6Div">Trust that Nasa will send help and that you can grow enough food to survive?</div>
+        </section>
       </article>
       <article id="q7">
         <p class="q7">In order to fix the base communication device you need to input the correct code. Thankfully the base communications computer was written using javascript. In order to fix the communication device you need to create an object literal that includes your name, your mission number, and has a method to send Nasa a message (via alert) of “I AM ALIVE”.</p>

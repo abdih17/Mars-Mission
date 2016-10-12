@@ -43,15 +43,20 @@ article {
   padding: 0 20px;
 }
 
-.playerName {
+#playerName {
   font-size: 25px;
   color: lightblue;
   float: left;
 }
-
+#oxygen_stats, #water_stats {
+  background-image: url("imgs/health_bar.png");
+  background-repeat: no-repeat;
+  padding: 0 30px;
+}
 .healthStats {
   float: right;
   margin: 20px 0;
+  width: 375px;
 }
 
 #leftImg1 {

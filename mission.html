@@ -9,20 +9,27 @@
   </head>
   <body>
     <header>
-      <h1>Mission From Mars</h1>
+      <a href ="index.html"><h1>Mission From Mars</h1></a>
       <ul>
-        <li>Log Out</li>
-        <li>About Us</li>
+        <a href ="index.html"><li>Log Out</li></a>
+        <a href ="about.html"><li>About Us</li></a>
       </ul>
     </header>
 
     <div class="contentWrapper">
+      <div class="playerInfo">
+        <p id="playerName"></p>
+        <ul class="healthStats">
+          <li id="oxygen_stats"></li>
+          <li id="water_stats"></li>
+        </ul>
+      </div>
       <article id="q0">
         <div id="q0_content">
           <p>It’s the year 2033 and it’s been 2 years since humans first landed on Mars. You are the environmental scientist serving on the second manned mission to mars - Mars Mission 2.</p>
           <p>Mars is a harsh environment prone to storms that could jeopardize the mission and the very lives of astronauts serving…</p>
         </div>
-        <video src="video_clips/Chem_Cam.mp4" id="video1"></video>
+        <video src="video_clips/Chem_Cam.mp4" controls="" id="video1"></video>
       </article>
       <article id="q1">
         <p class="q1">...You wake up, unsure of where you are...but you can remember your code name.</p>
@@ -34,7 +41,7 @@
 
         <p>Your oxygen levels are critically low and your suit is leaking oxygen from a puncture wound. What are you going to do?</p>
 
-        <div id="q1ImgContainer">
+        <div id="submitQ1">
           <ul>
             <li><img src="http://blogs-images.forbes.com/erikkain/files/2015/10/The-Martian-Matt-Damon.jpg" id="leftImg1"></li>
             <li><img src="http://thumbs.imagekind.com/2914619_650/Desert-Crawl_art.jpg?v=1391902140" id="centerImg1"></li>
@@ -58,7 +65,7 @@
         </ul>
         <div id="water_filter_order">
           <p>What order were the images in? Please mark the order.</p>
-          <form id="water_filter_answer">
+          <form id="submitQ3">
             <label for="filter">filter</label>
             <select name="filter">
               <option value="1">1</option>
@@ -77,52 +84,57 @@
               <option value="2">2</option>
               <option value="3">3</option>
             </select>
-            <button name="button" type="submit">Assemble Water Reclaimer</button>
+            <button name="button" type="submit" id="submitQ3">Assemble Water Reclaimer</button>
           </form>
         </div>
       </article>
       <article id="q4">
-        <p class="q4">In order to grow potatoes you need the follow: Water, Fertilizer, and Heat.</p>
-        <button type="submit" name="button" id="growPotatoes">Grow Potatoes</button>
+        <p class="q4">In order to grow potatoes you need the following:</p>
+        <p class="q4color">Water, Fertilizer, and Heat.</p>
+        <button type="submit" name="button" id="submitQ4">Grow Potatoes</button>
       </article>
       <article id="q5">
         <p class="q5">Growing food to sustain your life is critical if there is going to be any attempt at a rescue. You currently don’t have enough food to make it. You figure out that you can grow potatoes if you create the perfect environment.</p><br>
-        <form id="potatoFarm">
+        <form id="submitQ5">
           <fieldset>
             <legend>What 3 components are needed to grow potatoes?</legend>
-
-            <label for="potato1">First Component: </label>
-            <input name="potato1" type="text" />
-
-            <label for="potato2">Second Component: </label>
-            <input name="potato2" type="text" />
-
-            <label for="potato3">Third Component: </label>
-            <input name="potato3" type="text" />
-
-            <button type="submit">Submit your answers.</button>
+            <ul class="q5Ul">
+              <li class="q5Li">
+                <label for="potato1">First Component: </label>
+                <input name="potato1" type="text" />
+              </li>
+              <li class="q5Li">
+                <label for="potato2">Second Component: </label>
+                <input name="potato2" type="text" />
+              </li>
+              <li class="q5Li">
+                <label for="potato3">Third Component: </label>
+                <input name="potato3" type="text" />
+              </li>
+              <button type="submit" id="q5Submit">Submit your answers.</button>
+            </ul>
           </fieldset>
         </form>
       </article>
       <article id="q6">
         <p class="q6">If there is really any hope of a survival you must make contact with Nasa. Back in the early 2000’s Nasa sent several drones to explore the surface of Mars in preparation for a manned mission. In particular the pathfinder drone was sent to a region close to where you are now. It is possible that you may be able to fix pathfinder to communicate back to earth.</p>
         <p>What do you do?</p>
-        <ul id="q6Imgs">
-          <li><img src="http://placehold.it/150x150" id="leftImg"></li>
-          <li><img src="http://placehold.it/150x150" id="centerImg"></li>
-          <li><img src="http://placehold.it/150x150" id="rightImg"></li>
-        </ul>
+        <section id="q6Imgs">
+          <div class="q6Div">Attempt to fix the existing communication device on the base?</div>
+          <div class="q6Div">Go Search For The Rover</div>
+          <div class="q6Div">Trust that Nasa will send help and that you can grow enough food to survive?</div>
+        </section>
       </article>
       <article id="q7">
         <p class="q7">In order to fix the base communication device you need to input the correct code. Thankfully the base communications computer was written using javascript. In order to fix the communication device you need to create an object literal that includes your name, your mission number, and has a method to send Nasa a message (via alert) of “I AM ALIVE”.</p>
-        <form id="communication_device_fix">
+        <form id="submitQ7">
           <textarea name="add_js" rows="1" cols="30"></textarea>
           <button name="button" type="submit">Submit Code</button>
         </form>
       </article>
       <article id="q8">
         <p class="q8">Nasa is surprised to hear from you and they immediately started working on a rescue plan. After several days of waiting you get a communication instructing you to travel over 1,000 km to the West in order to reach the mission site for Mars Mission 3.</p>
-        <div id="q8ImgContainer">
+        <div id="submitQ8">
           <ul>
             <li><img src="http://placehold.it/150?text=Listen+To+NASA" id="leftImg8"></li>
             <li><img src="http://placehold.it/150?text=Ignore+NASA+and+Stay" id="rightImg8"></li>
@@ -137,11 +149,15 @@
       </article>
       <article id="q10">
         <p class="q10">No matter what you do you can’t seem to escape the storms on mars. You are too far away from your base to return safely, your only option is to continue to head towards Mars Mission 3 base.</p>
-        <p>Which way to do you go?</p>
-        <ol>
-          <li>Drive through it? The shortest possible route but you could die</li>
-          <li>Drive around it? Must longer but you might not have enough oxygen and water to make it.</li>
-        </ol>
+        <p>Which way do you go?</p>
+        <div id="q10choices">
+          <section>
+            <p id="leftChoice">Drive through it? The shortest possible route but you could die</p>
+          </section>
+          <section>
+            <p id="rightChoice">Drive around it? Must longer but you might not have enough oxygen and water to make it.</p>
+          </section>
+        </div>
       </article>
       <article id="q11">
         <p class="q11">Nasa has provided you with a specific set of instructions on how to set up the launch vehicle that has been placed at the Mars Mission 3 base. Your only hope for survival is to use this vehicle to escape from Mars and to be picked up in low martian orbit.</p>
@@ -155,7 +171,7 @@
         </ul>
         <div id="launch_assembly_order">
           <p>Provide the launch vehicle prep order (you only have one try)</p>
-          <form id="launch_assembly_answer">
+          <form id="submitQ11">
             <label for="controls">Controls</label>
             <select name="controls">
               <option value="1">1</option>

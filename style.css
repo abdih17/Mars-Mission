@@ -1,6 +1,8 @@
 body{
   background-image: url("http://orig08.deviantart.net/552b/f/2016/120/6/e/the_martian_wallpaper_1920_x_1080_by_sachso74-da0tvum.jpg");
-  font-family: 'VT323';
+  font-family: 'Orbitron';
+  letter-spacing: 1.5px;
+  font-size: 20px;
 }
 a {
   text-decoration: none;
@@ -11,13 +13,17 @@ h1 {
   font-weight: 200;
 }
 
+#delayedText {
+  font-family: 'VT323';
+}
+
 #createUser {
   max-width: 25%;
 }
 
 #createUser input[type=text], input[type=password] {
-  width: 300px;
-  height: 30px;
+  width: 350px;
+  height: 40px;
   background: transparent;
   border: 1px solid rgba(255,255,255,0.6);
   border-radius: 2px;
@@ -28,7 +34,14 @@ h1 {
   font-weight: 400;
   padding: 4px;
   margin-top: 10px;
+  margin-left: 200px;
   display: inline-table;
+}
+
+#submit_login{
+  width: 318px;
+  position: relative;
+  left: 200px;
 }
 
 #createUser a {
@@ -54,6 +67,7 @@ h1 {
 #createUser input[type=button]:focus{
   outline: none;
 }
+
 
 ::-webkit-input-placeholder{
   color: rgba(255, 255, 255, 0.6);

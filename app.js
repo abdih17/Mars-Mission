@@ -4,7 +4,7 @@
 DATA Declarations
 *************/
 var players = [];
-var currentQuestion = 0;
+var currentQuestion = 5;
 function Player (loginName, password, playerName) {
   this.login = loginName;
   this.password = password;
@@ -35,7 +35,7 @@ if (localStorage.getItem('playersData')){
 }
 
 
-var q1ImgContainer = document.getElementById('q1ImgContainer');
+
 var button = document.getElementById('button');
 
 function displayQuestion() {
@@ -43,6 +43,7 @@ function displayQuestion() {
     q0.setAttribute('style', 'display:block');
     currentQuestion += 1;
   } else if (currentQuestion === 1) {
+    var q1ImgContainer = document.getElementById('q1ImgContainer');
     q1ImgContainer.addEventListener('click', handleImgClick);
     q0.removeAttribute('style');
     q1.setAttribute('style', 'display:block');
@@ -63,6 +64,7 @@ function displayQuestion() {
     q3.removeAttribute('style');
     q4.setAttribute('style', 'display:block');
   } else if (currentQuestion === 5) {
+    potatoFarm.addEventListener('submit', handlePotatoClick);
     q4.removeAttribute('style');
     q5.setAttribute('style', 'display:block');
   } else if (currentQuestion === 6) {
@@ -118,16 +120,16 @@ function handleImgClick(event) {
     playerDies();
   } else if (event.target.id === 'rightImg1') {
     // Fix your wound
+    currentQuestion += 1;
     players[0].oxygen -= 1;
     players[0].water -= 1;
-    currentQuestion += 1;
     displayQuestion();
     console.log('You fix your wound.');
   } else if (event.target.id === 'centerImg1') {
     // Crawl to base
+    currentQuestion += 1;
     players[0].oxygen += 1;
     players[0].water += 1;
-    currentQuestion += 1;
     displayQuestion();
     console.log('You crawl.');
   } else {
@@ -187,6 +189,22 @@ function validateFilterOrder () {
 
 
 // Question 5 JS
+var potatoFarm = document.getElementById('potatoFarm');
+function handlePotatoClick(event) {
+  event.preventDefault();
+  var newPotato1 = event.target.potato1.value.toLowerCase();
+  var newPotato2 = event.target.potato2.value.toLowerCase();
+  var newPotato3 = event.target.potato3.value.toLowerCase();
+
+  if (newPotato1 === 'water' || newPotato2 === 'water' || newPotato3 === 'water' && newPotato2 === 'heat' || newPotato2 === 'heat' || newPotato3 === 'heat' && newPotato1 === 'fertilizer' || newPotato2 === 'fertilizer' || newPotato3 === 'fertilizer') {
+    players[0].oxygen += 1;
+    players[0].water += 1;
+    currentQuestion += 1;
+    displayQuestion();
+  } else {
+    playerDies();
+  }
+}
 
 
 // Question 6 JS

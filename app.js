@@ -18,6 +18,7 @@ function Player (loginName, password, playerName) {
 
 var login = document.getElementById('submit_login');
 var button = document.getElementById('button');
+var video = document.getElementById('video1');
 var q1ImgContainer = document.getElementById('q1ImgContainer');
 var submitQ2 = document.getElementById('submitQ2');
 var submitQ3 = document.getElementById('water_filter_answer');
@@ -53,11 +54,11 @@ if (localStorage.getItem('playersData')){
 function displayQuestion() {
   if (currentQuestion === 0) {
     q0.setAttribute('style', 'display:block');
-    currentQuestion += 1;
-    players[0].question += 1;
-    console.log('Question 0');
+    playVideo();
+    video.addEventListener('ended', videoEnded);
     setLocalStorage();
   } else if (currentQuestion === 1) {
+    video.removeEventListener('ended', videoEnded);
     q0.removeAttribute('style');
     q1.setAttribute('style', 'display:block');
     q1ImgContainer.addEventListener('click', handleImgClick);
@@ -185,7 +186,6 @@ function handleImgClick(event) {
 
 
 // Question 2 JS
-
 function validateCode(event){
   event.preventDefault();
   var code = codeInput.securityCode.value;
@@ -291,7 +291,7 @@ function handleQuestionSixClicks(event){
 function validateJsCode () {
   event.preventDefault();
   var text = event.target.add_js.value;
-  if (text === 'I AM ALIVE') {
+  if (text === 'alert(\'I AM ALIVE\');') {
     currentQuestion += 1;
     players[0].question += 1;
     players[0].oxygen += 1;
@@ -374,15 +374,19 @@ function playerDies () {
 }
 //Event question 1
 function playVideo () {
-  var video = document.getElementById('video1');
-  video.setAttribute('style', 'display:block');
+  video.setAttribute('style', 'display:none');
   setTimeout(function() {
-    var question = document.getElementById('water_filter_order');
-    images.removeAttribute('style');
-    question.setAttribute('style', 'display:block');
-  }, 500);
+    video.removeAttribute('style');
+    video.setAttribute('style', 'display:block');
+    video.autoplay = true;
+    video.load();
+  }, 5000);
 }
-
+function videoEnded () {
+  currentQuestion += 1;
+  players[0].question += 1;
+  displayQuestion();
+}
 //Event question 2
 
 

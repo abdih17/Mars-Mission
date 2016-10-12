@@ -25,7 +25,7 @@ var video = document.getElementById('video1');
 var submitQ1 = document.getElementById('submitQ1');
 var submitQ2 = document.getElementById('submitQ2');
 var submitQ3 = document.getElementById('submitQ3');
-var submit04 = document.getElementById('submitQ4');
+var submitQ4 = document.getElementById('submitQ4');
 var submitQ5 = document.getElementById('submitQ5');
 var submitQ6 = document.getElementById('submitQ6');
 var submitQ7 = document.getElementById('submitQ7');
@@ -89,10 +89,10 @@ function displayQuestion() {
     submitQ3.removeEventListener('submit', handleQ3);
     q3.removeAttribute('style');
     q4.setAttribute('style', 'display:block');
-    submit04.addEventListener('click', submitQ4);
+    submitQ4.addEventListener('click', handleQ4);
     // setLocalStorage();
   } else if (currentQuestion === 5) {
-    submit04.removeEventListener('click', submitQ4);
+    submitQ4.removeEventListener('click', handleQ4);
     q4.removeAttribute('style');
     q5.setAttribute('style', 'display:block');
     submitQ5.addEventListener('submit', handleQ5);
@@ -166,6 +166,20 @@ function displayQuestion() {
 Questions/Video Functionalities
 ******************************/
 // Question 0 JS
+function playVideo () {
+  video.setAttribute('style', 'display:none');
+  setTimeout(function() {
+    video.removeAttribute('style');
+    video.setAttribute('style', 'display:block');
+    video.autoplay = true;
+    video.load();
+  }, 5000);
+}
+function videoEnded () {
+  currentQuestion += 1;
+  players[0].question += 1;
+  displayQuestion();
+}
 
 // Question 1 JS
 function handleQ1(event) {
@@ -197,21 +211,6 @@ function handleQ1(event) {
   } else {
     console.log('you need to click on an image');
   }
-}
-//+++++Plays Video for Question 1+++++//
-function playVideo () {
-  video.setAttribute('style', 'display:none');
-  setTimeout(function() {
-    video.removeAttribute('style');
-    video.setAttribute('style', 'display:block');
-    video.autoplay = true;
-    video.load();
-  }, 5000);
-}
-function videoEnded () {
-  currentQuestion += 1;
-  players[0].question += 1;
-  displayQuestion();
 }
 
 // Question 2 JS
@@ -255,7 +254,7 @@ function handleQ3 () {
 }
 
 // Question 4 JS
-function submitQ4(){
+function handleQ4(){
   event.preventDefault();
   playerLives();
 };

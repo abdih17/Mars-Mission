@@ -31,6 +31,7 @@ var submitQ6 = document.getElementById('submitQ6');
 var submitQ7 = document.getElementById('submitQ7');
 var submitQ8 = document.getElementById('submitQ8');
 var submitQ11 = document.getElementById('submitQ11');
+var restart = document.getElementById('restart_game');
 
 /*************
 Define Actions
@@ -158,6 +159,7 @@ function displayQuestion() {
     q12.removeAttribute('style');
     q13.removeAttribute('style');
     q14.setAttribute('style', 'display:block');
+    restart.addEventListener('click', restartGame);
     // setLocalStorage();
   }
 }
@@ -398,6 +400,16 @@ function playerStats () {
   water.textContent = 'Water: ' + players[0].water;
 }
 
+//Restart Game
+function restartGame () {
+  currentQuestion = 0;
+  players[0].question = 0;
+  players[0].oxygen = 4;
+  players[0].water = 4;
+  setLocalStorage();
+  displayQuestion();
+  q14.removeAttribute('style');
+}
 /**************
 Execute Actions
 **************/

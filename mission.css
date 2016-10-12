@@ -65,7 +65,17 @@ li {
   cursor: pointer;
 
 }
-#water_filter, #water_filter_order {
+#water_filter, #water_filter_order, #launch_assembly, #launch_assembly_order {
   display: none;
   clear: both;
+}
+
+#video1 {
+  max-width: 600px;
+  width: 400px;
+  height: 400px;
+  float: none;
+  position: relative;
+  left: 280px;
+  top: -100px;
 }

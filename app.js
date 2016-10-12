@@ -4,7 +4,8 @@
 DATA Declarations
 *************/
 var players = [];
-var currentQuestion = 0;
+var currentQuestion = 10;
+
 function Player (loginName, password, playerName) {
   this.login = loginName;
   this.password = password;
@@ -24,7 +25,7 @@ var video = document.getElementById('videoQ1');
 var submitQ1 = document.getElementById('submitQ1');
 var submitQ2 = document.getElementById('submitQ2');
 var submitQ3 = document.getElementById('submitQ3');
-var submit04 = document.getElementById('submitQ4');
+var submitQ4 = document.getElementById('submitQ4');
 var submitQ5 = document.getElementById('submitQ5');
 var submitQ6 = document.getElementById('submitQ6');
 var submitQ7 = document.getElementById('submitQ7');
@@ -57,6 +58,8 @@ if (localStorage.getItem('playersData')){
 Display Question Functions
 **************************/
 function displayQuestion() {
+  playerStats();
+  console.log('start of function');
   if (currentQuestion === 0) {
     q0.setAttribute('style', 'display:block');
     playVideo();
@@ -86,10 +89,10 @@ function displayQuestion() {
     submitQ3.removeEventListener('submit', handleQ3);
     q3.removeAttribute('style');
     q4.setAttribute('style', 'display:block');
-    submit04.addEventListener('click', submitQ4);
+    submitQ4.addEventListener('click', handleQ4);
     // setLocalStorage();
   } else if (currentQuestion === 5) {
-    submit04.removeEventListener('click', submitQ4);
+    submitQ4.removeEventListener('click', submitQ4);
     q4.removeAttribute('style');
     q5.setAttribute('style', 'display:block');
     submitQ5.addEventListener('submit', handleQ5);
@@ -120,8 +123,11 @@ function displayQuestion() {
   } else if (currentQuestion === 10) {
     q9.removeAttribute('style');
     q10.setAttribute('style', 'display:block');
+    getQ10Choices.addEventListener('click', throughTheStorm);
     // setLocalStorage();
   } else if (currentQuestion === 11) {
+    getQ10Choices.removeEventListener('click', throughTheStorm);
+    console.log('should be 11');
     q10.removeAttribute('style');
     q11.setAttribute('style', 'display:block');
     displayLaunchAssembly();
@@ -249,7 +255,7 @@ function handleQ3 () {
 }
 
 // Question 4 JS
-function submitQ4(){
+function handleQ4(){
   event.preventDefault();
   playerLives();
 };
@@ -310,7 +316,29 @@ function handleQ8(event) {
 
 
 // Question 10 JS
+var randomNum = Math.random();
+var getQ10Choices = document.getElementById('q10choices');
 
+function throughTheStorm(event){
+  if(event.target.id === 'leftChoice' && randomNum > 0.5){
+    console.log('The storm proved too much for your equipment to hold up to.');
+    playerDies();
+  } else if (event.target.id === 'leftChoice' && randomNum < 0.5){
+    console.log('The storm was rough but you managed to make it through');
+    currentQuestion += 1;
+    displayQuestion();
+  } else if (event.target.id === 'rightChoice' && players[0].oxygen <= 2){
+    console.log('You ran out of essential resources and died');
+    playerDies();
+  } else if (event.target.id === 'rightChoice' && players[0].water <= 2){
+    console.log('You ran out of essential resources and died');
+    playerDies();
+  } else if (event.target.id === 'rightChoice') {
+    console.log('it took awhile but thankfully you finally made it');
+    currentQuestion += 1;
+    displayQuestion();
+  }
+};
 
 // Question 11 JS
 function displayLaunchAssembly () {
@@ -355,6 +383,18 @@ function playerLives () {
   players[0].water += 1;
   setLocalStorage();
   displayQuestion();
+}
+//Show player Stats
+function playerStats () {
+  var userName = document.getElementById('playerName');
+  var oxygen = document.getElementById('oxygen_stats');
+  var water = document.getElementById('water_stats');
+  var image = document.createElement('img');
+  image.src = 'imgs/health_bar.png';
+  oxygen.appendChild(image);
+  userName.textContent = 'Martian: ' + players[0].login;
+  oxygen.textContent = 'Oxygen: ' + players[0].oxygen;
+  water.textContent = 'Water: ' + players[0].water;
 }
 
 /**************

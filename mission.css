@@ -31,7 +31,7 @@ article {
 }
 .contentWrapper {
   width: 960px;
-  height: 400px;
+  height: 500px;
   background-color: rgba(48,48,48,0.75);
   margin: 0 auto;
   border: 3px solid black;
@@ -101,4 +101,50 @@ li {
   position: relative;
   left: 280px;
   top: -100px;
+}
+
+/************************
+Q2 Styling
+***********************/
+
+#codeInput input[type=text], input[type=password]{
+  background-color: rgba(55,55,55,0.75);
+  border-color: black;
+  text-align: center;
+  color: lightgrey;
+  font-family: 'Exo', sans-serif;
+  font-size: 16px;
+  height: 40px;
+  width: 300px;
+  margin: 0 auto;
+  display: block;
+}
+
+#codeInput {
+  margin-top: 60px;
+}
+
+#submitQ2 {
+  background: none;
+  border: none;
+  color: lightgrey;
+  font-family: 'Exo', sans-serif;
+  font-size: 16px;
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+  padding: 20px;
+  cursor: pointer;
+}
+
+/************************
+Q3 Styling
+***********************/
+
+select {
+  background-color: rgba(55,55,55,0.75);
+  border: 2px solid black;
+  width: 40px;
+  height: 25px;
+
 }

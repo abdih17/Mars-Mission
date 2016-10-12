@@ -25,7 +25,7 @@ var video = document.getElementById('video1');
 var submitQ1 = document.getElementById('submitQ1');
 var submitQ2 = document.getElementById('submitQ2');
 var submitQ3 = document.getElementById('submitQ3');
-var submit04 = document.getElementById('submitQ4');
+var submitQ4 = document.getElementById('submitQ4');
 var submitQ5 = document.getElementById('submitQ5');
 var submitQ6 = document.getElementById('submitQ6');
 var submitQ7 = document.getElementById('submitQ7');
@@ -89,7 +89,7 @@ function displayQuestion() {
     submitQ3.removeEventListener('submit', handleQ3);
     q3.removeAttribute('style');
     q4.setAttribute('style', 'display:block');
-    submit04.addEventListener('click', submitQ4);
+    submit04.addEventListener('click', handleQ4);
     // setLocalStorage();
   } else if (currentQuestion === 5) {
     submit04.removeEventListener('click', submitQ4);

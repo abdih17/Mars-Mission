@@ -4,7 +4,7 @@
 DATA Declarations
 *************/
 var players = [];
-var currentQuestion = 5;
+var currentQuestion = 10;
 function Player (loginName, password, playerName) {
   this.login = loginName;
   this.password = password;

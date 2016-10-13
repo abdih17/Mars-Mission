@@ -130,8 +130,10 @@ function displayQuestion() {
     submitQ11.removeEventListener('submit', handleQ11);
     q11.removeAttribute('style');
     q12.setAttribute('style', 'display:block');
+    submitQ12.addEventListener('click', handleQ12);
     rendezvous();
   } else if (currentQuestion === 13) {
+    submitQ12.removeEventListener('click', handleQ12);
     q12.removeAttribute('style');
     q13.setAttribute('style', 'display:block');
     playVideoQ13();
@@ -326,8 +328,8 @@ var gameOver = true;
 function init() {
   imgObj = document.getElementById('myImage');
   imgObj.style.position = 'relative';
-  imgObj.style.left = '400px';
-  imgObj.style.top = '150px';
+  imgObj.style.left = '200px';
+  imgObj.style.top = '200px';
   gameOver = false;
 }
 
@@ -353,18 +355,20 @@ document.onkeydown = function(e) {
 
 function moveRight(){
   imgLeft = parseInt(imgObj.style.left) + 1;
+  console.log(imgLeft);
   imgObj.style.left = parseInt(imgObj.style.left) + 1 + 'px';
   if (!gameOver) setTimeout(moveRight,20);
-  if (imgLeft > 800) {
+  if (imgLeft > 600) {
     playerDies();
   }
 }
 
 function moveLeft(){
   imgLeft = parseInt(imgObj.style.left) - 1;
+  console.log(imgLeft);
   imgObj.style.left = parseInt(imgObj.style.left) - 1 + 'px';
   if (!gameOver) setTimeout(moveLeft,20);
-  if (imgLeft < 0) {
+  if (imgLeft < -200) {
     playerLives();
   }
 }
@@ -449,30 +453,34 @@ function rendezvous(){
   imgTransport = document.getElementById('transport');
   imgOrbiter.style.position = 'relative';
   imgOrbiter.style.left = '0px';
-  imgOrbiter.style.top = '0px';
+  imgOrbiter.style.top = '-25px';
   imgTransport.style.position = 'relative';
-  imgTransport.style.left = '800px';
-  imgTransport.style.top = '490px';
+  imgTransport.style.left = '500px';
+  imgTransport.style.top = '290px';
   flyRight();
 }
 
 function flyRight(){
   orbLeft = parseInt(imgOrbiter.style.left) + 1;
+  // console.log('OrbLeft = ' + orbLeft);
   imgOrbiter.style.left = parseInt(imgOrbiter.style.left) + 1 + 'px';
   animate = setTimeout(flyRight,20);
-}
-
-function flyUp(){
-  transUp = parseInt(imgTransport.style.top) - 1;
-  imgTransport.style.top = parseInt(imgTransport.style.top) - 1 + 'px';
-  animate = setTimeout(flyUp,10);
-  if (transUp < 10 && transUp > -100 && orbLeft > 360 && orbLeft < 600) {
-    console.log('You Win');
+  if (orbLeft > 600) {
+    playerDies();
     return;
   }
 }
 
-
+function handleQ12(){
+  transUp = parseInt(imgTransport.style.top) - 1;
+  console.log('transUp = ' + transUp);
+  imgTransport.style.top = parseInt(imgTransport.style.top) - 1 + 'px';
+  animate = setTimeout(handleQ12,17);
+  if (transUp < -30 && transUp > -60 && orbLeft > 480 && orbLeft < 530) {
+    playerLives();
+    return;
+  }
+}
 
 // Question 13 JS
 function playerDies () {

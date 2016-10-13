@@ -325,7 +325,7 @@ var gameOver = true;
 function init() {
   imgObj = document.getElementById('myImage');
   imgObj.style.position = 'relative';
-  imgObj.style.left = '450px';
+  imgObj.style.left = '400px';
   imgObj.style.top = '150px';
   gameOver = false;
 }
@@ -355,9 +355,7 @@ function moveRight(){
   imgLeft = parseInt(imgObj.style.left) + 1;
   imgObj.style.left = parseInt(imgObj.style.left) + 1 + 'px';
   if (!gameOver) setTimeout(moveRight,20);
-  console.log('Left = ' + imgLeft);
-  if (imgLeft > 900) {
-    console.log('GAME OVER: PLAYER DIES');
+  if (imgLeft > 800) {
     playerDies();
   }
 }
@@ -366,9 +364,7 @@ function moveLeft(){
   imgLeft = parseInt(imgObj.style.left) - 1;
   imgObj.style.left = parseInt(imgObj.style.left) - 1 + 'px';
   if (!gameOver) setTimeout(moveLeft,20);
-  console.log('Left = ' + imgLeft);
-  if (imgLeft < 100) {
-    console.log('GAME OVER: PLAYER WINS');
+  if (imgLeft < 0) {
     playerLives();
   }
 }
@@ -377,9 +373,7 @@ function moveUp(){
   imgTop = parseInt(imgObj.style.top) - 1;
   imgObj.style.top = parseInt(imgObj.style.top) - 1 + 'px';
   if (!gameOver) setTimeout(moveUp,20);
-  console.log('Top = ' + imgTop);
-  if (imgTop < 20) {
-    console.log('GAME OVER: PLAYER DIES');
+  if (imgTop < 0) {
     playerDies();
   }
 }
@@ -388,9 +382,7 @@ function moveDown(){
   imgTop = parseInt(imgObj.style.top) + 1;
   imgObj.style.top = parseInt(imgObj.style.top) + 1 + 'px';
   if (!gameOver) setTimeout(moveDown,20);
-  console.log('Top = ' + imgTop);
-  if (imgTop > 250) {
-    console.log('GAME OVER: PLAYER DIES');
+  if (imgTop > 330) {
     playerDies();
   }
 }

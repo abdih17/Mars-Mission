@@ -9,8 +9,9 @@ header {
 h1 {
   font-family: 'VT323';
   color: white;
-  font-size: 50px;
+  font-size: 80px;
   margin-top: 0;
+  margin-left: 100px;
   display: inline;
 }
 
@@ -162,7 +163,6 @@ Q1 Styling
 
 #crawl {
   width: 250px;
-  height: 100px;
   font-size: 25px;
   padding: 20px;
   color: lightgreen;
@@ -245,6 +245,14 @@ select {
   margin: 10px auto;
   padding: 10px;
   cursor: pointer;
+}
+#water_filter li {
+  display: inline-block;
+}
+#water_filter {
+  padding: 0px;
+  text-align: center;
+  margin: 25px 232px;
 }
 
 /************************
@@ -555,6 +563,15 @@ Q11 Styling
 
 #q11SubmitButton:hover {
   color: lightgreen;
+}
+#launch_assembly li {
+  display: inline-block;
+  padding-top: 20px;
+}
+#launch_assembly {
+  padding: 0px;
+  text-align: center;
+  margin: 0px 242px;
 }
 
 /************************

@@ -444,6 +444,7 @@ Q9 Styling
   position: relative;
   z-index: 10;
   width: 60px;
+
 }
 
 #q9img {
@@ -463,6 +464,18 @@ Q9 Styling
   background-color: rgba(55,55,55,0.75);
 }
 
+
 /************************
 Q10 Styling
 ***********************/
+
+
+/*Q12 Styling*/
+#transport {
+  height: 50px;
+  width: 25px;
+}
+
+#orbiter {
+  width: 100px;
+}

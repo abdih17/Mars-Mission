@@ -1,9 +1,58 @@
 body {
+  background-image: url('imgs/martian_sitting.png');
+  background-position: left-top;
+  text-decoration: none;
+  margin: 0;
+}
+
+header {
+  height: 100px;
+  text-decoration: none;
+}
+h1 {
+  font-family: 'VT323';
+  color: white;
+  font-size: 60px;
+  display: inline;
+  position: absolute;
+  top: -30px;
+  left: 10px;
+  text-decoration: none;
+}
+
+ul {
+  float: right;
+  margin: 25px 100px;
+  text-decoration: none;
+}
+
+li {
+  display: inline;
+  font-family: 'Audiowide';
+  color: white;
+  padding: 0 20px;
+  text-decoration: none;
+}
+
+/*body {
   max-width: 960px;
   margin: 0 auto;
 }
-/*article {
+
+.backgroundImage{
+  background-size: cover;
+
+}*/
+
+span {
+  color: purple;
+}
+
+article {
   display: inline-block;
+  margin-right: 50px;
+  color: white;
+  margin-right: 10px;
 }
 
 .colin, .hawa {
@@ -11,8 +60,9 @@ body {
 }
 .andrew, .jonny {
   width: 35%;
-  /*float: right;*/
+  float: left;
+}
 
-.colin {
+/*.colin {
   width: 50%;
 }

@@ -26,37 +26,12 @@ li {
   padding: 0 20px;
 }
 
-article {
-  padding: 30px;
-}
 .contentWrapper {
   width: 960px;
-  height: 500px;
+  height: 400px;
   background-color: rgba(48,48,48,0.75);
   margin: 0 auto;
   border: 3px solid black;
-}
-
-.playerInfo {
-  height: 60px;
-  border-bottom: 2px solid lightgrey;
-  padding: 0 20px;
-}
-
-#playerName {
-  font-size: 25px;
-  color: lightblue;
-  float: left;
-}
-#oxygen_stats, #water_stats {
-  background-image: url("imgs/health_bar.png");
-  background-repeat: no-repeat;
-  padding: 0 30px;
-}
-.healthStats {
-  float: right;
-  margin: 20px 0;
-  width: 375px;
 }
 
 #leftImg1 {
@@ -94,11 +69,8 @@ li {
   display: none;
   clear: both;
 }
-#leftChoice, #rightChoice {
-  cursor: pointer;
-}
 
-#video1 {
+#videoQ0, #videoQ4, #videoQ13{
   max-width: 600px;
   width: 400px;
   height: 400px;

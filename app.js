@@ -4,7 +4,7 @@
 DATA Declarations
 *************/
 var players = [];
-var currentQuestion = 9;
+var currentQuestion = 0;
 
 function Player (loginName, password, playerName) {
   this.login = loginName;
@@ -31,6 +31,7 @@ var submitQ5 = document.getElementById('submitQ5');
 var submitQ6 = document.getElementById('submitQ6');
 var submitQ7 = document.getElementById('submitQ7');
 var submitQ8 = document.getElementById('submitQ8');
+var submitQ10 = document.getElementById('submitQ10');
 var submitQ11 = document.getElementById('submitQ11');
 var restart = document.getElementById('restart_game');
 var videoQ13 = document.getElementById('videoQ13');
@@ -74,14 +75,11 @@ function displayQuestion() {
     genQ1();
     q1.setAttribute('style', 'display:block');
     submitQ1.addEventListener('click', handleQ1);
-    // setLocalStorage();
-    console.log('Question 1');
   } else if (currentQuestion === 2) {
     submitQ1.removeEventListener('click', handleQ1);
     q1.removeAttribute('style');
     q2.setAttribute('style', 'display:block');
     submitQ2.addEventListener('click', handleQ2);
-    // setLocalStorage();
   } else if (currentQuestion === 3) {
     submitQ2.removeEventListener('click', handleQ2);
     waterFilterRandom();
@@ -90,7 +88,6 @@ function displayQuestion() {
     q3.setAttribute('style', 'display:block');
     displayWaterFilter();
     submitQ3.addEventListener('submit', handleQ3);
-    // setLocalStorage();
   } else if (currentQuestion === 4) {
     submitQ3.removeEventListener('submit', handleQ3);
     q3.removeAttribute('style');
@@ -98,64 +95,54 @@ function displayQuestion() {
     playVideoQ4();
     videoQ4.addEventListener('ended', videoEndedQ4);
     setLocalStorage();
-    // setLocalStorage();
   } else if (currentQuestion === 5) {
     videoQ4.removeEventListener('ended', videoEndedQ4);
     q4.removeAttribute('style');
     q5.setAttribute('style', 'display:block');
     submitQ5.addEventListener('submit', handleQ5);
-    // setLocalStorage();
   } else if (currentQuestion === 6) {
     submitQ5.removeEventListener('submit', handleQ5);
     q5.removeAttribute('style');
     q6.setAttribute('style', 'display:block');
     q6Imgs.addEventListener('click', handleQ6);
-    // setLocalStorage();
   } else if (currentQuestion === 7) {
     q6Imgs.removeEventListener('click', handleQ6);
     q6.removeAttribute('style');
     q7.setAttribute('style', 'display:block');
     submitQ7.addEventListener('submit', handleQ7);
-    // setLocalStorage();
   } else if (currentQuestion === 8) {
     submitQ7.removeEventListener('submit', handleQ7);
     q7.removeAttribute('style');
     q8.setAttribute('style', 'display:block');
     submitQ8.addEventListener('click', handleQ8);
-    // setLocalStorage();
   } else if (currentQuestion === 9) {
     submitQ8.removeEventListener('click', handleQ8);
     q8.removeAttribute('style');
     q9.setAttribute('style', 'display:block');
     init();
-    // setLocalStorage();
   } else if (currentQuestion === 10) {
     q9.removeAttribute('style');
     q10.setAttribute('style', 'display:block');
-    getQ10Choices.addEventListener('click', throughTheStorm);
-    // setLocalStorage();
+    submitQ10.addEventListener('click', handleQ10);
   } else if (currentQuestion === 11) {
-    getQ10Choices.removeEventListener('click', throughTheStorm);
-    console.log('should be 11');
+    submitQ10.removeEventListener('click', handleQ10);
+    launchAssemblyRandom();
+    genQ11();
     q10.removeAttribute('style');
     q11.setAttribute('style', 'display:block');
     displayLaunchAssembly();
     submitQ11.addEventListener('submit', handleQ11);
-    // setLocalStorage();
   } else if (currentQuestion === 12) {
     submitQ11.removeEventListener('submit', handleQ11);
     q11.removeAttribute('style');
     q12.setAttribute('style', 'display:block');
-    // setLocalStorage();
   } else if (currentQuestion === 13) {
     q12.removeAttribute('style');
     q13.setAttribute('style', 'display:block');
     playVideoQ13();
     videoQ13.addEventListener('ended', videoEndedQ13);
     setLocalStorage();
-    // setLocalStorage();
   } else if (currentQuestion === 14){
-    videoQ13.removeEventListener('ended', videoEndedQ13);
     q0.removeAttribute('style');
     q1.removeAttribute('style');
     q2.removeAttribute('style');
@@ -170,9 +157,9 @@ function displayQuestion() {
     q11.removeAttribute('style');
     q12.removeAttribute('style');
     q13.removeAttribute('style');
+    videoQ13.removeEventListener('ended', videoEndedQ13);
     q14.setAttribute('style', 'display:block');
     restart.addEventListener('click', restartGame);
-    // setLocalStorage();
   }
 }
 
@@ -281,7 +268,12 @@ function handleQ3 () {
   if (filter === waterRandom[0] && converter === waterRandom[1] && holdingTank === waterRandom[2]) {
     playerLives();
   } else {
-    playerDies();
+    players[0].oxygen -= 1;
+    players[0].water -= 1;
+    playerStats();
+    if (players[0].oxygen === 0 || players[0].water === 0) {
+      playerDies();
+    }
   }
 }
 
@@ -310,7 +302,12 @@ function handleQ5(event) {
   if (newPotato1 === 'water' || newPotato2 === 'water' || newPotato3 === 'water' && newPotato2 === 'heat' || newPotato2 === 'heat' || newPotato3 === 'heat' && newPotato1 === 'fertilizer' || newPotato2 === 'fertilizer' || newPotato3 === 'fertilizer') {
     playerLives();
   } else {
-    playerDies();
+    players[0].oxygen -= 1;
+    players[0].water -= 1;
+    playerStats();
+    if (players[0].oxygen === 0 || players[0].water === 0) {
+      playerDies();
+    }
   }
 }
 
@@ -321,11 +318,9 @@ function handleQ6(event){
     console.log('leftImg');
     playerLives();
     console.log('leftImg');
-  }
-  if (event.target.id === 'centerImg'){
+  } else if (event.target.id === 'centerImg'){
     playerDies();
-  }
-  if (event.target.id === 'rightImg'){
+  } else if (event.target.id === 'rightImg'){
     playerDies();
   }
 }
@@ -337,7 +332,12 @@ function handleQ7 () {
   if (text === 'alert(\'I AM ALIVE\');') {
     playerLives();
   } else {
-    playerDies();
+    players[0].oxygen -= 1;
+    players[0].water -= 1;
+    playerStats();
+    if (players[0].oxygen === 0 || players[0].water === 0) {
+      playerDies();
+    }
   }
 }
 
@@ -349,7 +349,7 @@ function handleQ8(event) {
     playerLives();
     console.log('You are listening to Nasa');
   } else {
-    console.log('you need to click on an image');
+    alert('You need to click on an image');
   }
 }
 
@@ -430,30 +430,69 @@ function moveDown(){
 
 // Question 10 JS
 var randomNum = Math.random();
-var getQ10Choices = document.getElementById('q10choices');
-
-function throughTheStorm(event){
-  if(event.target.id === 'leftChoice' && randomNum > 0.5){
+function handleQ10(event){
+  if(event.target.id === 'drive_through' && randomNum > 0.33){
     console.log('The storm proved too much for your equipment to hold up to.');
     playerDies();
-  } else if (event.target.id === 'leftChoice' && randomNum < 0.5){
+  } else if (event.target.id === 'drive_through' && randomNum < 0.33){
     console.log('The storm was rough but you managed to make it through');
     currentQuestion += 1;
     displayQuestion();
-  } else if (event.target.id === 'rightChoice' && players[0].oxygen <= 2){
+  } else if (event.target.id === 'drive_around' && players[0].oxygen <= 2){
     console.log('You ran out of essential resources and died');
     playerDies();
-  } else if (event.target.id === 'rightChoice' && players[0].water <= 2){
+  } else if (event.target.id === 'drive_around' && players[0].water <= 2){
     console.log('You ran out of essential resources and died');
     playerDies();
-  } else if (event.target.id === 'rightChoice') {
+  } else if (event.target.id === 'drive_around') {
     console.log('it took awhile but thankfully you finally made it');
     currentQuestion += 1;
     displayQuestion();
   }
-};
+}
 
 // Question 11 JS
+var launchRandom = [];
+function launchAssemblyRandom () {
+  var repeatNumber = false;
+  for (var i = 0; i < 5; i++) {
+    var randomNumber = Math.ceil(Math.random() * (6 - 1)) + 0;
+    for (var a = 0; a < launchRandom.length; a++) {
+      if (randomNumber === launchRandom[a]) {
+        repeatNumber = true;
+        while (repeatNumber === true) {
+          randomNumber = Math.ceil(Math.random() * (6 - 1)) + 0;
+          if (randomNumber === launchRandom[0]) {
+            repeatNumber = true;
+          } else if (randomNumber === launchRandom[1]) {
+            repeatNumber = true;
+          } else if (randomNumber === launchRandom[2]) {
+            repeatNumber = true;
+          } else if (randomNumber === launchRandom[3]) {
+            repeatNumber = true;
+          } else if (randomNumber === launchRandom[4]) {
+            repeatNumber = true;
+          } else {
+            repeatNumber = false;
+          }
+        }
+      }
+    }
+    launchRandom.push(randomNumber);
+  }
+}
+function genQ11 () {
+  var controls = document.getElementById('controls');
+  var boosters = document.getElementById('boosters');
+  var fuel = document.getElementById('fuel');
+  var fuselage = document.getElementById('fuselage');
+  var comm_device = document.getElementById('comm_device');
+  controls.textContent = launchRandom[0] + ' Controls';
+  boosters.textContent = launchRandom[1] + ' Boosters';
+  fuel.textContent = launchRandom[2] + ' Fuel';
+  fuselage.textContent = launchRandom[3] + ' Fuselage';
+  comm_device.textContent = launchRandom[4] + ' Communication Device';
+}
 function displayLaunchAssembly () {
   var images = document.getElementById('launch_assembly');
   images.setAttribute('style', 'display:block');
@@ -470,10 +509,15 @@ function handleQ11 () {
   var fuel = parseInt(event.target.fuel.value);
   var fuselage = parseInt(event.target.fuselage.value);
   var comm_device = parseInt(event.target.comm_device.value);
-  if (controls === 1 && boosters === 2 && fuel === 3 && fuselage === 4 && comm_device === 5) {
+  if (controls === launchRandom[0] && boosters === launchRandom[1] && fuel === launchRandom[2] && fuselage === launchRandom[3] && comm_device === launchRandom[4]) {
     playerLives();
   } else {
-    playerDies();
+    players[0].oxygen -= 1;
+    players[0].water -= 1;
+    playerStats();
+    if (players[0].oxygen === 0 || players[0].water === 0) {
+      playerDies();
+    }
   }
 }
 

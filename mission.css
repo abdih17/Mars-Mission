@@ -191,6 +191,11 @@ Q2 Styling
   margin: 0 auto;
   padding: 20px;
   cursor: pointer;
+  transition: color 300ms;
+}
+
+#submitQ2:hover {
+  color: lightgreen;
 }
 
 /************************

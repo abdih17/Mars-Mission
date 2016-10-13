@@ -298,11 +298,95 @@ Q6 Styling
 
 }
 
-#rover {
-  position: fixed;
-  z-index: 2;
-  height: 10px;
-  width: 20px;
+/************************
+Q7 Styling
+***********************/
+
+#submitQ7 textarea {
+  height: 20px;
+  width: 300px;
+  background-color: rgba(55,55,55,0.75);
+  color: lightgreen;
+  border-color: black;
+  font-family: 'Exo', sans-serif;
+  text-align: center;
+  font-size: 16px;
+  display: block;
+  margin: 0 auto;
+}
+
+#submitQ7 {
+  margin: 100px auto;
+}
+
+#q7SubmitButton {
+  background: none;
+  border: none;
+  color: lightgrey;
+  font-family: 'Exo', sans-serif;
+  font-size: 16px;
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+  padding: 20px;
+  cursor: pointer;
+  transition: color 300ms;
+}
+
+#q7SubmitButton:hover {
+  color: lightgreen;
+}
+
+/************************
+Q8 Styling
+***********************/
+
+#submitQ8 {
+  display: block;
+  width: 600px;
+  margin: 100px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+#leftImg8 {
+  width: 250px;
+  height: 50px;
+  font-size: 25px;
+  color: lightgreen;
+  transition: color 300ms;
+  transition: background-color 300ms;
+  cursor:pointer;
+}
+
+#leftImg8:hover {
+  color:white;
+  background-color: rgba(203,203,203,0.25);
+}
+
+#rightImg8 {
+  width: 250px;
+  height: 50px;
+  font-size: 25px;
+  color: lightgreen;
+  transition: color 300ms;
+  transition: background-color 300ms;
+  cursor:pointer;
+}
+
+#rightImg8:hover {
+  color:white;
+  background-color: rgba(203,203,203,0.25);
+}
+
+/************************
+Q9 Styling
+***********************/
+
+#myImage {
+  position: relative;
+  z-index: 10;
+  width: 60px;
 }
 
 #q9img {
@@ -319,9 +403,5 @@ Q6 Styling
   position: relative;
   top: -450px;
   margin: 0;
-  z-index: 1;
+  z-index: 5;
 }
-
-/************************
-Q7 Styling
-***********************/

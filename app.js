@@ -4,7 +4,7 @@
 DATA Declarations
 *************/
 var players = [];
-var currentQuestion = 10;
+var currentQuestion = 9;
 
 function Player (loginName, password, playerName) {
   this.login = loginName;
@@ -121,6 +121,7 @@ function displayQuestion() {
     submitQ8.removeEventListener('click', handleQ8);
     q8.removeAttribute('style');
     q9.setAttribute('style', 'display:block');
+    init();
     // setLocalStorage();
   } else if (currentQuestion === 10) {
     q9.removeAttribute('style');
@@ -327,6 +328,78 @@ function handleQ8(event) {
 }
 
 // Question 9 JS
+var imgObj = null;
+var imgLeft = 0;
+var imgTop = 0;
+var gameOver = true;
+
+
+function init() {
+  imgObj = document.getElementById('myImage');
+  imgObj.style.position = 'relative';
+  imgObj.style.left = '400px';
+  imgObj.style.top = '150px';
+  gameOver = false;
+}
+
+document.onkeydown = function(e) {
+  if (gameOver) {
+    console.log('gameOver');
+    return;
+  }
+  switch (e.keyCode) {
+  case 37:
+    moveLeft();
+    break;
+  case 38:
+    moveUp();
+    break;
+  case 39:
+    moveRight();
+    break;
+  case 40:
+    moveDown();
+    break;
+  }
+};
+
+function moveRight(){
+  imgLeft = parseInt(imgObj.style.left) + 1;
+  imgObj.style.left = parseInt(imgObj.style.left) + 1 + 'px';
+  if (!gameOver) setTimeout(moveRight,20);
+  if (imgLeft > 800) {
+    playerDies();
+  }
+}
+
+function moveLeft(){
+  imgLeft = parseInt(imgObj.style.left) - 1;
+  imgObj.style.left = parseInt(imgObj.style.left) - 1 + 'px';
+  if (!gameOver) setTimeout(moveLeft,20);
+  if (imgLeft < 0) {
+    playerLives();
+  }
+}
+
+function moveUp(){
+  imgTop = parseInt(imgObj.style.top) - 1;
+  imgObj.style.top = parseInt(imgObj.style.top) - 1 + 'px';
+  if (!gameOver) setTimeout(moveUp,20);
+  if (imgTop < 0) {
+    playerDies();
+  }
+}
+
+function moveDown(){
+  imgTop = parseInt(imgObj.style.top) + 1;
+  imgObj.style.top = parseInt(imgObj.style.top) + 1 + 'px';
+  if (!gameOver) setTimeout(moveDown,20);
+  if (imgTop > 330) {
+    playerDies();
+  }
+}
+
+// window.onload = init;
 
 
 // Question 10 JS
@@ -383,6 +456,8 @@ function handleQ11 () {
 
 // Question 13 JS
 function playerDies () {
+  console.log('playerDies');
+  gameOver = true;
   currentQuestion = 14;
   players[0].oxygen = 0;
   players[0].water = 0;
@@ -391,6 +466,8 @@ function playerDies () {
   displayQuestion();
 }
 function playerLives () {
+  console.log('playerLives');
+  gameOver = true;
   currentQuestion += 1;
   players[0].question += 1;
   players[0].oxygen += 1;

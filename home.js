@@ -14,6 +14,7 @@ var createText = function(msg){
     return;
   }
 };
+// createText.style.fontFamily = 'VT323';
 createText('Mission From Mars');
 
 // .style.fontFamily = 'VT323, monospace'

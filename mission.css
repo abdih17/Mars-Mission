@@ -391,17 +391,21 @@ Q9 Styling
 
 #q9img {
   position: relative;
-  margin-top: -20px;
-  top: -30px;
-  left: -10px;
+  margin-top: -31px;
   z-index: 0;
   width: 960px;
-  height: 440px;
+  height: 438px;
 }
 
 .q9 {
   position: relative;
-  top: -450px;
-  margin: 0;
+  top: -410px;
+  margin: 0 30px;
+  padding: 10px;
   z-index: 5;
+  background-color: rgba(55,55,55,0.75);
 }
+
+/************************
+Q10 Styling
+***********************/

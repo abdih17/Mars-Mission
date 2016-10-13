@@ -241,16 +241,20 @@ function handleQ2(event){
   event.preventDefault();
   var code = codeInput.securityCode.value;
   console.log(code);
-  if( code === doorCode){
+  if( code === doorCode) {
     playerLives();
-  } else if(players[0].oxygen === 0){
-    console.log('You died');
-    playerDies();
-  } else {
-    console.log('this is wrong');
+  }
+    // else if(players[0].oxygen === 0){
+    //   console.log('You died');
+    //   playerDies();
+    // }
+  else {
     players[0].oxygen -= 1;
     players[0].water -= 1;
-    return;
+    playerStats();
+    if (players[0].oxygen === 0 || players[0].water === 0) {
+      playerDies();
+    }
   }
 }
 

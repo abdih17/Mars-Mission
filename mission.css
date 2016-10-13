@@ -560,10 +560,12 @@ Q11 Styling
 }
 #launch_assembly li {
   display: inline-block;
+  padding-top: 20px;
 }
 #launch_assembly {
   padding: 0px;
   text-align: center;
+  margin: 0px 242px;
 }
 
 /************************

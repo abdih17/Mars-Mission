@@ -1,6 +1,6 @@
 body {
   background-image: url('imgs/martian_sitting.png');
-  background-position: left-top;
+  /*background-position: left-top;*/
   text-decoration: none;
   margin: 0;
 }
@@ -10,13 +10,10 @@ header {
   text-decoration: none;
 }
 h1 {
-  font-family: 'VT323';
+  font-family: 'Teko';
   color: white;
-  font-size: 60px;
+  font-size: 80px;
   display: inline;
-  position: absolute;
-  top: -30px;
-  left: 10px;
   text-decoration: none;
 }
 
@@ -30,6 +27,7 @@ li {
   display: inline;
   font-family: 'Audiowide';
   color: white;
+  font-size: 30px;
   padding: 0 20px;
   text-decoration: none;
 }
@@ -50,16 +48,28 @@ span {
 
 article {
   display: inline-block;
+  text-align: center;
+  font-family: 'U', monospace;
   margin-right: 50px;
   color: white;
   margin-right: 10px;
+  position: relative;
+  left: 20px;
+}
+
+.contentWrapper1, .contentWrapper2, .contentWrapper3, .contentWrapper4 {
+  width: 400px;
+  height: 400px;
+  background-color: rgba(48,48,48,0.75);
+  margin: 0 auto;
+  border: 3px solid black;
 }
 
 .colin, .hawa {
-  width: 35%;
+  width: 25%;
 }
 .andrew, .jonny {
-  width: 35%;
+  width: 25%;
   float: left;
 }
 

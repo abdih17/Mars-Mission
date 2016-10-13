@@ -16,23 +16,24 @@ function Player (loginName, password, playerName) {
   players.push(this);
 };
 
-/*************
+/************
 DOM Elements
-*************/
+************/
 
 var login = document.getElementById('submit_login');
-var video = document.getElementById('video1');
+var videoQ0 = document.getElementById('videoQ0');
 var submitQ1 = document.getElementById('submitQ1');
 var doorCode = genRandomString();
 var submitQ2 = document.getElementById('submitQ2');
 var submitQ3 = document.getElementById('submitQ3');
-var submitQ4 = document.getElementById('submitQ4');
+var videoQ4 = document.getElementById('videoQ4');
 var submitQ5 = document.getElementById('submitQ5');
 var submitQ6 = document.getElementById('submitQ6');
 var submitQ7 = document.getElementById('submitQ7');
 var submitQ8 = document.getElementById('submitQ8');
 var submitQ11 = document.getElementById('submitQ11');
 var restart = document.getElementById('restart_game');
+var videoQ13 = document.getElementById('videoQ13');
 
 /*************
 Define Actions
@@ -64,11 +65,11 @@ function displayQuestion() {
   console.log('start of function');
   if (currentQuestion === 0) {
     q0.setAttribute('style', 'display:block');
-    playVideo();
-    video.addEventListener('ended', videoEnded);
+    playVideoQ0();
+    videoQ0.addEventListener('ended', videoEndedQ0);
     setLocalStorage();
   } else if (currentQuestion === 1) {
-    video.removeEventListener('ended', videoEnded);
+    videoQ0.removeEventListener('ended', videoEndedQ0);
     q0.removeAttribute('style');
     genQ1();
     q1.setAttribute('style', 'display:block');
@@ -94,11 +95,12 @@ function displayQuestion() {
     submitQ3.removeEventListener('submit', handleQ3);
     q3.removeAttribute('style');
     q4.setAttribute('style', 'display:block');
-
-    submitQ4.addEventListener('click', handleQ4);
+    playVideoQ4();
+    videoQ4.addEventListener('ended', videoEndedQ4);
+    setLocalStorage();
     // setLocalStorage();
   } else if (currentQuestion === 5) {
-    submitQ4.removeEventListener('click', handleQ4);
+    videoQ4.removeEventListener('ended', videoEndedQ4);
     q4.removeAttribute('style');
     q5.setAttribute('style', 'display:block');
     submitQ5.addEventListener('submit', handleQ5);
@@ -148,8 +150,12 @@ function displayQuestion() {
   } else if (currentQuestion === 13) {
     q12.removeAttribute('style');
     q13.setAttribute('style', 'display:block');
+    playVideoQ13();
+    videoQ13.addEventListener('ended', videoEndedQ13);
+    setLocalStorage();
     // setLocalStorage();
-  } else if (currentQuestion === 14) {
+  } else if (currentQuestion === 14){
+    videoQ13.removeEventListener('ended', videoEndedQ13);
     q0.removeAttribute('style');
     q1.removeAttribute('style');
     q2.removeAttribute('style');
@@ -174,16 +180,16 @@ function displayQuestion() {
 Questions/Video Functionalities
 ******************************/
 // Question 0 JS
-function playVideo () {
-  video.setAttribute('style', 'display:none');
+function playVideoQ0 () {
+  videoQ0.setAttribute('style', 'display:none');
   setTimeout(function() {
-    video.removeAttribute('style');
-    video.setAttribute('style', 'display:block');
-    video.autoplay = true;
-    video.load();
+    videoQ0.removeAttribute('style');
+    videoQ0.setAttribute('style', 'display:block');
+    videoQ0.autoplay = true;
+    videoQ0.load();
   }, 5000);
 }
-function videoEnded () {
+function videoEndedQ0 () {
   currentQuestion += 1;
   players[0].question += 1;
   displayQuestion();
@@ -311,10 +317,20 @@ function handleQ3 () {
 }
 
 // Question 4 JS
-function handleQ4(){
-  event.preventDefault();
-  playerLives();
-};
+function playVideoQ4 () {
+  videoQ4.setAttribute('style', 'display:none');
+  setTimeout(function() {
+    videoQ4.removeAttribute('style');
+    videoQ4.setAttribute('style', 'display:block');
+    videoQ4.autoplay = true;
+    videoQ4.load();
+  }, 5000);
+}
+function videoEndedQ4 () {
+  currentQuestion += 1;
+  players[0].question += 1;
+  displayQuestion();
+}
 
 // Question 5 JS
 function handleQ5(event) {
@@ -359,10 +375,8 @@ function handleQ7 () {
 // Question 8 JS
 function handleQ8(event) {
   if (event.target.id === 'rightImg8') {
-    // ignore Nasa
     playerDies();
   } else if (event.target.id === 'leftImg8') {
-    // listen to Nasa
     playerLives();
     console.log('You are listening to Nasa');
   } else {
@@ -518,6 +532,21 @@ function playerLives () {
   setLocalStorage();
   displayQuestion();
 }
+function playVideoQ13 () {
+  videoQ13.setAttribute('style', 'display:none');
+  setTimeout(function() {
+    videoQ13.removeAttribute('style');
+    videoQ13.setAttribute('style', 'display:block');
+    videoQ13.autoplay = true;
+    videoQ13.load();
+  }, 5000);
+}
+function videoEndedQ13 () {
+  currentQuestion += 1;
+  players[0].question += 1;
+  displayQuestion();
+}
+
 //Show player Stats
 function playerStats () {
   var userName = document.getElementById('playerName');

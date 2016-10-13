@@ -16,23 +16,22 @@ function Player (loginName, password, playerName) {
   players.push(this);
 };
 
-/*************
+/************
 DOM Elements
-*************/
+************/
 
 var login = document.getElementById('submit_login');
 var videoQ0 = document.getElementById('videoQ0');
-var videoQ4 = document.getElementById('videoQ4');
-var videoQ13 = document.getElementById('videoQ13');
 var submitQ1 = document.getElementById('submitQ1');
 var submitQ2 = document.getElementById('submitQ2');
 var submitQ3 = document.getElementById('submitQ3');
-var submitQ4 = document.getElementById('submitQ4');
+var videoQ4 = document.getElementById('videoQ4');
 var submitQ5 = document.getElementById('submitQ5');
 var submitQ6 = document.getElementById('submitQ6');
 var submitQ7 = document.getElementById('submitQ7');
 var submitQ8 = document.getElementById('submitQ8');
 var submitQ11 = document.getElementById('submitQ11');
+var videoQ13 = document.getElementById('videoQ13');
 
 /*************
 Define Actions
@@ -94,12 +93,9 @@ function displayQuestion() {
     playVideoQ4();
     videoQ4.addEventListener('ended', videoEndedQ4);
     setLocalStorage();
-    submitQ4.addEventListener('click', handleQ4);
     // setLocalStorage();
   } else if (currentQuestion === 5) {
-    videoQ4.removeEventListener('ended', videoEndedQ4);
-    submitQ4.removeEventListener('click', handleQ4);
-    q4.removeAttribute('style');
+    videoQ4.removeEventListener('ended', videoEndedQ4);    q4.removeAttribute('style');
     q5.setAttribute('style', 'display:block');
     submitQ5.addEventListener('submit', handleQ5);
     // setLocalStorage();
@@ -168,7 +164,6 @@ function displayQuestion() {
     q12.removeAttribute('style');
     q13.removeAttribute('style');
     q14.setAttribute('style', 'display:block');
-    // setLocalStorage();
   }
 }
 
@@ -264,10 +259,6 @@ function handleQ3 () {
 }
 
 // Question 4 JS
-function handleQ4(){
-  event.preventDefault();
-  playerLives();
-};
 function playVideoQ4 () {
   videoQ4.setAttribute('style', 'display:none');
   setTimeout(function() {

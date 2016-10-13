@@ -243,12 +243,7 @@ function handleQ2(event){
   console.log(code);
   if( code === doorCode) {
     playerLives();
-  }
-    // else if(players[0].oxygen === 0){
-    //   console.log('You died');
-    //   playerDies();
-    // }
-  else {
+  } else {
     players[0].oxygen -= 1;
     players[0].water -= 1;
     playerStats();

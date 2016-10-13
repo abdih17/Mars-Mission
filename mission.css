@@ -26,9 +26,6 @@ li {
   padding: 0 20px;
 }
 
-article {
-  padding: 30px;
-}
 .contentWrapper {
   width: 960px;
   height: 500px;
@@ -59,6 +56,7 @@ article {
   margin: 20px 0;
   width: 450px;
 }
+
 
 #leftImg1 {
   width: 150px;
@@ -95,11 +93,8 @@ li {
   display: none;
   clear: both;
 }
-#leftChoice, #rightChoice {
-  cursor: pointer;
-}
 
-#video1 {
+#videoQ0, #videoQ4, #videoQ13{
   max-width: 600px;
   width: 400px;
   height: 400px;

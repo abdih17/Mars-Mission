@@ -298,6 +298,7 @@ Q6 Styling
 
 }
 
+/*Q9 Styling*/
 #rover {
   position: fixed;
   z-index: 2;
@@ -322,6 +323,18 @@ Q6 Styling
   z-index: 1;
 }
 
+
 /************************
 Q7 Styling
 ***********************/
+
+
+/*Q12 Styling*/
+#transport {
+  height: 50px;
+  width: 25px;
+}
+
+#orbiter {
+  width: 100px;
+}

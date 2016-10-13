@@ -63,9 +63,9 @@ article {
 .contentWrapper1, .contentWrapper2, .contentWrapper3, .contentWrapper4 {
   width: 400px;
   height: 400px;
-  background-color: rgba(48,48,48,0.75);
+  background-color: rgba(48,48,48,0.5);
   margin: 0 auto;
-  border: 3px solid black;
+  border: 3px solid transparent;
 }
 
 .colin, .hawa, .andrew, .jonny {

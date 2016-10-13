@@ -1,8 +1,8 @@
 body {
   background-image: url('imgs/martian_sitting.png');
-  background-position: left-top;
+  /*background-position: left-top;*/
   text-decoration: none;
-  margin: 0;
+  margin: 0 0;
 }
 
 header {
@@ -10,28 +10,30 @@ header {
   text-decoration: none;
 }
 h1 {
-  font-family: 'VT323';
+  font-family: 'Orbitron';
   color: white;
   font-size: 60px;
   display: inline;
   position: absolute;
-  top: -30px;
-  left: 10px;
+  top: -20px;
+  left: 15px;
+}
+
+a {
   text-decoration: none;
 }
 
 ul {
   float: right;
   margin: 25px 100px;
-  text-decoration: none;
 }
 
 li {
   display: inline;
   font-family: 'Audiowide';
   color: white;
+  font-size: 25px;
   padding: 0 20px;
-  text-decoration: none;
 }
 
 /*body {
@@ -50,18 +52,39 @@ span {
 
 article {
   display: inline-block;
+  text-align: center;
+  font-family: 'U', monospace;
   margin-right: 50px;
   color: white;
   margin-right: 10px;
+  position: relative;
+  left: -40px;
 }
 
+.contentWrapper1, .contentWrapper2, .contentWrapper3, .contentWrapper4 {
+  width: 400px;
+  height: 400px;
+  background-color: rgba(48,48,48,0.5);
+  margin: 0 auto;
+  border: 3px solid transparent;
+}
+
+.colin, .hawa, .andrew, .jonny {
+  margin: 10px 80px;
+  width: 25%;
+  margin-left: 50px;
+}
+/*
 .colin, .hawa {
-  width: 35%;
+  width: 25%;
+  float: left;
+  margin-left: 80px;
 }
 .andrew, .jonny {
-  width: 35%;
+  width: 25%;
   float: left;
-}
+  margin-left: 80px;
+}*/
 
 /*.colin {
   width: 50%;

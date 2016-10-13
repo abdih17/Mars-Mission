@@ -19,7 +19,7 @@ function Player (loginName, password, playerName) {
 /************
 DOM Elements
 ************/
-var button = document.getElementById('question_skip');
+// var button = document.getElementById('question_skip');
 var login = document.getElementById('submit_login');
 var videoQ0 = document.getElementById('videoQ0');
 var submitQ1 = document.getElementById('submitQ1');
@@ -102,9 +102,9 @@ function displayQuestion() {
     submitQ5.removeEventListener('submit', handleQ5);
     q5.removeAttribute('style');
     q6.setAttribute('style', 'display:block');
-    q6Imgs.addEventListener('click', handleQ6);
+    submitQ6.addEventListener('click', handleQ6);
   } else if (currentQuestion === 7) {
-    q6Imgs.removeEventListener('click', handleQ6);
+    submitQ6.removeEventListener('click', handleQ6);
     q6.removeAttribute('style');
     q7.setAttribute('style', 'display:block');
     submitQ7.addEventListener('submit', handleQ7);
@@ -257,7 +257,7 @@ function displayWaterFilter () {
     var question = document.getElementById('water_filter_order');
     images.removeAttribute('style');
     question.setAttribute('style', 'display:block');
-  }, 3000);
+  }, 300000);
 }
 function handleQ3 () {
   event.preventDefault();
@@ -312,9 +312,7 @@ function handleQ5(event) {
 
 // Question 6 JS
 function handleQ6(event){
-
   if (event.target.id === 'leftImg'){
-
     playerLives();
   } else if (event.target.id === 'centerImg'){
     playerDies();
@@ -347,7 +345,7 @@ function handleQ8(event) {
     playerLives();
     console.log('You are listening to Nasa');
   } else {
-    alert('You need to click on an image');
+    alert('You need to click on an answer');
   }
 }
 
@@ -630,7 +628,7 @@ function genRandomString () {
 /**************
 Execute Actions
 **************/
-button.addEventListener('click', playerLives);
+// button.addEventListener('click', playerLives);
 
 // set local storage function
 function setLocalStorage() {

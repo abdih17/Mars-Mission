@@ -31,6 +31,7 @@ var submitQ6 = document.getElementById('submitQ6');
 var submitQ7 = document.getElementById('submitQ7');
 var submitQ8 = document.getElementById('submitQ8');
 var submitQ11 = document.getElementById('submitQ11');
+var submitQ12 = document.getElementById('submitQ12');
 var videoQ13 = document.getElementById('videoQ13');
 
 /*************
@@ -457,16 +458,14 @@ function rendezvous(){
 
 function flyRight(){
   orbLeft = parseInt(imgOrbiter.style.left) + 1;
-  // console.log(imgLeft);
   imgOrbiter.style.left = parseInt(imgOrbiter.style.left) + 1 + 'px';
-  animate = setTimeout(moveRight,20); // call moveRight in 20msec
+  animate = setTimeout(flyRight,20);
 }
 
 function flyUp(){
   transUp = parseInt(imgTransport.style.top) - 1;
-  // console.log(imgUp);
   imgTransport.style.top = parseInt(imgTransport.style.top) - 1 + 'px';
-  animate = setTimeout(moveUp,10); // call moveRight in 20msec
+  animate = setTimeout(flyUp,10);
   if (transUp < 10 && transUp > -100 && orbLeft > 360 && orbLeft < 600) {
     console.log('You Win');
     return;

@@ -23,6 +23,7 @@ DOM Elements
 var login = document.getElementById('submit_login');
 var video = document.getElementById('video1');
 var submitQ1 = document.getElementById('submitQ1');
+var doorCode = genRandomString();
 var submitQ2 = document.getElementById('submitQ2');
 var submitQ3 = document.getElementById('submitQ3');
 var submitQ4 = document.getElementById('submitQ4');
@@ -69,6 +70,7 @@ function displayQuestion() {
   } else if (currentQuestion === 1) {
     video.removeEventListener('ended', videoEnded);
     q0.removeAttribute('style');
+    genQ1();
     q1.setAttribute('style', 'display:block');
     submitQ1.addEventListener('click', handleQ1);
     // setLocalStorage();
@@ -185,43 +187,61 @@ function videoEnded () {
 }
 
 // Question 1 JS
+function genQ1 () {
+  var wait = document.getElementById('wait');
+  var patch = document.getElementById('patch');
+  var crawl = document.getElementById('crawl');
+  wait.textContent = 'Wait for your team';
+  patch.textContent = 'Patch the wound';
+  crawl.textContent = 'Crawl to the base 200 meters away ' + doorCode;
+}
 function handleQ1(event) {
-  if (event.target.id === 'leftImg1') {
+  if (event.target.id === 'wait') {
     playerDies();
-  } else if (event.target.id === 'rightImg1') {
-    currentQuestion += 1;
-    players[0].question += 1;
-    players[0].oxygen -= 1;
-    players[0].water -= 1;
-    setLocalStorage();
-    displayQuestion();
-    // Fix your wound
+  } else if (event.target.id === 'patch') {
+    playerDies();
+  } else if (event.target.id === 'crawl') {
     playerLives();
-    console.log('You fix your wound.');
-    submitQ1.removeEventListener('click', handleQ1);
-    console.log('removed event listener');
-  } else if (event.target.id === 'centerImg1') {
-    currentQuestion += 1;
-    players[0].question += 1;
-    players[0].oxygen += 1;
-    players[0].water += 1;
-    setLocalStorage();
-    displayQuestion();
-    // Crawl to base
-    playerLives();
-    console.log('You crawl.');
-    submitQ1.removeEventListener('click', handleQ1);
-  } else {
-    console.log('you need to click on an image');
   }
 }
+
+// function handleQ1(event) {
+//   if (event.target.id === 'leftImg1') {
+//     playerDies();
+//   } else if (event.target.id === 'rightImg1') {
+//     currentQuestion += 1;
+//     players[0].question += 1;
+//     players[0].oxygen -= 1;
+//     players[0].water -= 1;
+//     setLocalStorage();
+//     displayQuestion();
+//     // Fix your wound
+//     playerLives();
+//     console.log('You fix your wound.');
+//     submitQ1.removeEventListener('click', handleQ1);
+//     console.log('removed event listener');
+//   } else if (event.target.id === 'centerImg1') {
+//     currentQuestion += 1;
+//     players[0].question += 1;
+//     players[0].oxygen += 1;
+//     players[0].water += 1;
+//     setLocalStorage();
+//     displayQuestion();
+//     // Crawl to base
+//     playerLives();
+//     console.log('You crawl.');
+//     submitQ1.removeEventListener('click', handleQ1);
+//   } else {
+//     console.log('you need to click on an image');
+//   }
+// }
 
 // Question 2 JS
 function handleQ2(event){
   event.preventDefault();
   var code = codeInput.securityCode.value;
   console.log(code);
-  if( code === '1234'){
+  if( code === doorCode){
     playerLives();
   } else if(players[0].oxygen === 0){
     console.log('You died');
@@ -393,9 +413,6 @@ function playerStats () {
   var userName = document.getElementById('playerName');
   var oxygen = document.getElementById('oxygen_stats');
   var water = document.getElementById('water_stats');
-  var image = document.createElement('img');
-  image.src = 'imgs/health_bar.png';
-  oxygen.appendChild(image);
   userName.textContent = 'Martian: ' + players[0].login;
   oxygen.textContent = 'Oxygen: ' + players[0].oxygen;
   water.textContent = 'Water: ' + players[0].water;
@@ -411,6 +428,17 @@ function restartGame () {
   displayQuestion();
   q14.removeAttribute('style');
 }
+
+//Generate a random door code
+function genRandomString () {
+  var code = '';
+  var codePossible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  for (var i = 0; i < 5; i++) {
+    code += codePossible.charAt(Math.floor(Math.random() * codePossible.length));
+  }
+  return code;
+};
+
 /**************
 Execute Actions
 **************/

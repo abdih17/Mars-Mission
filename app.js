@@ -42,13 +42,11 @@ Define Actions
 *************/
 // check and load local storage
 if (localStorage.getItem('playersData')){
-  console.log('Checks and finds local storage.');
   players = [];
   players = JSON.parse(localStorage.getItem('playersData'));
   currentQuestion = players[0].question;
   displayQuestion();
 } else {
-  console.log('Checks and doesn\'t find local storage.');
 //event listener for player login
   function getUserLogin(){
     var player = createUser.username.value;
@@ -64,7 +62,6 @@ Display Question Functions
 **************************/
 function displayQuestion() {
   playerStats();
-  console.log('start of function');
   if (currentQuestion === 0) {
     q0.setAttribute('style', 'display:block');
     playVideoQ0();
@@ -317,11 +314,10 @@ function handleQ5(event) {
 
 // Question 6 JS
 function handleQ6(event){
-  console.log('start of function');
+
   if (event.target.id === 'leftImg'){
-    console.log('leftImg');
+
     playerLives();
-    console.log('leftImg');
   } else if (event.target.id === 'centerImg'){
     playerDies();
   } else if (event.target.id === 'rightImg'){
@@ -528,10 +524,12 @@ function handleQ11 () {
 var imgOrbiter = null;
 var imgTransport = null;
 var animate;
-var orbLeft;
-var transUp;
+var orbLeft = 0;
+var transUp = 0;
+var game2over = true;
 
 function rendezvous(){
+  game2over = false;
   imgOrbiter = document.getElementById('orbiter');
   imgTransport = document.getElementById('transport');
   imgOrbiter.style.position = 'relative';
@@ -544,22 +542,28 @@ function rendezvous(){
 }
 
 function flyRight(){
+  if (game2over) {
+    return;
+  }
   orbLeft = parseInt(imgOrbiter.style.left) + 1;
-  // console.log('OrbLeft = ' + orbLeft);
   imgOrbiter.style.left = parseInt(imgOrbiter.style.left) + 1 + 'px';
   animate = setTimeout(flyRight,20);
-  if (orbLeft > 600) {
+  if (orbLeft > 590) {
+    game2over = true;
     playerDies();
     return;
   }
 }
 
 function handleQ12(){
+  if (game2over) {
+    return;
+  }
   transUp = parseInt(imgTransport.style.top) - 1;
-  console.log('transUp = ' + transUp);
   imgTransport.style.top = parseInt(imgTransport.style.top) - 1 + 'px';
   animate = setTimeout(handleQ12,17);
-  if (transUp < -30 && transUp > -60 && orbLeft > 480 && orbLeft < 530) {
+  if (transUp < 10 && transUp > -30 && orbLeft > 515 && orbLeft < 575) {
+    game2over = true;
     playerLives();
     return;
   }
@@ -567,7 +571,6 @@ function handleQ12(){
 
 // Question 13 JS
 function playerDies () {
-  console.log('playerDies');
   gameOver = true;
   currentQuestion = 14;
   players[0].oxygen = 0;
@@ -577,7 +580,6 @@ function playerDies () {
   displayQuestion();
 }
 function playerLives () {
-  console.log('playerLives');
   gameOver = true;
   currentQuestion += 1;
   players[0].question += 1;
@@ -639,7 +641,6 @@ button.addEventListener('click', playerLives);
 
 // set local storage function
 function setLocalStorage() {
-  console.log('Setting Local Storage');
   var playersString = JSON.stringify(players);
   localStorage.setItem('playersData', playersString);
 };

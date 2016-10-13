@@ -286,7 +286,7 @@ function playVideoQ4 () {
     videoQ4.setAttribute('style', 'display:block');
     videoQ4.autoplay = true;
     videoQ4.load();
-  }, 5000);
+  }, 3000);
 }
 function videoEndedQ4 () {
   currentQuestion += 1;
@@ -614,7 +614,7 @@ function playerStats () {
 }
 
 //Restart Game
-function restartGame () {
+function restartGame() {
   currentQuestion = 0;
   players[0].question = 0;
   players[0].oxygen = 4;

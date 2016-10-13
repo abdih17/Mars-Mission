@@ -394,6 +394,7 @@ function moveRight(){
   imgObj.style.left = parseInt(imgObj.style.left) + 1 + 'px';
   if (!gameOver) setTimeout(moveRight,20);
   if (imgLeft > 600) {
+    gameOver = true;
     playerDies();
   }
 }
@@ -404,6 +405,7 @@ function moveLeft(){
   imgObj.style.left = parseInt(imgObj.style.left) - 1 + 'px';
   if (!gameOver) setTimeout(moveLeft,20);
   if (imgLeft < -200) {
+    gameOver = true;
     playerLives();
   }
 }
@@ -413,6 +415,7 @@ function moveUp(){
   imgObj.style.top = parseInt(imgObj.style.top) - 1 + 'px';
   if (!gameOver) setTimeout(moveUp,20);
   if (imgTop < 0) {
+    gameOver = true;
     playerDies();
   }
 }
@@ -422,6 +425,7 @@ function moveDown(){
   imgObj.style.top = parseInt(imgObj.style.top) + 1 + 'px';
   if (!gameOver) setTimeout(moveDown,20);
   if (imgTop > 330) {
+    gameOver = true;
     playerDies();
   }
 }
@@ -556,6 +560,7 @@ function flyRight(){
 }
 
 function handleQ12(){
+  console.log('handleQ12');
   if (game2over) {
     return;
   }

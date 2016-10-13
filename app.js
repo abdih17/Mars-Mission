@@ -102,9 +102,9 @@ function displayQuestion() {
     submitQ5.removeEventListener('submit', handleQ5);
     q5.removeAttribute('style');
     q6.setAttribute('style', 'display:block');
-    q6Imgs.addEventListener('click', handleQ6);
+    submitQ6.addEventListener('click', handleQ6);
   } else if (currentQuestion === 7) {
-    q6Imgs.removeEventListener('click', handleQ6);
+    submitQ6.removeEventListener('click', handleQ6);
     q6.removeAttribute('style');
     q7.setAttribute('style', 'display:block');
     submitQ7.addEventListener('submit', handleQ7);
@@ -390,7 +390,6 @@ document.onkeydown = function(e) {
 
 function moveRight(){
   imgLeft = parseInt(imgObj.style.left) + 1;
-  console.log(imgLeft);
   imgObj.style.left = parseInt(imgObj.style.left) + 1 + 'px';
   if (!gameOver) setTimeout(moveRight,20);
   if (imgLeft > 900 && !gameOver) {
@@ -401,7 +400,6 @@ function moveRight(){
 
 function moveLeft(){
   imgLeft = parseInt(imgObj.style.left) - 1;
-  console.log(imgLeft);
   imgObj.style.left = parseInt(imgObj.style.left) - 1 + 'px';
   if (!gameOver) setTimeout(moveLeft,20);
   if (imgLeft < 50 && !gameOver) {
@@ -560,7 +558,6 @@ function flyRight(){
 }
 
 function handleQ12(){
-  console.log('handleQ12');
   if (game2over) {
     return;
   }

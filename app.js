@@ -19,7 +19,7 @@ function Player (loginName, password, playerName) {
 /************
 DOM Elements
 ************/
-
+var button = document.getElementById('question_skip');
 var login = document.getElementById('submit_login');
 var videoQ0 = document.getElementById('videoQ0');
 var submitQ1 = document.getElementById('submitQ1');
@@ -635,6 +635,7 @@ function genRandomString () {
 /**************
 Execute Actions
 **************/
+button.addEventListener('click', playerLives);
 
 // set local storage function
 function setLocalStorage() {

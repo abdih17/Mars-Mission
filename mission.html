@@ -34,13 +34,11 @@
       <article id="q1">
         <p class="q1">...You wake up, unsure of where you are...but you can remember your code name.</p>
         <p>Your oxygen levels are critically low and your suit is leaking oxygen from a puncture wound. What are you going to do?</p>
-        <div id="submitQ1">
-          <ul>
-            <li id="wait"></li>
-            <li id="patch"></li>
-            <li id="crawl"></li>
-          </ul>
-        </div>
+        <section id="submitQ1">
+            <div id="wait"></div>
+            <div id="patch"></div>
+            <div id="crawl"></div>
+        </section>
       </article>
       <article id="q2">
         <p class="Q2">After choosing to abort the mission and flee Mars due to the storm your team left the base. The base by design is self locking. In order to get inside you must enter the door code that was given to you on the previous question. What is the code?</p>
@@ -122,21 +120,19 @@
         <p class="q7">In order to fix the base communication device you need to input the correct code. Thankfully the base communications computer was written using javascript. In order to fix the communication device you need to create an object literal that includes your name, your mission number, and has a method to send Nasa a message (via alert) of “I AM ALIVE”.</p>
         <form id="submitQ7">
           <textarea name="add_js" rows="1" cols="30"></textarea>
-          <button name="button" type="submit">Submit Code</button>
+          <button name="button" type="submit" id="q7SubmitButton">Submit Code</button>
         </form>
       </article>
       <article id="q8">
         <p class="q8">Nasa is surprised to hear from you and they immediately started working on a rescue plan. After several days of waiting you get a communication instructing you to travel over 1,000 km to the West in order to reach the mission site for Mars Mission 3.</p>
-        <div id="submitQ8">
-          <ul>
-            <li><img src="http://placehold.it/150?text=Listen+To+NASA" id="leftImg8"></li>
-            <li><img src="http://placehold.it/150?text=Ignore+NASA+and+Stay" id="rightImg8"></li>
-          </ul>
-        </div>
+        <section id="submitQ8">
+          <div id="leftImg8">Listen to NASA</div>
+          <div id="rightImg8">Ignore NASA and stay.</div>
+        </section>
       </article>
       <article id="q9">
-        <img id="myImage" src="imgs/mars_rover_new.png" id="rover"/>
-        <!-- <img src="http://cdn.phys.org/newman/gfx/news/hires/468-20100306-6547-6-co-01-MagelhaensCrater_H1.jpg" id="q9img"> -->
+        <img id="myImage" src="imgs/mars_rover.png" />
+        <img src="http://cdn.phys.org/newman/gfx/news/hires/468-20100306-6547-6-co-01-MagelhaensCrater_H1.jpg" id="q9img">
         <p class="q9">The day has finally come for you to leave and head to Mars Mission 3 base. Which direction do you head?</p><br>
         </section>
       </article>

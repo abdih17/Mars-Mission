@@ -109,6 +109,9 @@ li {
   top: -100px;
 }
 
+/*#q9bg {
+  background-image: url("http://cdn.phys.org/newman/gfx/news/hires/468-20100306-6547-6-co-01-MagelhaensCrater_H1.jpg");
+}*/
 /************************
 Q2 Styling
 ***********************/
@@ -297,6 +300,31 @@ Q6 Styling
 #rightImg:hover {
   color:white;
   background-color: rgba(203,203,203,0.25);
+
+}
+
+#rover {
+  position: fixed;
+  z-index: 2;
+  height: 10px;
+  width: 20px;
+}
+
+#q9img {
+  position: relative;
+  margin-top: -20px;
+  top: -30px;
+  left: -10px;
+  z-index: 0;
+  width: 960px;
+  height: 440px;
+}
+
+.q9 {
+  position: relative;
+  top: -450px;
+  margin: 0;
+  z-index: 1;
 }
 
 /************************

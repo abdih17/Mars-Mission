@@ -28,11 +28,35 @@ li {
 
 .contentWrapper {
   width: 960px;
-  height: 400px;
+  height: 500px;
   background-color: rgba(48,48,48,0.75);
   margin: 0 auto;
   border: 3px solid black;
 }
+
+.playerInfo {
+  height: 60px;
+  border-bottom: 2px solid lightgrey;
+  padding: 0 20px;
+}
+
+#playerName {
+  font-size: 25px;
+  color: lightblue;
+  float: left;
+}
+#oxygen_stats, #water_stats {
+  background-image: url("imgs/health_bar.png");
+  background-repeat: no-repeat;
+  padding: 0 30px;
+  float: right;
+}
+.healthStats {
+  float: right;
+  margin: 20px 0;
+  width: 450px;
+}
+
 
 #leftImg1 {
   width: 150px;
@@ -144,7 +168,7 @@ select {
   font-family: 'Exo', sans-serif;
   font-size: 16px;
   display: block;
-  width: 250px;
+  width: 400px;
   margin: 10px auto;
   padding: 10px;
   cursor: pointer;
@@ -218,6 +242,7 @@ Q6 Styling
   display: flex;
   justify-content: space-between;
 }
+
 #leftImg {
   width: 200px;
   height: 150px;
@@ -296,3 +321,7 @@ Q6 Styling
   margin: 0;
   z-index: 1;
 }
+
+/************************
+Q7 Styling
+***********************/

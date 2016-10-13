@@ -104,9 +104,61 @@ li {
   top: -100px;
 }
 
-/*#q9bg {
-  background-image: url("http://cdn.phys.org/newman/gfx/news/hires/468-20100306-6547-6-co-01-MagelhaensCrater_H1.jpg");
-}*/
+/************************
+Q1 Styling
+***********************/
+
+#submitQ1 {
+  width: 900px;
+  margin: 100px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+#wait {
+  width: 250px;
+  height: 100px;
+  font-size: 25px;
+  color: lightgreen;
+  transition: color 300ms;
+  transition: background-color 300ms;
+  cursor:pointer;
+}
+
+#wait:hover {
+  color:white;
+  background-color: rgba(203,203,203,0.25);
+}
+
+#patch {
+  width: 250px;
+  height: 100px;
+  font-size: 25px;
+  color: lightgreen;
+  transition: color 300ms;
+  transition: background-color 300ms;
+  cursor:pointer;
+}
+
+#patch:hover {
+  color:white;
+  background-color: rgba(203,203,203,0.25);
+}
+
+#crawl {
+  width: 250px;
+  height: 100px;
+  font-size: 25px;
+  color: lightgreen;
+  transition: color 300ms;
+  transition: background-color 300ms;
+  cursor:pointer;
+}
+
+#crawl:hover {
+  color:white;
+  background-color: rgba(203,203,203,0.25);
+}
 /************************
 Q2 Styling
 ***********************/
@@ -139,6 +191,11 @@ Q2 Styling
   margin: 0 auto;
   padding: 20px;
   cursor: pointer;
+  transition: color 300ms;
+}
+
+#submitQ2:hover {
+  color: lightgreen;
 }
 
 /************************
@@ -298,34 +355,118 @@ Q6 Styling
 
 }
 
-/*Q9 Styling*/
-#rover {
-  position: fixed;
-  z-index: 2;
-  height: 10px;
-  width: 20px;
+/************************
+Q7 Styling
+***********************/
+
+#submitQ7 textarea {
+  height: 20px;
+  width: 300px;
+  background-color: rgba(55,55,55,0.75);
+  color: lightgreen;
+  border-color: black;
+  font-family: 'Exo', sans-serif;
+  text-align: center;
+  font-size: 16px;
+  display: block;
+  margin: 0 auto;
+}
+
+#submitQ7 {
+  margin: 100px auto;
+}
+
+#q7SubmitButton {
+  background: none;
+  border: none;
+  color: lightgrey;
+  font-family: 'Exo', sans-serif;
+  font-size: 16px;
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+  padding: 20px;
+  cursor: pointer;
+  transition: color 300ms;
+}
+
+#q7SubmitButton:hover {
+  color: lightgreen;
+}
+
+/************************
+Q8 Styling
+***********************/
+
+#submitQ8 {
+  display: block;
+  width: 600px;
+  margin: 100px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+#leftImg8 {
+  width: 250px;
+  height: 50px;
+  font-size: 25px;
+  color: lightgreen;
+  transition: color 300ms;
+  transition: background-color 300ms;
+  cursor:pointer;
+}
+
+#leftImg8:hover {
+  color:white;
+  background-color: rgba(203,203,203,0.25);
+}
+
+#rightImg8 {
+  width: 250px;
+  height: 50px;
+  font-size: 25px;
+  color: lightgreen;
+  transition: color 300ms;
+  transition: background-color 300ms;
+  cursor:pointer;
+}
+
+#rightImg8:hover {
+  color:white;
+  background-color: rgba(203,203,203,0.25);
+}
+
+/************************
+Q9 Styling
+***********************/
+
+#myImage {
+  position: relative;
+  z-index: 10;
+  width: 60px;
+
 }
 
 #q9img {
   position: relative;
-  margin-top: -20px;
-  top: -30px;
-  left: -10px;
+  margin-top: -31px;
   z-index: 0;
   width: 960px;
-  height: 440px;
+  height: 438px;
 }
 
 .q9 {
   position: relative;
-  top: -450px;
-  margin: 0;
-  z-index: 1;
+  top: -410px;
+  margin: 0 30px;
+  padding: 10px;
+  z-index: 5;
+  background-color: rgba(55,55,55,0.75);
 }
 
 
 /************************
-Q7 Styling
+Q10 Styling
 ***********************/
 
 

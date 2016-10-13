@@ -26,6 +26,10 @@ li {
   padding: 0 20px;
 }
 
+.youDiedOfDysentery{
+  margin-top: -3px;
+}
+
 .contentWrapper {
   width: 960px;
   height: 500px;
@@ -102,6 +106,7 @@ li {
   position: relative;
   left: 280px;
   top: -100px;
+  margin-top: 20px;
 }
 
 /************************

@@ -254,6 +254,13 @@ function handleQ2(event){
 }
 
 // Question 3 JS
+var waterRandom = [];
+function waterFilterRandom () {
+  var repeatNumber = false;
+  for (var i = 0; i < 3; i++) {
+    var randomNumber = waterRandom.push(Math.ceil(Math.random() * (4 - 1)) + 0);
+  }
+}
 function displayWaterFilter () {
   var images = document.getElementById('water_filter');
   images.setAttribute('style', 'display:block');
@@ -263,6 +270,7 @@ function displayWaterFilter () {
     question.setAttribute('style', 'display:block');
   }, 5000);
 }
+waterFilterRandom();
 function handleQ3 () {
   event.preventDefault();
   var filter = parseInt(event.target.filter.value);

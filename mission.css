@@ -558,6 +558,13 @@ Q11 Styling
 #q11SubmitButton:hover {
   color: lightgreen;
 }
+#launch_assembly li {
+  display: inline-block;
+}
+#launch_assembly {
+  padding: 0px;
+  text-align: center;
+}
 
 /************************
 Q12 Styling

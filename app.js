@@ -257,7 +257,7 @@ function displayWaterFilter () {
     var question = document.getElementById('water_filter_order');
     images.removeAttribute('style');
     question.setAttribute('style', 'display:block');
-  }, 300000);
+  }, 3000);
 }
 function handleQ3 () {
   event.preventDefault();
@@ -431,8 +431,7 @@ function handleQ10(event){
     playerDies();
   } else if (event.target.id === 'drive_through' && randomNum < 0.33){
     console.log('The storm was rough but you managed to make it through');
-    currentQuestion += 1;
-    displayQuestion();
+    playerLives();
   } else if (event.target.id === 'drive_around' && players[0].oxygen <= 2){
     console.log('You ran out of essential resources and died');
     playerDies();
@@ -441,8 +440,7 @@ function handleQ10(event){
     playerDies();
   } else if (event.target.id === 'drive_around') {
     console.log('it took awhile but thankfully you finally made it');
-    currentQuestion += 1;
-    displayQuestion();
+    playerLives();
   }
 }
 
@@ -567,6 +565,7 @@ function handleQ12(){
 
 // Question 13 JS
 function playerDies () {
+  console.log('playerdies');
   gameOver = true;
   currentQuestion = 14;
   players[0].oxygen = 0;
@@ -576,6 +575,7 @@ function playerDies () {
   displayQuestion();
 }
 function playerLives () {
+  console.log('player lives');
   gameOver = true;
   currentQuestion += 1;
   players[0].question += 1;

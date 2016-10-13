@@ -83,6 +83,8 @@ function displayQuestion() {
     // setLocalStorage();
   } else if (currentQuestion === 3) {
     submitQ2.removeEventListener('click', handleQ2);
+    waterFilterRandom();
+    genQ3();
     q2.removeAttribute('style');
     q3.setAttribute('style', 'display:block');
     displayWaterFilter();
@@ -259,9 +261,34 @@ var waterRandom = [];
 function waterFilterRandom () {
   var repeatNumber = false;
   for (var i = 0; i < 3; i++) {
-    var randomNumber = waterRandom.push(Math.ceil(Math.random() * (4 - 1)) + 0);
+    var randomNumber = Math.ceil(Math.random() * (4 - 1)) + 0;
+    for (var a = 0; a < waterRandom.length; a++) {
+      if (randomNumber === waterRandom[a]) {
+        repeatNumber = true;
+        while (repeatNumber === true) {
+          randomNumber = Math.ceil(Math.random() * (4 - 1)) + 0;
+          if (randomNumber === waterRandom[0]) {
+            repeatNumber = true;
+          } else if (randomNumber === waterRandom[1]) {
+            repeatNumber = true;
+          } else {
+            repeatNumber = false;
+          }
+        }
+      }
+    }
+    waterRandom.push(randomNumber);
   }
 }
+function genQ3 () {
+  var filter = document.getElementById('left3');
+  var converter = document.getElementById('center3');
+  var holdingTank = document.getElementById('right3');
+  filter.textContent = waterRandom[0] + ' Filter';
+  converter.textContent = waterRandom[1] + ' Converter';
+  holdingTank.textContent = waterRandom[2] + ' Holding Tank';
+}
+
 function displayWaterFilter () {
   var images = document.getElementById('water_filter');
   images.setAttribute('style', 'display:block');
@@ -271,13 +298,12 @@ function displayWaterFilter () {
     question.setAttribute('style', 'display:block');
   }, 5000);
 }
-waterFilterRandom();
 function handleQ3 () {
   event.preventDefault();
   var filter = parseInt(event.target.filter.value);
   var converter = parseInt(event.target.converter.value);
   var holdingTank = parseInt(event.target.holding_tank.value);
-  if (filter === 1 && converter === 2 && holdingTank === 3) {
+  if (filter === waterRandom[0] && converter === waterRandom[1] && holdingTank === waterRandom[2]) {
     playerLives();
   } else {
     playerDies();

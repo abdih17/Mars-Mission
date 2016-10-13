@@ -324,3 +324,12 @@ Q6 Styling
   margin: 0;
   z-index: 1;
 }
+
+#transport {
+  height: 50px;
+  width: 25px;
+}
+
+#orbiter {
+  width: 100px;
+}

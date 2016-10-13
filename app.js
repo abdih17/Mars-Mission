@@ -70,63 +70,53 @@ function displayQuestion() {
     q0.removeAttribute('style');
     q1.setAttribute('style', 'display:block');
     submitQ1.addEventListener('click', handleQ1);
-    // setLocalStorage();
     console.log('Question 1');
   } else if (currentQuestion === 2) {
     submitQ1.removeEventListener('click', handleQ1);
     q1.removeAttribute('style');
     q2.setAttribute('style', 'display:block');
     submitQ2.addEventListener('click', handleQ2);
-    // setLocalStorage();
   } else if (currentQuestion === 3) {
     submitQ2.removeEventListener('click', handleQ2);
     q2.removeAttribute('style');
     q3.setAttribute('style', 'display:block');
     displayWaterFilter();
     submitQ3.addEventListener('submit', handleQ3);
-    // setLocalStorage();
   } else if (currentQuestion === 4) {
     submitQ3.removeEventListener('submit', handleQ3);
     q3.removeAttribute('style');
     q4.setAttribute('style', 'display:block');
 
     submitQ4.addEventListener('click', handleQ4);
-    // setLocalStorage();
   } else if (currentQuestion === 5) {
     submitQ4.removeEventListener('click', handleQ4);
     q4.removeAttribute('style');
     q5.setAttribute('style', 'display:block');
     submitQ5.addEventListener('submit', handleQ5);
-    // setLocalStorage();
   } else if (currentQuestion === 6) {
     submitQ5.removeEventListener('submit', handleQ5);
     q5.removeAttribute('style');
     q6.setAttribute('style', 'display:block');
     q6Imgs.addEventListener('click', handleQ6);
-    // setLocalStorage();
   } else if (currentQuestion === 7) {
     q6Imgs.removeEventListener('click', handleQ6);
     q6.removeAttribute('style');
     q7.setAttribute('style', 'display:block');
     submitQ7.addEventListener('submit', handleQ7);
-    // setLocalStorage();
   } else if (currentQuestion === 8) {
     submitQ7.removeEventListener('submit', handleQ7);
     q7.removeAttribute('style');
     q8.setAttribute('style', 'display:block');
     submitQ8.addEventListener('click', handleQ8);
-    // setLocalStorage();
   } else if (currentQuestion === 9) {
     submitQ8.removeEventListener('click', handleQ8);
     q8.removeAttribute('style');
     q9.setAttribute('style', 'display:block');
     init();
-    // setLocalStorage();
   } else if (currentQuestion === 10) {
     q9.removeAttribute('style');
     q10.setAttribute('style', 'display:block');
     getQ10Choices.addEventListener('click', throughTheStorm);
-    // setLocalStorage();
   } else if (currentQuestion === 11) {
     getQ10Choices.removeEventListener('click', throughTheStorm);
     console.log('should be 11');
@@ -134,16 +124,14 @@ function displayQuestion() {
     q11.setAttribute('style', 'display:block');
     displayLaunchAssembly();
     submitQ11.addEventListener('submit', handleQ11);
-    // setLocalStorage();
   } else if (currentQuestion === 12) {
     submitQ11.removeEventListener('submit', handleQ11);
     q11.removeAttribute('style');
     q12.setAttribute('style', 'display:block');
-    // setLocalStorage();
   } else if (currentQuestion === 13) {
     q12.removeAttribute('style');
     q13.setAttribute('style', 'display:block');
-    // setLocalStorage();
+    rendezvous();
   } else if (currentQuestion === 14) {
     q0.removeAttribute('style');
     q1.removeAttribute('style');
@@ -332,7 +320,6 @@ function init() {
 
 document.onkeydown = function(e) {
   if (gameOver) {
-    console.log('gameOver');
     return;
   }
   switch (e.keyCode) {
@@ -387,8 +374,6 @@ function moveDown(){
   }
 }
 
-// window.onload = init;
-
 
 // Question 10 JS
 var randomNum = Math.random();
@@ -440,6 +425,42 @@ function handleQ11 () {
 }
 
 // Question 12 JS
+var imgOrbiter = null;
+var imgTransport = null;
+var animate;
+var orbLeft;
+var transUp;
+
+function rendezvous(){
+  imgOrbiter = document.getElementById('orbiter');
+  imgTransport = document.getElementById('transport');
+  imgOrbiter.style.position = 'relative';
+  imgOrbiter.style.left = '0px';
+  imgOrbiter.style.top = '0px';
+  imgTransport.style.position = 'relative';
+  imgTransport.style.left = '800px';
+  imgTransport.style.top = '490px';
+  flyRight();
+}
+
+function flyRight(){
+  orbLeft = parseInt(imgOrbiter.style.left) + 1;
+  // console.log(imgLeft);
+  imgOrbiter.style.left = parseInt(imgOrbiter.style.left) + 1 + 'px';
+  animate = setTimeout(moveRight,20); // call moveRight in 20msec
+}
+
+function flyUp(){
+  transUp = parseInt(imgTransport.style.top) - 1;
+  // console.log(imgUp);
+  imgTransport.style.top = parseInt(imgTransport.style.top) - 1 + 'px';
+  animate = setTimeout(moveUp,10); // call moveRight in 20msec
+  if (transUp < 10 && transUp > -100 && orbLeft > 360 && orbLeft < 600) {
+    console.log('You Win');
+    return;
+  }
+}
+
 
 
 // Question 13 JS

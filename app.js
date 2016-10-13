@@ -33,6 +33,7 @@ var submitQ7 = document.getElementById('submitQ7');
 var submitQ8 = document.getElementById('submitQ8');
 var submitQ10 = document.getElementById('submitQ10');
 var submitQ11 = document.getElementById('submitQ11');
+var submitQ12 = document.getElementById('submitQ12');
 var restart = document.getElementById('restart_game');
 var videoQ13 = document.getElementById('videoQ13');
 
@@ -41,13 +42,11 @@ Define Actions
 *************/
 // check and load local storage
 if (localStorage.getItem('playersData')){
-  console.log('Checks and finds local storage.');
   players = [];
   players = JSON.parse(localStorage.getItem('playersData'));
   currentQuestion = players[0].question;
   displayQuestion();
 } else {
-  console.log('Checks and doesn\'t find local storage.');
 //event listener for player login
   function getUserLogin(){
     var player = createUser.username.value;
@@ -63,7 +62,6 @@ Display Question Functions
 **************************/
 function displayQuestion() {
   playerStats();
-  console.log('start of function');
   if (currentQuestion === 0) {
     q0.setAttribute('style', 'display:block');
     playVideoQ0();
@@ -136,7 +134,10 @@ function displayQuestion() {
     submitQ11.removeEventListener('submit', handleQ11);
     q11.removeAttribute('style');
     q12.setAttribute('style', 'display:block');
+    submitQ12.addEventListener('click', handleQ12);
+    rendezvous();
   } else if (currentQuestion === 13) {
+    submitQ12.removeEventListener('click', handleQ12);
     q12.removeAttribute('style');
     q13.setAttribute('style', 'display:block');
     playVideoQ13();
@@ -313,11 +314,10 @@ function handleQ5(event) {
 
 // Question 6 JS
 function handleQ6(event){
-  console.log('start of function');
+
   if (event.target.id === 'leftImg'){
-    console.log('leftImg');
+
     playerLives();
-    console.log('leftImg');
   } else if (event.target.id === 'centerImg'){
     playerDies();
   } else if (event.target.id === 'rightImg'){
@@ -363,14 +363,13 @@ var gameOver = true;
 function init() {
   imgObj = document.getElementById('myImage');
   imgObj.style.position = 'relative';
-  imgObj.style.left = '400px';
-  imgObj.style.top = '150px';
+  imgObj.style.left = '200px';
+  imgObj.style.top = '200px';
   gameOver = false;
 }
 
 document.onkeydown = function(e) {
   if (gameOver) {
-    console.log('gameOver');
     return;
   }
   switch (e.keyCode) {
@@ -391,18 +390,20 @@ document.onkeydown = function(e) {
 
 function moveRight(){
   imgLeft = parseInt(imgObj.style.left) + 1;
+  console.log(imgLeft);
   imgObj.style.left = parseInt(imgObj.style.left) + 1 + 'px';
   if (!gameOver) setTimeout(moveRight,20);
-  if (imgLeft > 800) {
+  if (imgLeft > 600) {
     playerDies();
   }
 }
 
 function moveLeft(){
   imgLeft = parseInt(imgObj.style.left) - 1;
+  console.log(imgLeft);
   imgObj.style.left = parseInt(imgObj.style.left) - 1 + 'px';
   if (!gameOver) setTimeout(moveLeft,20);
-  if (imgLeft < 0) {
+  if (imgLeft < -200) {
     playerLives();
   }
 }
@@ -424,8 +425,6 @@ function moveDown(){
     playerDies();
   }
 }
-
-// window.onload = init;
 
 
 // Question 10 JS
@@ -522,11 +521,56 @@ function handleQ11 () {
 }
 
 // Question 12 JS
+var imgOrbiter = null;
+var imgTransport = null;
+var animate;
+var orbLeft = 0;
+var transUp = 0;
+var game2over = true;
 
+function rendezvous(){
+  game2over = false;
+  imgOrbiter = document.getElementById('orbiter');
+  imgTransport = document.getElementById('transport');
+  imgOrbiter.style.position = 'relative';
+  imgOrbiter.style.left = '0px';
+  imgOrbiter.style.top = '-25px';
+  imgTransport.style.position = 'relative';
+  imgTransport.style.left = '500px';
+  imgTransport.style.top = '290px';
+  flyRight();
+}
+
+function flyRight(){
+  if (game2over) {
+    return;
+  }
+  orbLeft = parseInt(imgOrbiter.style.left) + 1;
+  imgOrbiter.style.left = parseInt(imgOrbiter.style.left) + 1 + 'px';
+  animate = setTimeout(flyRight,20);
+  if (orbLeft > 590) {
+    game2over = true;
+    playerDies();
+    return;
+  }
+}
+
+function handleQ12(){
+  if (game2over) {
+    return;
+  }
+  transUp = parseInt(imgTransport.style.top) - 1;
+  imgTransport.style.top = parseInt(imgTransport.style.top) - 1 + 'px';
+  animate = setTimeout(handleQ12,17);
+  if (transUp < 10 && transUp > -30 && orbLeft > 515 && orbLeft < 575) {
+    game2over = true;
+    playerLives();
+    return;
+  }
+}
 
 // Question 13 JS
 function playerDies () {
-  console.log('playerDies');
   gameOver = true;
   currentQuestion = 14;
   players[0].oxygen = 0;
@@ -536,7 +580,6 @@ function playerDies () {
   displayQuestion();
 }
 function playerLives () {
-  console.log('playerLives');
   gameOver = true;
   currentQuestion += 1;
   players[0].question += 1;
@@ -598,7 +641,6 @@ button.addEventListener('click', playerLives);
 
 // set local storage function
 function setLocalStorage() {
-  console.log('Setting Local Storage');
   var playersString = JSON.stringify(players);
   localStorage.setItem('playersData', playersString);
 };

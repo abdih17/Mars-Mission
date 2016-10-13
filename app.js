@@ -19,7 +19,7 @@ function Player (loginName, password, playerName) {
 /************
 DOM Elements
 ************/
-// var button = document.getElementById('question_skip');
+var button = document.getElementById('question_skip');
 var login = document.getElementById('submit_login');
 var videoQ0 = document.getElementById('videoQ0');
 var submitQ1 = document.getElementById('submitQ1');
@@ -102,9 +102,9 @@ function displayQuestion() {
     submitQ5.removeEventListener('submit', handleQ5);
     q5.removeAttribute('style');
     q6.setAttribute('style', 'display:block');
-    submitQ6.addEventListener('click', handleQ6);
+    q6Imgs.addEventListener('click', handleQ6);
   } else if (currentQuestion === 7) {
-    submitQ6.removeEventListener('click', handleQ6);
+    q6Imgs.removeEventListener('click', handleQ6);
     q6.removeAttribute('style');
     q7.setAttribute('style', 'display:block');
     submitQ7.addEventListener('submit', handleQ7);
@@ -141,6 +141,7 @@ function displayQuestion() {
     q12.removeAttribute('style');
     q13.setAttribute('style', 'display:block');
     playVideoQ13();
+    videoQ13.addEventListener('ended', videoEndedQ13);
     setLocalStorage();
   } else if (currentQuestion === 14){
     q0.removeAttribute('style');
@@ -157,6 +158,7 @@ function displayQuestion() {
     q11.removeAttribute('style');
     q12.removeAttribute('style');
     q13.removeAttribute('style');
+    videoQ13.removeEventListener('ended', videoEndedQ13);
     q14.setAttribute('style', 'display:block');
     restart.addEventListener('click', restartGame);
   }
@@ -188,7 +190,7 @@ function genQ1 () {
   var crawl = document.getElementById('crawl');
   wait.textContent = 'Wait for your team';
   patch.textContent = 'Patch the wound';
-  crawl.innerHTML = 'Crawl to the base 200 meters away <br><br>Door Code: ' + doorCode;
+  crawl.textContent = 'Crawl to the base 200 meters away ' + doorCode;
 }
 function handleQ1(event) {
   if (event.target.id === 'wait') {
@@ -245,9 +247,9 @@ function genQ3 () {
   var filter = document.getElementById('left3');
   var converter = document.getElementById('center3');
   var holdingTank = document.getElementById('right3');
-  filter.innerHTML = waterRandom[0] + '<br>Filter';
-  converter.innerHTML = waterRandom[1] + '<br>Converter';
-  holdingTank.innerHTML = waterRandom[2] + '<br>Holding Tank';
+  filter.textContent = waterRandom[0] + ' Filter';
+  converter.textContent = waterRandom[1] + ' Converter';
+  holdingTank.textContent = waterRandom[2] + ' Holding Tank';
 }
 
 function displayWaterFilter () {
@@ -257,7 +259,7 @@ function displayWaterFilter () {
     var question = document.getElementById('water_filter_order');
     images.removeAttribute('style');
     question.setAttribute('style', 'display:block');
-  }, 3000);
+  }, 5000);
 }
 function handleQ3 () {
   event.preventDefault();
@@ -284,7 +286,7 @@ function playVideoQ4 () {
     videoQ4.setAttribute('style', 'display:block');
     videoQ4.autoplay = true;
     videoQ4.load();
-  }, 0);
+  }, 5000);
 }
 function videoEndedQ4 () {
   currentQuestion += 1;
@@ -312,7 +314,9 @@ function handleQ5(event) {
 
 // Question 6 JS
 function handleQ6(event){
+
   if (event.target.id === 'leftImg'){
+
     playerLives();
   } else if (event.target.id === 'centerImg'){
     playerDies();
@@ -345,7 +349,7 @@ function handleQ8(event) {
     playerLives();
     console.log('You are listening to Nasa');
   } else {
-    alert('You need to click on an answer');
+    alert('You need to click on an image');
   }
 }
 
@@ -435,7 +439,8 @@ function handleQ10(event){
     playerDies();
   } else if (event.target.id === 'drive_through' && randomNum < 0.33){
     console.log('The storm was rough but you managed to make it through');
-    playerLives();
+    currentQuestion += 1;
+    displayQuestion();
   } else if (event.target.id === 'drive_around' && players[0].oxygen <= 2){
     console.log('You ran out of essential resources and died');
     playerDies();
@@ -444,7 +449,8 @@ function handleQ10(event){
     playerDies();
   } else if (event.target.id === 'drive_around') {
     console.log('it took awhile but thankfully you finally made it');
-    playerLives();
+    currentQuestion += 1;
+    displayQuestion();
   }
 }
 
@@ -484,11 +490,11 @@ function genQ11 () {
   var fuel = document.getElementById('fuel');
   var fuselage = document.getElementById('fuselage');
   var comm_device = document.getElementById('comm_device');
-  controls.innerHTML = launchRandom[0] + '<br>Controls';
-  boosters.innerHTML = launchRandom[1] + '<br>Boosters';
-  fuel.innerHTML = launchRandom[2] + '<br>Fuel';
-  fuselage.innerHTML = launchRandom[3] + '<br>Fuselage';
-  comm_device.innerHTML = launchRandom[4] + '<br>Communication Device';
+  controls.textContent = launchRandom[0] + ' Controls';
+  boosters.textContent = launchRandom[1] + ' Boosters';
+  fuel.textContent = launchRandom[2] + ' Fuel';
+  fuselage.textContent = launchRandom[3] + ' Fuselage';
+  comm_device.textContent = launchRandom[4] + ' Communication Device';
 }
 function displayLaunchAssembly () {
   var images = document.getElementById('launch_assembly');
@@ -544,7 +550,6 @@ function flyRight(){
     return;
   }
   orbLeft = parseInt(imgOrbiter.style.left) + 1;
-  console.log('orbLeft = ' + orbLeft);
   imgOrbiter.style.left = parseInt(imgOrbiter.style.left) + 1 + 'px';
   animate = setTimeout(flyRight,20);
   if (orbLeft > 590) {
@@ -576,7 +581,6 @@ function handleQ12(){
 
 // Question 13 JS
 function playerDies () {
-  console.log('playerdies');
   gameOver = true;
   currentQuestion = 14;
   players[0].oxygen = 0;
@@ -586,7 +590,6 @@ function playerDies () {
   displayQuestion();
 }
 function playerLives () {
-  console.log('player lives');
   gameOver = true;
   currentQuestion += 1;
   players[0].question += 1;
@@ -602,7 +605,12 @@ function playVideoQ13 () {
     videoQ13.setAttribute('style', 'display:block');
     videoQ13.autoplay = true;
     videoQ13.load();
-  }, 0);
+  }, 5000);
+}
+function videoEndedQ13 () {
+  currentQuestion += 1;
+  players[0].question += 1;
+  displayQuestion();
 }
 
 //Show player Stats
@@ -639,7 +647,7 @@ function genRandomString () {
 /**************
 Execute Actions
 **************/
-// button.addEventListener('click', playerLives);
+button.addEventListener('click', playerLives);
 
 // set local storage function
 function setLocalStorage() {

@@ -363,7 +363,7 @@ var gameOver = true;
 function init() {
   imgObj = document.getElementById('myImage');
   imgObj.style.position = 'relative';
-  imgObj.style.left = '200px';
+  imgObj.style.left = '450px';
   imgObj.style.top = '200px';
   gameOver = false;
 }
@@ -393,7 +393,7 @@ function moveRight(){
   console.log(imgLeft);
   imgObj.style.left = parseInt(imgObj.style.left) + 1 + 'px';
   if (!gameOver) setTimeout(moveRight,20);
-  if (imgLeft > 600 && !gameOver) {
+  if (imgLeft > 900 && !gameOver) {
     gameOver = true;
     playerDies();
   }
@@ -404,7 +404,7 @@ function moveLeft(){
   console.log(imgLeft);
   imgObj.style.left = parseInt(imgObj.style.left) - 1 + 'px';
   if (!gameOver) setTimeout(moveLeft,20);
-  if (imgLeft < -200 && !gameOver) {
+  if (imgLeft < 50 && !gameOver) {
     gameOver = true;
     playerLives();
   }
@@ -414,7 +414,7 @@ function moveUp(){
   imgTop = parseInt(imgObj.style.top) - 1;
   imgObj.style.top = parseInt(imgObj.style.top) - 1 + 'px';
   if (!gameOver) setTimeout(moveUp,20);
-  if (imgTop < 0 && !gameOver) {
+  if (imgTop < 20 && !gameOver) {
     gameOver = true;
     playerDies();
   }
@@ -424,7 +424,7 @@ function moveDown(){
   imgTop = parseInt(imgObj.style.top) + 1;
   imgObj.style.top = parseInt(imgObj.style.top) + 1 + 'px';
   if (!gameOver) setTimeout(moveDown,20);
-  if (imgTop > 330 && !gameOver) {
+  if (imgTop > 400 && !gameOver) {
     gameOver = true;
     playerDies();
   }
@@ -550,6 +550,7 @@ function flyRight(){
     return;
   }
   orbLeft = parseInt(imgOrbiter.style.left) + 1;
+  console.log('orbLeft = ' + orbLeft);
   imgOrbiter.style.left = parseInt(imgOrbiter.style.left) + 1 + 'px';
   animate = setTimeout(flyRight,20);
   if (orbLeft > 590) {
@@ -570,6 +571,11 @@ function handleQ12(){
   if (transUp < 10 && transUp > -30 && orbLeft > 515 && orbLeft < 575) {
     game2over = true;
     playerLives();
+    return;
+  }
+  if (transUp < -80) {
+    game2over = true;
+    playerDies();
     return;
   }
 }

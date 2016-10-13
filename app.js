@@ -188,7 +188,7 @@ function genQ1 () {
   var crawl = document.getElementById('crawl');
   wait.textContent = 'Wait for your team';
   patch.textContent = 'Patch the wound';
-  crawl.textContent = 'Crawl to the base 200 meters away ' + doorCode;
+  crawl.innerHTML = 'Crawl to the base 200 meters away <br><br>Door Code: ' + doorCode;
 }
 function handleQ1(event) {
   if (event.target.id === 'wait') {
@@ -245,9 +245,9 @@ function genQ3 () {
   var filter = document.getElementById('left3');
   var converter = document.getElementById('center3');
   var holdingTank = document.getElementById('right3');
-  filter.textContent = waterRandom[0] + ' Filter';
-  converter.textContent = waterRandom[1] + ' Converter';
-  holdingTank.textContent = waterRandom[2] + ' Holding Tank';
+  filter.innerHTML = waterRandom[0] + '<br>Filter';
+  converter.innerHTML = waterRandom[1] + '<br>Converter';
+  holdingTank.innerHTML = waterRandom[2] + '<br>Holding Tank';
 }
 
 function displayWaterFilter () {
@@ -257,7 +257,7 @@ function displayWaterFilter () {
     var question = document.getElementById('water_filter_order');
     images.removeAttribute('style');
     question.setAttribute('style', 'display:block');
-  }, 5000);
+  }, 3000);
 }
 function handleQ3 () {
   event.preventDefault();
@@ -484,11 +484,11 @@ function genQ11 () {
   var fuel = document.getElementById('fuel');
   var fuselage = document.getElementById('fuselage');
   var comm_device = document.getElementById('comm_device');
-  controls.textContent = launchRandom[0] + ' Controls';
-  boosters.textContent = launchRandom[1] + ' Boosters';
-  fuel.textContent = launchRandom[2] + ' Fuel';
-  fuselage.textContent = launchRandom[3] + ' Fuselage';
-  comm_device.textContent = launchRandom[4] + ' Communication Device';
+  controls.innerHTML = launchRandom[0] + '<br>Controls';
+  boosters.innerHTML = launchRandom[1] + '<br>Boosters';
+  fuel.innerHTML = launchRandom[2] + '<br>Fuel';
+  fuselage.innerHTML = launchRandom[3] + '<br>Fuselage';
+  comm_device.innerHTML = launchRandom[4] + '<br>Communication Device';
 }
 function displayLaunchAssembly () {
   var images = document.getElementById('launch_assembly');

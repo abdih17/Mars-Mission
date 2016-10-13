@@ -214,37 +214,6 @@ function handleQ1(event) {
   }
 }
 
-// function handleQ1(event) {
-//   if (event.target.id === 'leftImg1') {
-//     playerDies();
-//   } else if (event.target.id === 'rightImg1') {
-//     currentQuestion += 1;
-//     players[0].question += 1;
-//     players[0].oxygen -= 1;
-//     players[0].water -= 1;
-//     setLocalStorage();
-//     displayQuestion();
-//     // Fix your wound
-//     playerLives();
-//     console.log('You fix your wound.');
-//     submitQ1.removeEventListener('click', handleQ1);
-//     console.log('removed event listener');
-//   } else if (event.target.id === 'centerImg1') {
-//     currentQuestion += 1;
-//     players[0].question += 1;
-//     players[0].oxygen += 1;
-//     players[0].water += 1;
-//     setLocalStorage();
-//     displayQuestion();
-//     // Crawl to base
-//     playerLives();
-//     console.log('You crawl.');
-//     submitQ1.removeEventListener('click', handleQ1);
-//   } else {
-//     console.log('you need to click on an image');
-//   }
-// }
-
 // Question 2 JS
 function handleQ2(event){
   event.preventDefault();

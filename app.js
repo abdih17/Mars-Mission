@@ -141,7 +141,6 @@ function displayQuestion() {
     q12.removeAttribute('style');
     q13.setAttribute('style', 'display:block');
     playVideoQ13();
-    videoQ13.addEventListener('ended', videoEndedQ13);
     setLocalStorage();
   } else if (currentQuestion === 14){
     q0.removeAttribute('style');
@@ -158,7 +157,6 @@ function displayQuestion() {
     q11.removeAttribute('style');
     q12.removeAttribute('style');
     q13.removeAttribute('style');
-    videoQ13.removeEventListener('ended', videoEndedQ13);
     q14.setAttribute('style', 'display:block');
     restart.addEventListener('click', restartGame);
   }
@@ -286,7 +284,7 @@ function playVideoQ4 () {
     videoQ4.setAttribute('style', 'display:block');
     videoQ4.autoplay = true;
     videoQ4.load();
-  }, 5000);
+  }, 0);
 }
 function videoEndedQ4 () {
   currentQuestion += 1;
@@ -595,12 +593,7 @@ function playVideoQ13 () {
     videoQ13.setAttribute('style', 'display:block');
     videoQ13.autoplay = true;
     videoQ13.load();
-  }, 5000);
-}
-function videoEndedQ13 () {
-  currentQuestion += 1;
-  players[0].question += 1;
-  displayQuestion();
+  }, 0);
 }
 
 //Show player Stats

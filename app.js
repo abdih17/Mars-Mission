@@ -188,9 +188,9 @@ function genQ1 () {
   var wait = document.getElementById('wait');
   var patch = document.getElementById('patch');
   var crawl = document.getElementById('crawl');
-  wait.textContent = 'Wait for your team';
-  patch.textContent = 'Patch the wound';
-  crawl.textContent = 'Crawl to the base 200 meters away ' + doorCode;
+  wait.innerHTML = 'Wait for your team';
+  patch.innerHTML = 'Patch the wound';
+  crawl.innerHTML = 'Crawl to the base 200 meters away<br><br>Door Code: ' + doorCode;
 }
 function handleQ1(event) {
   if (event.target.id === 'wait') {

@@ -1,6 +1,7 @@
 body {
   background-image: url('imgs/matt_standing_resized.jpg');
   background-position: left-top;
+  background-size: cover;
 }
 
 header {
@@ -25,6 +26,10 @@ li {
   font-family: 'Audiowide';
   color: white;
   padding: 0 20px;
+}
+
+.youDiedOfDysentery{
+  margin-top: -3px;
 }
 
 .contentWrapper {
@@ -103,6 +108,7 @@ li {
   position: relative;
   left: 280px;
   top: -100px;
+  margin-top: 20px;
 }
 
 /************************
@@ -361,17 +367,14 @@ Q6 Styling
 
 #leftImg:hover {
   color:white;
-  background-color: rgba(203,203,203,0.25);
 }
 
 #centerImg:hover {
   color:white;
-  background-color: rgba(203,203,203,0.25);
 }
 
 #rightImg:hover {
   color:white;
-  background-color: rgba(203,203,203,0.25);
 
 }
 
@@ -580,4 +583,21 @@ Q12 Styling
 
 #orbiter {
   width: 100px;
+}
+
+#submitQ12 {
+  background-color: rgb(255,0,0);
+  border-color: black;
+  padding: 30px;
+  font-size: 30px;
+  margin-left: 20px;
+  margin-top: 200px;
+  color: black;
+  transition: color 250ms;
+  transition: background-color 250ms;
+}
+
+#submitQ12:hover {
+  color: rgb(255,0,0);
+  background-color: rgba(55,55,55,0.75);
 }

@@ -61,6 +61,11 @@ article {
   left: -40px;
 }
 
+.contentWrapper{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .contentWrapper1, .contentWrapper2, .contentWrapper3, .contentWrapper4 {
   width: 400px;
   height: 400px;
